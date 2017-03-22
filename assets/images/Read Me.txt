@@ -1,0 +1,14 @@
+# Warna Tulisan : 
+-Merah : ff0000
+-Biru : 1171b9
+
+# Background
+Header 	:66cbff
+Body	: abd9e4
+
+#Button 
+orange : f2961c
+Abu-abu : ccc7c4
+
+
+#Font Style : Arial (Bold, Reguler)

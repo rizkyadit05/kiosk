@@ -1,0 +1,135 @@
+.myHeader{
+	background-color: #66cbff;
+}
+
+header div div a img{
+	margin-top: 1%;
+	margin-bottom: 1%;
+}
+
+.myBody{
+	background-color: #abd9e4;
+}
+
+body{
+	font-family: Arial !important;
+}
+
+.bodyHead{
+	font-size: 3.5em;
+	margin-top: 1%;
+	margin-bottom: 1%;
+}
+
+@media only screen and (max-width: 595px) {
+
+   .bodyHead { font-size: 3em; }
+
+}
+
+@media only screen and (max-width: 330px) {
+
+   .bodyHead { font-size: 2em; }
+
+}
+
+.bodyContent{
+	background-color: #e5e7ea;
+	border-radius: 25px;
+	margin-bottom: 1.5%;
+	padding: 1%;
+}
+
+.contentHeader{
+	margin-top: 1%;
+	margin-left: 1%;
+}
+
+table.table {
+	font-size: 1.75em;
+}
+
+.text-1{
+	font-size: 1em;
+}
+
+.text-2{
+	font-size: 2em;
+}
+
+.text-3{
+	font-size: 3em;
+}
+
+.text-4{
+	font-size: 4em;
+}
+
+.layout-btn-invoice{
+	margin-top: 3%;
+	margin-bottom: 3%;
+	padding: 0;
+}
+
+.width-40{
+	width: 40%;
+}
+
+.round-border{
+	border-radius: 25px;
+}
+
+.tp-1st-box{
+	margin-left: 4%;
+}
+
+.tp-divider{
+	padding-top: 100px;
+}
+
+@media only screen and (max-width: 991px) {
+   .tp-1st-box { margin-left: 4%; margin-right: 4%; }
+   .tp-divider { padding-top: 10px; padding-left: 50%; }
+   .tp-2nd-box { margin-left: 4%; margin-right: 4%; }
+}
+
+@media only screen and (max-width: 1150px) {
+	.tp-divider { font-size: 1.3em; }
+}
+
+.margin-top-2{
+	margin-top: 2%;
+}
+
+.margin-left-2{
+	margin-left: 2%;
+}
+
+/*.select-style {
+    border: 1px solid #ccc;
+    width: 40px;
+    border-radius: 3px;
+    overflow: hidden;
+}*/
+
+.select-style{
+    padding: 1%;	
+    width: 15%;
+    height: 50px;
+    border-radius: 10px;
+    margin-left: 5%;
+    box-shadow: none;
+    background-image: none;
+    -webkit-appearance: none;
+    display: inline;
+    font-size: 2em;
+     background: #fafafa url("dg.png") no-repeat 90% 50%;
+}
+
+.select-style select:focus {
+    outline: none;
+}
+
+.inline{
+	display: inline;
+}
