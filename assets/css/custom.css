@@ -9,6 +9,7 @@ header div div a img{
 
 .myBody{
 	background-color: #abd9e4;
+	min-height: 575px;
 }
 
 body{
@@ -105,13 +106,6 @@ table.table {
 	margin-left: 2%;
 }
 
-/*.select-style {
-    border: 1px solid #ccc;
-    width: 40px;
-    border-radius: 3px;
-    overflow: hidden;
-}*/
-
 .select-style{
     padding: 1%;	
     width: 15%;
@@ -132,4 +126,21 @@ table.table {
 
 .inline{
 	display: inline;
+}
+
+@media only screen and (max-width: 989px) {
+	.margin-custom-1 { margin-left: 30%; }
+	.margin-custom-2 { margin-left: 10%; }
+	.myBody { height: 1000px; }
+}
+
+@media only screen and (max-width: 700px) {
+	.margin-custom-1 { margin-left: 20%; }
+	.myBody { height: 1000px; }
+}
+
+/* Always set the map height explicitly to define the size of the div
+ * element that contains the map. */
+#map {
+	min-height: 575px;
 }

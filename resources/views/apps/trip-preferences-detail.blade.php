@@ -13,8 +13,10 @@
 					<p style="font-size: 1.5em;">Trip to same destination and same car type</p>
 				</div>
 			</div>
-			<div class="col-md-12" style="margin-top: 2%;">
-				<table id="tpd-table" class="table table-responsive text-center" cellspacing="0" width="100%">
+		</div>
+		<div class="row">
+			<div class="col-md-12 table-responsive" style="margin-top: 2%;">
+				<table id="tpd-table" class="table text-center" cellspacing="0" width="100%">
 				        <thead>
 				            <tr>
 								<th class="text-center" style="padding-left: 7%;"><b>ID TRIP</b></th>

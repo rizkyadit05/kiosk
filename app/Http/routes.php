@@ -17,9 +17,9 @@ Route::get('/', function () {
 
 //Front End Purposes
 
-// Route::get('home', function(){
-// 	return view('apps/home');
-// });
+Route::get('home', function(){
+	return view('apps/home');
+});
 
 Route::get('trip-preferences', function(){
 	return view('apps/trip-preferences');

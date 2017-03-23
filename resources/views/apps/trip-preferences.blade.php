@@ -62,21 +62,24 @@
 			</div>
 		</div>
 		<div class="row">
-			<div class="col-md-10 col-md-offset-2 margin-top-2">
-				<p class="" style="font-size: 1.75em; display: inline;">Shared with many others: </p> 
-				<select class="select-style">
-					<option value="1">1</option>
-					<option value="2">2</option>
-					<option value="3">3</option>
-					<option value="4">4</option>
-				</select>
-			</div>
-			<div class="col-md-10 col-md-offset-2 margin-top-2">
-				<p class="margin-top-2"><sup class="text-2">Price</sup><b class="text-3"> IDR 30.000</b></p>
-			</div>
-		</div>
-		<div class="col-md-10 col-md-offset-2 margin-top-2">
-			<button class="btn text-3 round-border" style="background-color: #f2961c; width: 75%;"><b>CREATE</b></button>
+			<form method="get" action="{{ url('/') }}">
+				<input type="hidden" name="_token" value="{{ csrf_token() }}">
+				<div class="col-md-10 col-md-offset-2 margin-top-2 margin-custom-1">
+					<p class="" style="font-size: 1.75em; display: inline;">Shared with many others: </p> 
+					<select class="select-style">
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+					</select>
+				</div>
+				<div class="col-md-10 col-md-offset-2 margin-top-2">
+					<p class="margin-top-2 margin-custom-1"><sup class="text-2">Price</sup><b class="text-3"> IDR 30.000</b></p>
+				</div>
+				<div class="col-md-10 col-md-offset-2 margin-top-2">
+					<button class="btn text-3 round-border margin-custom-2" style="background-color: #f2961c; width: 75%;"><b>CREATE</b></button>
+				</div>			
+			</form>
 		</div>
 	</div>
 </div>
@@ -90,7 +93,7 @@
 
     $("label").remove();
 
-    $('#headerMenu').html('<button onclick="window.history.back()" class="btn" style="display: inline; font-size: 2em;"><b>BACK</b></button><a href="#" style="display: inline;"><img style="width: 28%; margin-left: 27%;" src="{{ asset("assets/images/logo.png") }}"></a>');
+    $('#headerMenu').html('<button onclick="window.history.back()" class="btn text-2" style=""><b>BACK</b></button><a href="#"><img style="width: 28%; margin-left: 26.5%;" src="{{ asset("assets/images/logo.png") }}"></a>');
 });
 </script>
 @stop
