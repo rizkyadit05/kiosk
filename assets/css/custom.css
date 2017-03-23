@@ -98,6 +98,14 @@ table.table {
 	.tp-divider { font-size: 1.3em; }
 }
 
+.margin-top-0{
+	margin-top: 0;
+}
+
+.margin-top-1{
+	margin-top: 1%;
+}
+
 .margin-top-2{
 	margin-top: 2%;
 }

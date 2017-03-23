@@ -7,13 +7,17 @@
 	<div class="col-md-10 col-md-offset-1 bodyContent">
 		<div class="row">
 			<div class="col-md-12" style="">
-				<img style="" class="pull-left" src="{{ asset('assets/images/people.png') }}">
-				<p class="pull-left contentHeader" style="font-size: 1.5em; display: inline;">Personal Trip</p>
+				<img width="8%" style="" class="pull-left" src="{{ asset('assets/images/people.png') }}">
+				<div class="pull-left contentHeader margin-top-0">
+					<p class="" style="font-size: 1.4em; margin: 0;">Personal Trip</p>
+					<p class="" style="font-size: 1.4em; margin: 0;">5 People </p>
+					<p class="" style="font-size: 1.4em; margin: 0;">#5 Entry Queue</p>
+				</div>
 				<b><p class="pull-right" style="display: inline; font-size: 2.5em;">ID TRIP 1234</p></b>
 			</div>
 		</div>
 		<div class="row">
-			<div class="col-md-12">
+			<div class="col-md-12 margin-top-1">
 				<p class="text-center text-2">Jalan Siaga II,Pasar Minggu, Kota Jakarta Selatan, DKI Jakarta</p>
 				<b><p class="text-center text-4">IDR 100.000</p></b>
 			</div>
