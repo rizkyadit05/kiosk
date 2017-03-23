@@ -18,38 +18,40 @@
 		</div>
 		<div class="row">
 			<div class="col-md-12">
-				<table id="tpd-table" class="table table-responsive text-center" cellspacing="0" width="100%">
-					<thead>
-						<tr>
-							<th class="text-center" style="padding-left: 7%;"><b>ID TRIP</b></th>
-							<th class="text-center"><b>PRICE</b></th>
-							<th class="text-center"><b>QUOTA</b></th>
-							<th class="hidden">FAKE</th>
-						</tr>
-					</thead>
-					<tfoot class="hidden">
-						<tr>
-							<th class="text-center" style="padding-left: 7%;"><b>ID TRIP</b></th>
-							<th class="text-center"><b>PRICE</b></th>
-							<th class="text-center"><b>QUOTA</b></th>
-							<th class="hidden">FAKE</th>
-						</tr>
-					</tfoot>
-					<tbody>
-						<tr>
-							<td>1</td>
-							<td><img alt="Down" src="{{ asset('assets/images/d.png') }}"> IDR 21.000</td>
-							<td>4/6</td>
-							<td class="hidden">FAKE</td>
-						</tr>
-						<tr>
-							<td>2</td>
-							<td><img alt="Up" src="{{ asset('assets/images/u.png') }}"> IDR 15.000</td>
-							<td>2/3</td>
-							<td class="hidden">FAKE</td>
-						 </tr>
-					</tbody>
-				</table>				
+				<div class="table-responsive">
+					<table id="tpd-table" class="table text-center" cellspacing="0" width="100%">
+						<thead>
+							<tr>
+								<th class="text-center" style="padding-left: 7%;"><b>ID TRIP</b></th>
+								<th class="text-center"><b>PRICE</b></th>
+								<th class="text-center"><b>QUOTA</b></th>
+								<th class="hidden">FAKE</th>
+							</tr>
+						</thead>
+						<tfoot class="hidden">
+							<tr>
+								<th class="text-center" style="padding-left: 7%;"><b>ID TRIP</b></th>
+								<th class="text-center"><b>PRICE</b></th>
+								<th class="text-center"><b>QUOTA</b></th>
+								<th class="hidden">FAKE</th>
+							</tr>
+						</tfoot>
+						<tbody>
+							<tr>
+								<td>1</td>
+								<td><img alt="Down" src="{{ asset('assets/images/d.png') }}"> IDR 21.000</td>
+								<td>4/6</td>
+								<td class="hidden">FAKE</td>
+							</tr>
+							<tr>
+								<td>2</td>
+								<td><img alt="Up" src="{{ asset('assets/images/u.png') }}"> IDR 15.000</td>
+								<td>2/3</td>
+								<td class="hidden">FAKE</td>
+							 </tr>
+						</tbody>
+					</table>		
+				</div>			
 			</div>
 		</div>
 	</div>
