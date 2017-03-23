@@ -2,22 +2,14 @@
 @section('content')
 <div id="wrapper" class="row">
 	<div class="col-md-12">
-		<input id="pac-input" class="controls" type="text" placeholder="Type Your Destination Here">
-	    <div id="map"></div>
+	 <div id="map"></div>
 	</div>
 
 	<div id="over_map">
-		<div class="col-md-5">
-			<button id="poolpoint" onclick="poolpoint()">To Pool Point</button>
-
-		</div>
-		<div class="col-md-2">
-			<hr id="line">
-		</div>
-		<div class="col-md-5">
-			<button id="anywhere" onclick="anywhere()">To Anywhere</button>
-		</div>
-   </div>
+	 <div id="order">
+     
+   </div>	
+  </div>
 </div>
 
 
@@ -32,24 +24,10 @@
       // parameter when you first load the API. For example:
       // <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
 
-      function poolpoint(){
-      	var btn = document.getElementById("poolpoint");
-      	var btn2 = document.getElementById("anywhere");
-      	btn2.style.backgroundColor = '#ccc7c4';
-      	btn.style.backgroundColor = '#f2961c';
-      }
-
-      function anywhere(){
-      	var btn = document.getElementById("poolpoint");
-      	var btn2 = document.getElementById("anywhere");
-      	btn.style.backgroundColor = '#ccc7c4';
-      	btn2.style.backgroundColor = '#f2961c';
-      }
-
       function initAutocomplete() {
         var map = new google.maps.Map(document.getElementById('map'), {
-          center: {lat: -33.8688, lng: 151.2195},
-          zoom: 13,
+          center: {lat: -6.364605, lng: 106.828621},
+          zoom: 17,
           mapTypeId: 'roadmap'
         });
 
@@ -114,6 +92,8 @@
           window.location.href = "order";
         });
       }
+
+      $('#headerMenu').html('<button onclick="window.history.back()" class="btn text-2" style=""><b>BACK</b></button><a href="#"><img style="width: 28%; margin-left: 26.5%;" src="{{ asset("assets/images/logo.png") }}"></a>');
 
     </script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA8gA9tWFieGusrRmLqpdDhcPwpTBiWM8M&libraries=places&callback=initAutocomplete"

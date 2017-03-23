@@ -289,3 +289,18 @@ table.table {
     margin-left: 2000%;
     margin-top: 120%;
 }
+
+#order {
+	position: absolute;
+	width: 500px;
+	height: 500px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: white;
+    background-position: 8px 8px;
+    background-size: 25px 25px;
+    background-repeat: no-repeat;
+    padding: 12px 20px 12px 40px;
+}
