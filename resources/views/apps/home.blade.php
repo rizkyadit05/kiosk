@@ -94,6 +94,8 @@
               scaledSize: new google.maps.Size(25, 25)
             };
 
+            window.location.href = "order/" + place.geometry.location.lat() + "/" + place.geometry.location.lng();
+
             // Create a marker for each place.
             markers.push(new google.maps.Marker({
               map: map,
@@ -108,10 +110,10 @@
             } else {
               bounds.extend(place.geometry.location);
             }
+
           });
           map.fitBounds(bounds);
 
-          window.location.href = "order";
         });
       }
 

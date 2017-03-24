@@ -21,9 +21,11 @@ Route::get('home', function(){
 	return view('apps/home');
 });
 
-Route::get('order', function(){
-	return view('apps/order-trip');
-});
+Route::get('/order/{latitude}/{longitude}', 'OrderController@index');
+
+// Route::get('order', function(){
+// 	return view('apps/order-trip');
+// });
 
 Route::get('trip-preferences', function(){
 	return view('apps/trip-preferences');
