@@ -82,6 +82,7 @@
 
       // This example requires the Places library. Include the libraries=places
       // parameter when you first load the API. For example:
+      //
 
       function initAutocomplete() {
         var pos = {lat: {{ $latitude }}, lng: {{ $longitude }}}
