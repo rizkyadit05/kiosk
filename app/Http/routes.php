@@ -21,7 +21,7 @@ Route::get('home', function(){
 	return view('apps/home');
 });
 
-Route::get('/order/{latitude}/{longitude}', 'OrderController@index');
+Route::get('/order/{latitude}/{longitude}/{rideFlag}', 'OrderController@index');
 
 // Route::get('order', function(){
 // 	return view('apps/order-trip');
