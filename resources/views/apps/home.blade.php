@@ -4,14 +4,12 @@
   <div id="over_map" class="col-md-12">
     <div class="row">
       <div class="col-md-12 homeHead">
-      <div class="row">
         <div class='parent'>
           <div class='buttonLWrapper'><button class="btn" id="poolpoint" onclick="poolpoint()"><b>To Pool Point</b></button></div>
-          <div class='betweenWrapper'> <hr class="between" /></div>
+          <div class='betweenWrapper'> <hr class="between"></div>
           <div class='buttonRWrapper'><button class="btn" id="anywhere" onclick="anywhere()"><b>To Anywhere</b></button></div>
           <input type="hidden" id="rideFlag" value="poolpoint">
         </div>
-      </div>
       </div>
     </div>
    </div>
@@ -127,7 +125,7 @@
             };
 
             var rideFlag = document.getElementById('rideFlag').value;
-            window.location.href = "order/" + place.geometry.location.lat() + "/" + place.geometry.location.lng() + "/" + rideFlag;
+            window.location.href = "order/" + place.geometry.location.lat() + "/" + place.geometry.location.lng() + "/" + place.name + "/" + place.formatted_address + "/" +rideFlag;
 
             // Create a marker for each place.
             markers.push(new google.maps.Marker({
@@ -137,15 +135,16 @@
               position: place.geometry.location
             }));
 
-            if (place.geometry.viewport) {
-              // Only geocodes have viewport.
-              bounds.union(place.geometry.viewport);
-            } else {
-              bounds.extend(place.geometry.location);
-            }
+            // if (place.geometry.viewport) {
+            //   // Only geocodes have viewport.
+            //   bounds.union(place.geometry.viewport);
+            // } else {
+            //   bounds.extend(place.geometry.location);
+            // }
 
           });
-          map.fitBounds(bounds);
+
+          // map.fitBounds(bounds);
 
         });
       }
