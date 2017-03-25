@@ -182,6 +182,7 @@ table.table {
  * element that contains the map. */
 #map {
 	min-height: 575px;
+	height: 100%;
 }
       
 #description {
@@ -468,6 +469,40 @@ table.table {
 	width: 100%;
 	height: 70px;
 	padding-top: 50px;	
+}
+
+.silverBox{
+	width: 100%;
+	height: 110px;
+	background-color: #e8e5de;
+	margin: 1%;
+	margin-top: 10px;
+	background-image: url("city-car.png");
+	background-repeat: no-repeat;
+	background-size: 100px 60px;
+	background-position: top;	
+}
+
+.silverBoxDesc{
+	width: 100%;
+	height: 70px;
+	padding-top: 50px;	
+}
+
+.btn-order{
+	margin-bottom: 20px;
+	background-color: #f2961c;
+	font-size: 2em;
+	width: 70%;
+	border-radius: 25px;
+	margin-left: 15%;
+}
+
+.row-eq-height{
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
 }
 
 /*Dasar Si Azki*/

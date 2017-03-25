@@ -1,6 +1,6 @@
 @extends('layout/default')
 @section('content')
-<div class="row">
+<div class="row row-eq-height">
   <div class="col-md-6">
     <div class="row orderTopMenu">
       <div class="col-md-12">
@@ -38,31 +38,43 @@
     <div class="row">
       <div class="col-md-12 orderBottomMenu">
         <div class="row">
-          <input type="hidden" name="typeFlag" id="typeFlag" value="">
-          <input type="hidden" name="typeFlagBefore" id="typeFlagBefore" value="">
+          <input type="hidden" name="typeFlag" id="typeFlag" value="platinum">
+          <input type="hidden" name="tripPrice" id="tripPrice" value="">
           <div class="col-md-4">
-            <div class="platinumBox bubbleBox" onclick="setCar('platinum')">
+            <div class="platinumBox bubbleBox" onclick="setCar('platinum')" style="border: 2px solid blue">
               <div class="platinumBoxDesc text-center">
                 <b><p class="margin-bot-0">Platinum</p></b>
                 <p class="margin-bot-0">(Alphard, Vellfire)</p>
-                <b><p class="margin-bot-0">IDR 54.000</p></b>
+                <b><p class="margin-bot-0" id="platinumPrice">IDR 54.000</p></b>
               </div>
             </div>
-            <input type="radio" id="platinumRadio"  name="platinumRadio" value="platinum" style="margin-left: 50%;">
+            <input type="radio" id="platinumRadio"  name="platinumRadio" value="platinum" style="margin-left: 50%;" checked="">
           </div>
           <div class="col-md-4">
             <div class="goldBox bubbleBox" onclick="setCar('gold')">
               <div class="goldBoxDesc text-center">
                 <b><p class="margin-bot-0">Gold</p></b>
                 <p class="margin-bot-0">(Terrios, Inova)</p>
-                <b><p class="margin-bot-0">IDR 36.000</p></b>
+                <b><p class="margin-bot-0" id="goldPrice">IDR 36.000</p></b>
               </div>
             </div>
             <input type="radio" id="goldRadio"  name="goldRadio" value="gold" style="margin-left: 50%;">
           </div>
           <div class="col-md-4">
-            
+            <div class="silverBox bubbleBox" onclick="setCar('silver')">
+              <div class="silverBoxDesc text-center">
+                <b><p class="margin-bot-0">Silver</p></b>
+                <p class="margin-bot-0">(Xenia, Ertiga)</p>
+                <b><p class="margin-bot-0" id="silverPrice">IDR 18.000</p></b>
+              </div>
+            </div>
+            <input type="radio" id="silverRadio"  name="silverRadio" value="silver" style="margin-left: 50%;">            
           </div>                    
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <button class="btn btn-order"><b><p id="tripPriceBtn">IDR 18.000</p></b><b><p>ORDER NOW</p></b></button>
+          </div>
         </div>
       </div>
     </div>
@@ -126,39 +138,43 @@
       function setCar(type){
 
         var typeFlag = $('#typeFlag');
-        var typeFlagBefore = $('#typeFlagBefore');
-        // alert(type == typeFlag.val());
-
-        if(typeFlag.val() == 'platinum' && typeFlagBefore.val() != 'platinum'){
-          $('.platinumBox').css('border', '0px solid blue');
-          $('#platinumRadio').removeAttr('checked'); 
-          $('#typeFlagBefore').val('platinum');         
+        var isChecked = false;
+        
+        if(typeFlag.val() == type){
+          isChecked = document.getElementById(type+'Radio').checked;
         }
 
-        if(typeFlag.val() == 'gold' && typeFlagBefore.val() != 'gold'){
-          $('.goldBox').css('border', '0px solid blue');
-          $('#goldRadio').removeAttr('checked');
-          $('#typeFlagBefore').val('gold');
-        }
+        $('.platinumBox').css('border', '0px solid blue');
+        $('#platinumRadio').removeAttr('checked'); 
+        $('.goldBox').css('border', '0px solid blue');
+        $('#goldRadio').removeAttr('checked');
+        $('.silverBox').css('border', '0px solid blue');
+        $('#silverRadio').removeAttr('checked');
 
-        // $('.platinumBox').css('border', '0px solid blue');
-        // $('#platinumRadio').removeAttr('checked');
-
-        if(type == 'platinum' && typeFlagBefore.val() != 'platinum'){
+        if(type == 'platinum' && !isChecked){
            $('.platinumBox').css('border', '2px solid blue');
            $('#platinumRadio').attr('checked', '');
            typeFlag.val(type);
-           typeFlagBefore.val("none");
-
+           $('#tripPrice').val($('#platinumPrice').text());
+           $('#tripPriceBtn').text($('#platinumPrice').text());
         }
 
-        else if(type == 'gold' && typeFlagBefore.val() != 'gold'){
+        else if(type == 'gold' && !isChecked){
           $('.goldBox').css('border', '2px solid blue')
            $('#goldRadio').attr('checked', '');
            typeFlag.val(type);
-           typeFlagBefore.val("none");
+           $('#tripPrice').val($('#goldPrice').text());
+           $('#tripPriceBtn').text($('#goldPrice').text());           
         }
-        console.log(typeFlag.val() +" "+ typeFlagBefore.val())
+
+        else if(type == 'silver' && !isChecked){
+          $('.silverBox').css('border', '2px solid blue')
+           $('#silverRadio').attr('checked', '');
+           typeFlag.val(type);
+           $('#tripPrice').val($('#silverPrice').text());
+           $('#tripPriceBtn').text($('#silverPrice').text());                     
+        }
+        console.log($('#tripPrice').val());
       }
     </script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA8gA9tWFieGusrRmLqpdDhcPwpTBiWM8M&libraries=places&callback=initAutocomplete"
