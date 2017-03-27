@@ -149,7 +149,7 @@
 
         var typeFlag = $('#typeFlag');      
 
-        $('.'+typeFlag.val()+'Box').css('border', '0px solid blue');
+        $('.'+typeFlag.val()+'Box').css('border', '');
         document.getElementById(typeFlag.val()+'Radio').checked = false;
 
         if(type == 'platinum'){
