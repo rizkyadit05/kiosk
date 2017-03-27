@@ -24,4 +24,16 @@ class MainController extends Controller
 		// print_r($result);
 		return view('apps/trip-preferences');
 	}
+
+	public function post_av_trip(){
+		$result = Request::all();
+		// print_r($result);
+		return view('apps/invoice');
+	}
+
+	public function post_new_trip(){
+		$result = Request::all();
+		// print_r($result);
+		return view('apps/invoice');
+	}
 }

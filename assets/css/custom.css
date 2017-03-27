@@ -17,7 +17,7 @@ body{
 }
 
 .bodyHead{
-	font-size: 3.5em;
+	font-size: 3.5vw;
 	margin-top: 1%;
 	margin-bottom: 1%;
 }
@@ -161,6 +161,17 @@ table.table {
 
 .select-style select:focus {
     outline: none;
+}
+
+.orderSO{
+    border:0px;
+    outline:0px;
+    background-color:white;
+    background:none;
+    -webkit-appearance:none;
+    appearance:none;
+    box-shadow: none;
+    font-weight: bold;
 }
 
 .inline{
@@ -395,7 +406,7 @@ table.table {
 	background-size: 50px 50px;
 	background-position: center;
 	background-color: #ccc7c4;
-	margin-left: 32px;
+	margin-left: 33px;
 }
 
 .otmCircleRight{
@@ -418,7 +429,7 @@ table.table {
 	background-color: white;
 }
 
-@media only screen and (max-width: 1122px){
+@media only screen and (min-width: 992px) and (max-width: 1122px){
 	.otmCircleLeft { margin-left: 20px; }
 }
 
@@ -526,16 +537,22 @@ table.table {
 	}
 }
 
-@media only screen and (max-width: 992px){
+@media only screen and (max-width: 991px){
 	#poolpoint{
 		background-size: 10vw 6vw;
 	}
 	#anywhere{
 		background-size: 10vw 6vw;
 	}
+	.otmCircleLeftLabel{
+		margin-left: 0;
+	}
+	.otmCircleLeft{
+		margin-left: 0;
+	}
 }
 
-@media only screen and (max-width: 992px) and (min-width: 550px){
+@media only screen and (min-width: 550px) and (max-width: 992px){
 	.otmBetween{
 		border: 2px solid #ccc7c4;
 		margin-top: 5%;
@@ -548,4 +565,10 @@ table.table {
 		margin-left: 15px;
 		margin-top: 50px;
 	}
+
+@media only screen and (min-width: 1016px) and (max-width: 1122px){
+	.otmBetween{
+		margin-left: 10px;
+	}
 }
+

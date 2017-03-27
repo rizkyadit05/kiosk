@@ -21,7 +21,8 @@ Route::get('home', function(){
 
 Route::post('order', 'MainController@order');
 Route::post('post-order', 'MainController@post_order');
-
+Route::post('post-av-trip', 'MainController@post_av_trip');
+Route::post('post-new-trip', 'MainController@post_new_trip');
 
 //Front End Purposes
 

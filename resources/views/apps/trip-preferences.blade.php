@@ -37,18 +37,26 @@
 							</tr>
 						</tfoot>
 						<tbody>
-							<tr>
+							<tr onclick="submit(1)">
+							<form method="post" action="{{ url('post-av-trip') }}" id="form_1">
+								<input type="hidden" name="_token" value="{{csrf_token()}}">
+								<input type="hidden" name="idTrip" value="1">
 								<td>1</td>
 								<td><img alt="Down" src="{{ asset('assets/images/d.png') }}"> IDR 21.000</td>
 								<td>4/6</td>
 								<td class="hidden">FAKE</td>
-							</tr>
-							<tr>
+							</form>
+							</tr>	
+							<tr onclick="submit(2)">
+							<form method="post" action="{{ url('post-av-trip') }}" id="form_2">
+								<input type="hidden" name="_token" value="{{csrf_token()}}">
+								<input type="hidden" name="idTrip" value="2">
 								<td>2</td>
-								<td><img alt="Up" src="{{ asset('assets/images/u.png') }}"> IDR 15.000</td>
-								<td>2/3</td>
+								<td><img alt="Down" src="{{ asset('assets/images/d.png') }}"> IDR 41.000</td>
+								<td>4/8</td>
 								<td class="hidden">FAKE</td>
-							 </tr>
+							</form>
+							</tr>							
 						</tbody>
 					</table>		
 				</div>			
@@ -64,11 +72,12 @@
 			</div>
 		</div>
 		<div class="row">
-			<form method="get" action="{{ url('/') }}">
+			<form method="post" action="{{ url('post-new-trip') }}">
 				<input type="hidden" name="_token" value="{{ csrf_token() }}">
+				<input type="hidden" name="tripPrice" value="30000">
 				<div class="col-md-10 col-md-offset-2 margin-top-2 margin-custom-1">
 					<p class="" style="font-size: 1.75vw; display: inline;">Shared with many others: </p> 
-					<select class="select-style">
+					<select name="sharedTripCount" class="select-style">
 						<option value="1">1</option>
 						<option value="2">2</option>
 						<option value="3">3</option>
@@ -87,6 +96,11 @@
 </div>
 @stop
 @section('script')
+<script type="text/javascript">
+	function submit(count){
+		document.getElementById("form_"+count).submit();
+	}
+</script>
 <script type="text/javascript">
 	$(document).ready(function() {
     $('#tpd-table').DataTable( {

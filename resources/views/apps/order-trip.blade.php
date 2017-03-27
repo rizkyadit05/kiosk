@@ -30,7 +30,13 @@
               <p>Shared</p>
               <div class="otmCircleRight"></div>
               <div class="margin-left-20px" style="font-size: 1.2em;">
-                <b><p class="inline">5</p></b>
+                <select name="sharedTripCount" class="orderSO">
+                  <option value="5">5</option>
+                  <option value="4">4</option>
+                  <option value="3">3</option>
+                  <option value="2">2</option>
+                  <option value="1">1</option>
+                </select>
                 <span class="inline glyphicon glyphicon-chevron-up" aria-hidden="true"></span>              
               </div>
             </div>
