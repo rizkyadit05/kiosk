@@ -50,7 +50,7 @@
                   <b><p class="margin-bot-0" id="platinumPrice">IDR 54.000</p></b>
                 </div>
               </div>
-              <input type="radio" id="platinumRadio"  name="platinumRadio" value="platinum" style="margin-left: 50%;" checked="">
+              <input type="radio" id="platinumRadio" onclick="setCar('platinum')"  name="rideClass" value="platinum" style="margin-left: 50%;" checked="">
             </div>
             <div class="col-md-4">
               <div class="goldBox bubbleBox" onclick="setCar('gold')">
@@ -60,7 +60,7 @@
                   <b><p class="margin-bot-0" id="goldPrice">IDR 36.000</p></b>
                 </div>
               </div>
-              <input type="radio" id="goldRadio"  name="goldRadio" value="gold" style="margin-left: 50%;">
+              <input type="radio" id="goldRadio" onclick="setCar('gold')" name="rideClass" value="gold" style="margin-left: 50%;">
             </div>
             <div class="col-md-4">
               <div class="silverBox bubbleBox" onclick="setCar('silver')">
@@ -70,7 +70,7 @@
                   <b><p class="margin-bot-0" id="silverPrice">IDR 18.000</p></b>
                 </div>
               </div>
-              <input type="radio" id="silverRadio"  name="silverRadio" value="silver" style="margin-left: 50%;">            
+              <input type="radio" id="silverRadio" onclick="setCar('silver')"  name="rideClass" value="silver" style="margin-left: 50%;">            
             </div>                    
           </div>
           <div class="row">
@@ -141,39 +141,30 @@
 
       function setCar(type){
 
-        var typeFlag = $('#typeFlag');
-        var isChecked = false;
-        
-        if(typeFlag.val() == type){
-          isChecked = document.getElementById(type+'Radio').checked;
-        }
+        var typeFlag = $('#typeFlag');      
 
-        $('.platinumBox').css('border', '0px solid blue');
-        $('#platinumRadio').removeAttr('checked'); 
-        $('.goldBox').css('border', '0px solid blue');
-        $('#goldRadio').removeAttr('checked');
-        $('.silverBox').css('border', '0px solid blue');
-        $('#silverRadio').removeAttr('checked');
+        $('.'+typeFlag.val()+'Box').css('border', '0px solid blue');
+        document.getElementById(typeFlag.val()+'Radio').checked = false;
 
-        if(type == 'platinum' && !isChecked){
+        if(type == 'platinum'){
            $('.platinumBox').css('border', '2px solid blue');
-           $('#platinumRadio').attr('checked', '');
+           document.getElementById('platinumRadio').checked = true;
            typeFlag.val(type);
            $('#tripPrice').val($('#platinumPrice').text());
            $('#tripPriceBtn').text($('#platinumPrice').text());
         }
 
-        else if(type == 'gold' && !isChecked){
+        else if(type == 'gold'){
           $('.goldBox').css('border', '2px solid blue')
-           $('#goldRadio').attr('checked', '');
+           document.getElementById('goldRadio').checked = true;
            typeFlag.val(type);
            $('#tripPrice').val($('#goldPrice').text());
            $('#tripPriceBtn').text($('#goldPrice').text());           
         }
 
-        else if(type == 'silver' && !isChecked){
+        else if(type == 'silver'){
           $('.silverBox').css('border', '2px solid blue')
-           $('#silverRadio').attr('checked', '');
+           document.getElementById('silverRadio').checked = true;
            typeFlag.val(type);
            $('#tripPrice').val($('#silverPrice').text());
            $('#tripPriceBtn').text($('#silverPrice').text());                     

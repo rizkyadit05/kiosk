@@ -15,15 +15,15 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('home', function(){
+	return view('apps/home');
+});
 
 Route::post('order', 'MainController@order');
 Route::post('post-order', 'MainController@post_order');
 
 
 //Front End Purposes
-Route::get('home', function(){
-	return view('apps/home');
-});
 
 // Route::get('/order/{latitude}/{longitude}/{title}/{address}/{ride_flag}', 'MainController@index');
 

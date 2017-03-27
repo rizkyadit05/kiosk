@@ -42,7 +42,7 @@
       	var btn = document.getElementById("poolpoint");
       	var btn2 = document.getElementById("anywhere");
         var rideFlag = document.getElementById('rideFlag');
-      	btn2.style.backgroundColor = '#ccc7c4';
+      	btn2.style.backgroundColor = '#acb0b7';
       	btn.style.backgroundColor = '#f2961c';
         rideFlag.value = 'poolpoint';
       }
@@ -51,7 +51,7 @@
       	var btn = document.getElementById("poolpoint");
       	var btn2 = document.getElementById("anywhere");
         var rideFlag = document.getElementById('rideFlag');
-      	btn.style.backgroundColor = '#ccc7c4';
+      	btn.style.backgroundColor = '#acb0b7';
       	btn2.style.backgroundColor = '#f2961c';
         rideFlag.value = 'anywhere';
       }

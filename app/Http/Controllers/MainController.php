@@ -20,7 +20,8 @@ class MainController extends Controller
 	}
 
 	public function post_order(){
-
+		$result = Request::all();
+		// print_r($result);
 		return view('apps/trip-preferences');
 	}
 }
