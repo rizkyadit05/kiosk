@@ -11,8 +11,8 @@
 			<div class="col-md-12">
 				<img style="width: 11%;" class="pull-left" src="{{ asset('assets/images/people.png') }}">
 				<div style="" class="pull-left contentHeader margin-left-2">
-					<b><p style="font-size: 2em; margin: 0;">Pick Available Shared Trip</p></b>
-					<p style="font-size: 1.5em;">Trip to same destination and same car type</p>
+					<b><p style="font-size: 2vw; margin: 0;">Pick Available Shared Trip</p></b>
+					<p style="font-size: 1.5vw;">Trip to same destination and same car type</p>
 				</div>
 			</div>
 		</div>
@@ -60,14 +60,14 @@
 		<div class="row">
 			<div class="col-md-12">
 				<img style="width: 11%;" class="pull-left" src="{{ asset('assets/images/add.png') }}">
-				<b><p class="pull-left contentHeader" style="font-size: 2em;">Host New Shared Trip</p></b>		
+				<b><p class="pull-left contentHeader" style="font-size: 2vw;">Host New Shared Trip</p></b>		
 			</div>
 		</div>
 		<div class="row">
 			<form method="get" action="{{ url('/') }}">
 				<input type="hidden" name="_token" value="{{ csrf_token() }}">
 				<div class="col-md-10 col-md-offset-2 margin-top-2 margin-custom-1">
-					<p class="" style="font-size: 1.75em; display: inline;">Shared with many others: </p> 
+					<p class="" style="font-size: 1.75vw; display: inline;">Shared with many others: </p> 
 					<select class="select-style">
 						<option value="1">1</option>
 						<option value="2">2</option>

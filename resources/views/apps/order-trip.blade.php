@@ -2,82 +2,85 @@
 @section('content')
 <div class="row row-eq-height">
   <div class="col-md-6">
-    <div class="row orderTopMenu">
-      <div class="col-md-12">
-        <div class="margin-1">
-          <b><p id="otmTitle">{{ $title }}</p></b>
-          <p id="otmAddress">{{ $address }}</p>
-        </div>
-        <div class="margin-1 margin-top-3">
-          <p id="otmPrice">IDR 2000 - IDR 30000</p>
-          <p id="otmDesc">(Price may vary due to personal/shared trip and type of car)</p>
-        </div>
-        <hr style="background-color: black; height: 4px;">
-      </div>
-      <div class="col-md-12">
-        <div class="row margin-2">
-          <div class="col-md-2 padding-0" onclick="setPerson('personal')">
-            <p class="otmCircleLeftLabel">Personal</p>
-            <div class="otmCircleLeft"></div>
+    <form method="post" action="{{ url('post-order') }}">
+      <input type="hidden" name="_token" value="{{csrf_token()}}">
+      <div class="row orderTopMenu">
+        <div class="col-md-12">
+          <div class="margin-1">
+            <b><p id="otmTitle">{{ $title }}</p></b>
+            <p id="otmAddress">{{ $address }}</p>
           </div>
-          <div class="col-md-8 padding-0">
-            <hr class="otmBetween">
+          <div class="margin-1 margin-top-3">
+            <p id="otmPrice">IDR 2000 - IDR 30000</p>
+            <p id="otmDesc">(Price may vary due to personal/shared trip and type of car)</p>
           </div>
-          <input type="hidden" name="rideFlag" id="rideFlag" value="shared">
-          <div class="col-md-2 padding-0" id="sharedRide" onclick="setPerson('shared')">
-            <p>Shared</p>
-            <div class="otmCircleRight"></div>
-            <div class="margin-left-20px" style="font-size: 1.2em;">
-              <b><p class="inline">5</p></b>
-              <span class="inline glyphicon glyphicon-chevron-up" aria-hidden="true"></span>              
+          <hr style="background-color: black; height: 4px;">
+        </div>
+        <div class="col-md-12">
+          <div class="row margin-2">
+            <div class="col-md-2 padding-0" onclick="setPerson('personal')">
+              <p class="otmCircleLeftLabel">Personal</p>
+              <div class="otmCircleLeft"></div>
             </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-12 orderBottomMenu">
-        <div class="row">
-          <input type="hidden" name="typeFlag" id="typeFlag" value="platinum">
-          <input type="hidden" name="tripPrice" id="tripPrice" value="">
-          <div class="col-md-4">
-            <div class="platinumBox bubbleBox" onclick="setCar('platinum')" style="border: 2px solid blue">
-              <div class="platinumBoxDesc text-center">
-                <b><p class="margin-bot-0">Platinum</p></b>
-                <p class="margin-bot-0">(Alphard, Vellfire)</p>
-                <b><p class="margin-bot-0" id="platinumPrice">IDR 54.000</p></b>
+            <div class="col-md-8 padding-0">
+              <hr class="otmBetween">
+            </div>
+            <input type="hidden" name="rideFlag" id="rideFlag" value="shared">
+            <div class="col-md-2 padding-0" id="sharedRide" onclick="setPerson('shared')">
+              <p>Shared</p>
+              <div class="otmCircleRight"></div>
+              <div class="margin-left-20px" style="font-size: 1.2em;">
+                <b><p class="inline">5</p></b>
+                <span class="inline glyphicon glyphicon-chevron-up" aria-hidden="true"></span>              
               </div>
             </div>
-            <input type="radio" id="platinumRadio"  name="platinumRadio" value="platinum" style="margin-left: 50%;" checked="">
-          </div>
-          <div class="col-md-4">
-            <div class="goldBox bubbleBox" onclick="setCar('gold')">
-              <div class="goldBoxDesc text-center">
-                <b><p class="margin-bot-0">Gold</p></b>
-                <p class="margin-bot-0">(Terrios, Inova)</p>
-                <b><p class="margin-bot-0" id="goldPrice">IDR 36.000</p></b>
-              </div>
-            </div>
-            <input type="radio" id="goldRadio"  name="goldRadio" value="gold" style="margin-left: 50%;">
-          </div>
-          <div class="col-md-4">
-            <div class="silverBox bubbleBox" onclick="setCar('silver')">
-              <div class="silverBoxDesc text-center">
-                <b><p class="margin-bot-0">Silver</p></b>
-                <p class="margin-bot-0">(Xenia, Ertiga)</p>
-                <b><p class="margin-bot-0" id="silverPrice">IDR 18.000</p></b>
-              </div>
-            </div>
-            <input type="radio" id="silverRadio"  name="silverRadio" value="silver" style="margin-left: 50%;">            
-          </div>                    
-        </div>
-        <div class="row">
-          <div class="col-md-12">
-            <button class="btn btn-order"><b><p id="tripPriceBtn">IDR 18.000</p></b><b><p>ORDER NOW</p></b></button>
           </div>
         </div>
       </div>
-    </div>
+      <div class="row">
+        <div class="col-md-12 orderBottomMenu">
+          <div class="row">
+            <input type="hidden" name="typeFlag" id="typeFlag" value="platinum">
+            <input type="hidden" name="tripPrice" id="tripPrice" value="">
+            <div class="col-md-4">
+              <div class="platinumBox bubbleBox" onclick="setCar('platinum')" style="border: 2px solid blue">
+                <div class="platinumBoxDesc text-center">
+                  <b><p class="margin-bot-0">Platinum</p></b>
+                  <p class="margin-bot-0">(Alphard, Vellfire)</p>
+                  <b><p class="margin-bot-0" id="platinumPrice">IDR 54.000</p></b>
+                </div>
+              </div>
+              <input type="radio" id="platinumRadio"  name="platinumRadio" value="platinum" style="margin-left: 50%;" checked="">
+            </div>
+            <div class="col-md-4">
+              <div class="goldBox bubbleBox" onclick="setCar('gold')">
+                <div class="goldBoxDesc text-center">
+                  <b><p class="margin-bot-0">Gold</p></b>
+                  <p class="margin-bot-0">(Terrios, Inova)</p>
+                  <b><p class="margin-bot-0" id="goldPrice">IDR 36.000</p></b>
+                </div>
+              </div>
+              <input type="radio" id="goldRadio"  name="goldRadio" value="gold" style="margin-left: 50%;">
+            </div>
+            <div class="col-md-4">
+              <div class="silverBox bubbleBox" onclick="setCar('silver')">
+                <div class="silverBoxDesc text-center">
+                  <b><p class="margin-bot-0">Silver</p></b>
+                  <p class="margin-bot-0">(Xenia, Ertiga)</p>
+                  <b><p class="margin-bot-0" id="silverPrice">IDR 18.000</p></b>
+                </div>
+              </div>
+              <input type="radio" id="silverRadio"  name="silverRadio" value="silver" style="margin-left: 50%;">            
+            </div>                    
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <button type="submit" class="btn btn-order"><b><p id="tripPriceBtn">IDR 18.000</p></b><b><p>ORDER NOW</p></b></button>
+            </div>        
+          </div>
+        </div>
+      </div>
+      </form>
   </div>
 	<div class="col-md-6 padding-0">
 	 <div id="map"></div>
@@ -112,6 +115,7 @@
       }
 
       $('#headerMenu').html('<button onclick="window.history.back()" class="btn text-2" style=""><b>BACK</b></button><a href="#"><img style="width: 28%; margin-left: 26.5%;" src="{{ asset("assets/images/logo.png") }}"></a>');
+      $('#tripPriceBtn').text($('#platinumPrice').text());
 
     </script>
     <script type="text/javascript">

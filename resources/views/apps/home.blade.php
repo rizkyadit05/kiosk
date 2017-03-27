@@ -8,8 +8,15 @@
           <div class='buttonLWrapper'><button class="btn" id="poolpoint" onclick="poolpoint()"><b>To Pool Point</b></button></div>
           <div class='betweenWrapper'> <hr class="between"></div>
           <div class='buttonRWrapper'><button class="btn" id="anywhere" onclick="anywhere()"><b>To Anywhere</b></button></div>
-          <input type="hidden" id="rideFlag" value="poolpoint">
         </div>
+        <form method="post" action="{{ url('order') }}" id="homeForm">
+          <input type="hidden" name="_token" value="{{csrf_token()}}">
+          <input type="hidden" id="placeLatitude" name="placeLatitude">
+          <input type="hidden" id="placeLongitude" name="placeLongitude">
+          <input type="hidden" id="placeName" name="placeName">
+          <input type="hidden" id="placeAddress" name="placeAddress">
+          <input type="hidden" id="rideFlag" name="rideFlag" value="poolpoint">
+        </form>
       </div>
     </div>
    </div>
@@ -47,6 +54,11 @@
       	btn.style.backgroundColor = '#ccc7c4';
       	btn2.style.backgroundColor = '#f2961c';
         rideFlag.value = 'anywhere';
+      }
+
+      function cleanURL(link){
+        console.log(link.replace(/\//g, ' '));
+        return link.replace(/\//g, ' ');
       }
 
       function initAutocomplete() {
@@ -124,16 +136,24 @@
               scaledSize: new google.maps.Size(25, 25)
             };
 
-            var rideFlag = document.getElementById('rideFlag').value;
-            window.location.href = "order/" + place.geometry.location.lat() + "/" + place.geometry.location.lng() + "/" + place.name + "/" + place.formatted_address + "/" +rideFlag;
+            // var rideFlag = document.getElementById('rideFlag').value;
+
+            $('#placeLatitude').val(place.geometry.location.lat());
+            $('#placeLongitude').val(place.geometry.location.lng());
+            $('#placeName').val(place.name);
+            $('#placeAddress').val(place.formatted_address);
+
+            document.getElementById("homeForm").submit();
+
+            // window.location.href = "order/" + place.geometry.location.lat() + "/" + place.geometry.location.lng() + "/" + place.name + "/" + place.formatted_address + "/" +rideFlag;
 
             // Create a marker for each place.
-            markers.push(new google.maps.Marker({
-              map: map,
-              icon: icon,
-              title: place.name,
-              position: place.geometry.location
-            }));
+            // markers.push(new google.maps.Marker({
+            //   map: map,
+            //   icon: icon,
+            //   title: place.name,
+            //   position: place.geometry.location
+            // }));
 
             // if (place.geometry.viewport) {
             //   // Only geocodes have viewport.
