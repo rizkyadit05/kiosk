@@ -76,7 +76,7 @@
 				<input type="hidden" name="_token" value="{{ csrf_token() }}">
 				<input type="hidden" name="tripPrice" value="30000">
 				<div class="col-md-10 col-md-offset-2 margin-top-2 margin-custom-1">
-					<p class="" style="font-size: 1.75vw; display: inline;">Shared with many others: </p> 
+					<p class="text-2 inline" style="">Shared with many others: </p> 
 					<select name="sharedTripCount" class="select-style">
 						<option value="1">1</option>
 						<option value="2">2</option>

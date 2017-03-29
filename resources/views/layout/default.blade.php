@@ -17,7 +17,7 @@
 </head>
 <body>
 	@include('layout/header')
-	<div class="container-fluid myBody">
+	<div class="container-fluid">
 		@yield('content')
 	</div>
 	@yield('script')

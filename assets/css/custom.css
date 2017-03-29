@@ -7,13 +7,10 @@ header div div a img{
 	margin-bottom: 1%;
 }
 
-.myBody{
-	background-color: #abd9e4;
-	min-height: 575px;
-}
-
 body{
 	font-family: Arial !important;
+	background-color: #abd9e4;
+	height: 100%;
 }
 
 .bodyHead{
@@ -47,23 +44,23 @@ body{
 }
 
 table.table {
-	font-size: 1.75vw;
+	font-size: 2vw;
 }
 
 .text-1{
-	font-size: 0.6em;
+	font-size: 1vw;
 }
 
 .text-2{
-	font-size: 0.9em;
+	font-size: 2vw;
 }
 
 .text-3{
-	font-size: 1.2em;
+	font-size: 3vw;
 }
 
 .text-4{
-	font-size: 1.6em;
+	font-size: 4vw;
 }
 
 .layout-btn-invoice{
@@ -186,7 +183,6 @@ table.table {
 
 @media only screen and (max-width: 700px) {
 	.margin-custom-1 { margin-left: 20%; }
-	.myBody { height: 1000px; }
 }
 
 /* Always set the map height explicitly to define the size of the div
@@ -519,7 +515,7 @@ table.table {
 		font-size: 1vw;
 	}
 	.text-2{
-		font-size: 1.8vw;
+		font-size: 2vw;
 	}
 	.text-3{
 		font-size: 3vw;
