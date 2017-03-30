@@ -3,8 +3,8 @@
     <div class="container-fluid myHeader">
       <!-- Brand and toggle get grouped for better mobile display -->
       <div class="row">
-	      <div class="col-md-12" style="display: inline;" id="headerMenu">
-            <a href="#" style="display: inline;"><img style="width: 28%; margin-left: 35%;" src="{{ asset('assets/images/logo.png') }}"></a>
+	      <div class="col-md-12 inline" id="headerMenu" style="height: 100px;">
+            <a href="#" style="display: inline;"><img class="headerImage" src="{{ asset('assets/images/logo.png') }}"></a>
 	      </div>
       </div>
     </div><!-- /.container-fluid -->

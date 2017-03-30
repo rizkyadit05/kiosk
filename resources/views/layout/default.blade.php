@@ -17,7 +17,7 @@
 </head>
 <body>
 	@include('layout/header')
-	<div class="container-fluid">
+	<div class="container-fluid fullHeight">
 		@yield('content')
 	</div>
 	@yield('script')

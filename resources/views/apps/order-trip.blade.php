@@ -88,9 +88,9 @@
       </div>
       </form>
   </div>
-	<div class="col-md-6 padding-0">
-	 <div id="map"></div>
-	</div>
+  <div class="col-md-6 padding-0">
+   <div id="map"></div>
+  </div>
 </div>
 
 

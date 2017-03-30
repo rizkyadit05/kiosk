@@ -1,6 +1,12 @@
 @extends('layout/default')
 @section('content')
-<div id="wrapper" class="row">
+<div class="row">
+  <div id="popUp" class="hidden margin-bot-0" role="alert">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    <strong>Success!</strong> <p id="PUText"></p>
+  </div>
+</div>
+<div id="wrapper" class="row fullHeight">
   <div id="over_map" class="col-md-12">
     <div class="row">
       <div class="col-md-12 homeHead">
@@ -20,23 +26,35 @@
       </div>
     </div>
    </div>
-	<div class="col-md-12" style="padding: 0;">
+	<div class="col-md-12 fullHeight" style="padding: 0;">
 		<input id="pac-input" class="controls" type="text" placeholder="Type Your Destination Here">
 	    <div id="map"></div>
 	</div>
 </div>
-
-
 @stop
 @section('script')
  <script>
-      // This example adds a search box to a map, using the Google Place Autocomplete
-      // feature. People can enter geographical searches. The search box will return a
-      // pick list containing a mix of places and predicted search terms.
+      $(function(){
+        var invFlag = "{{ $invFlag }}";
 
-      // This example requires the Places library. Include the libraries=places
-      // parameter when you first load the API. For example:
-      // <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
+        if(invFlag == 'ok'){
+          var popUp = document.getElementById('popUp');
+          var PUText = document.getElementById('PUText');
+
+          popUp.className += " alert alert-success alert-dismissible";
+          PUText.innerHTML = "Please take the ticket and complete the payment!";
+          popUp.classList.remove('hidden');
+        }
+
+        else if(invFlag == 'cancel'){
+          var popUp = document.getElementById('popUp');
+          var PUText = document.getElementById('PUText');
+
+          popUp.className += " alert alert-success alert-dismissible";
+          PUText.innerHTML = "Order canceled, Thank You!";
+          popUp.classList.remove('hidden');
+        }
+      });
 
       function poolpoint(){
       	var btn = document.getElementById("poolpoint");
@@ -69,6 +87,14 @@
           mapTypeId: 'roadmap'
         });
 
+      // This example adds a search box to a map, using the Google Place Autocomplete
+      // feature. People can enter geographical searches. The search box will return a
+      // pick list containing a mix of places and predicted search terms.
+
+      // This example requires the Places library. Include the libraries=places
+      // parameter when you first load the API. For example:
+      // <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
+
         // var infoWindow = new google.maps.InfoWindow({map: map});
 
         // Try HTML5 geolocation.
@@ -78,14 +104,14 @@
               lat: position.coords.latitude,
               lng: position.coords.longitude
             };
-
+            
             // infoWindow.setPosition(pos);
             // infoWindow.setContent('Location found.');\
             var marker = new google.maps.Marker({
               position: pos,
               map: map
             });
-
+            
             map.setCenter(pos);
           }, function() {
             handleLocationError(true, map.getCenter());

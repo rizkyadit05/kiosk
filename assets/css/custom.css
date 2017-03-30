@@ -7,9 +7,26 @@ header div div a img{
 	margin-bottom: 1%;
 }
 
+html{
+	height: 100%;
+}
+
 body{
 	font-family: Arial !important;
 	background-color: #abd9e4;
+	height:calc(100% - 100px);
+}
+
+.headerImage{
+	width: 28%; 
+	margin-left: 35%;
+}
+
+@media only screen and (min-width: 1500px){
+	.headerImage{ width: 18%; }
+}
+
+.fullHeight{
 	height: 100%;
 }
 
@@ -51,12 +68,24 @@ table.table {
 	font-size: 1vw;
 }
 
+.text-1-5{
+	font-size: 1.5vw;
+}
+
 .text-2{
 	font-size: 2vw;
 }
 
+.text-2-7{
+	font-size: 2.7vw;
+}
+
 .text-3{
 	font-size: 3vw;
+}
+
+.text-3-5{
+	font-size: 3.5vw;
 }
 
 .text-4{
@@ -64,7 +93,7 @@ table.table {
 }
 
 .layout-btn-invoice{
-	margin-top: 3%;
+	margin-top: 1%;
 	margin-bottom: 3%;
 	padding: 0;
 }
@@ -93,6 +122,11 @@ table.table {
 
 @media only screen and (max-width: 1150px) {
 	.tp-divider { font-size: 1.3em; }
+}
+
+.padding-btn-invoice{
+	padding-right: 6%; 
+	padding-left: 6%;
 }
 
 .padding-0{
@@ -303,14 +337,16 @@ table.table {
 }
 
 .buttonLWrapper{
-	width: 30%;
+	width: 45%;
 	margin: 1%;
+	margin-left: 3%;
 	margin-right: 0;
 }
 
 .buttonRWrapper{
-	width: 30%;
+	width: 45%;
 	margin: 1%;
+	margin-right: 3%;
 	margin-left: 0;	
 }
 
@@ -322,12 +358,12 @@ table.table {
 	background-image: url('pool.png');
 	background-repeat: no-repeat;
 	background-size: 100px 60px;
-	background-position: 4vw;
+	background-position: 8vw;
 }
 
 #poolpoint b{
 	margin-left: 30%;
-	font-size: 1.5em;
+	font-size: 2em;
 }
 
 #anywhere {
@@ -338,17 +374,17 @@ table.table {
 	background-image: url('anywhere.png');
 	background-repeat: no-repeat;
 	background-size: 100px 60px;
-	background-position: 4vw;
+	background-position: 8vw;
 }
 
 #anywhere b{
 	margin-left: 30%;
-	font-size: 1.5em;
+	font-size: 2em;
 }
 
 .between {
     border: 3px solid black;
-    margin-top: 10%;
+    margin-top: 100%;
 }
 
 .parent
@@ -510,7 +546,7 @@ table.table {
 	.confirm { width: 100%; }
 }
 
-@media only screen and (min-width: 560px){
+/*@media only screen and (min-width: 560px){
 	.text-1{
 		font-size: 1vw;
 	}
@@ -523,7 +559,7 @@ table.table {
 	.text-4{
 		font-size: 4vw;
 	}
-}
+}*/
 
 @media only screen and (min-width: 992px){
 	.row-eq-height{

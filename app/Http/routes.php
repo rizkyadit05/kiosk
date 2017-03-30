@@ -15,14 +15,14 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('home', function(){
-	return view('apps/home');
-});
+Route::get('home', 'MainController@home');
 
 Route::post('order', 'MainController@order');
 Route::post('post-order', 'MainController@post_order');
 Route::post('post-av-trip', 'MainController@post_av_trip');
 Route::post('post-new-trip', 'MainController@post_new_trip');
+Route::post('post-inv-ok', 'MainController@post_inv_ok');
+Route::post('post-inv-cancel', 'MainController@post_inv_cancel');
 
 //Front End Purposes
 
