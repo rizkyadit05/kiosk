@@ -5,7 +5,7 @@
 		<b><p class="text-center bodyHead">TRIP PREFERENCES</p></b>
 	</div>
 </div>
-<div class="row">
+<div class="row row-eq-height">
 	<div class="col-md-5 bodyContent tp-1st-box">
 		<div class="row">
 			<div class="col-md-12">
@@ -41,6 +41,7 @@
 							<form method="post" action="{{ url('post-av-trip') }}" id="form_1">
 								<input type="hidden" name="_token" value="{{csrf_token()}}">
 								<input type="hidden" name="idTrip" value="1">
+								<input type="hidden" name="rideFlag" value="{{ $rideFlag }}">
 								<td>1</td>
 								<td><img alt="Down" src="{{ asset('assets/images/d.png') }}"> IDR 21.000</td>
 								<td>4/6</td>
@@ -51,6 +52,7 @@
 							<form method="post" action="{{ url('post-av-trip') }}" id="form_2">
 								<input type="hidden" name="_token" value="{{csrf_token()}}">
 								<input type="hidden" name="idTrip" value="2">
+								<input type="hidden" name="rideFlag" value="{{ $rideFlag }}">
 								<td>2</td>
 								<td><img alt="Down" src="{{ asset('assets/images/d.png') }}"> IDR 41.000</td>
 								<td>4/8</td>
@@ -75,6 +77,7 @@
 			<form method="post" action="{{ url('post-new-trip') }}">
 				<input type="hidden" name="_token" value="{{ csrf_token() }}">
 				<input type="hidden" name="tripPrice" value="30000">
+				<input type="hidden" name="rideFlag" value="{{ $rideFlag }}">
 				<div class="col-md-10 col-md-offset-2 margin-top-2 margin-custom-1">
 					<p class="text-2 inline" style="">Shared with many others: </p> 
 					<select name="sharedTripCount" class="select-style">
@@ -87,8 +90,8 @@
 				<div class="col-md-10 col-md-offset-2 margin-top-2">
 					<p class="margin-top-2 margin-custom-1"><sup class="text-2">Price</sup><b class="text-3"> IDR 30.000</b></p>
 				</div>
-				<div class="col-md-10 col-md-offset-2 margin-top-2">
-					<button class="btn text-3 round-border margin-custom-2" style="background-color: #f2961c; width: 75%;"><b>CREATE</b></button>
+				<div class="col-md-10 col-md-offset-2 margin-top-4">
+					<button class="btn text-2 round-border margin-custom-2" style="background-color: #f2961c; width: 75%;"><b>CREATE</b></button>
 				</div>			
 			</form>
 		</div>

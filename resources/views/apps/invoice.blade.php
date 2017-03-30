@@ -9,9 +9,13 @@
 			<div class="col-md-12" style="">
 				<img width="8%" style="" class="pull-left" src="{{ asset('assets/images/people.png') }}">
 				<div class="pull-left contentHeader margin-top-0">
+					@if($rideFlag == 'personal')
+					<p class="text-1-5" style="margin: 0;">Personal</p>
+					@else
 					<p class="text-1-5" style="margin: 0;">Share Trip</p>
 					<p class="text-1-5" style="margin: 0;">5 People </p>
 					<p class="text-1-5" style="margin: 0;">#5 Entry Queue</p>
+					@endif
 				</div>
 				<b><p class="pull-right text-2" style="display: inline;">ID TRIP 1234</p></b>
 			</div>
@@ -38,4 +42,12 @@
 		</div>
 	</div>
 </div>
+@stop
+@section('script')
+<script type="text/javascript">
+ $(function() {
+	$('#headerMenu').html('<button onclick="window.history.back()" class="btn text-2" style=""><b>BACK</b></button><a href="#"><img style="width: 28%; margin-left: 26.5%;" src="{{ asset("assets/images/logo.png") }}"></a>');
+    $('#tripPriceBtn').text($('#platinumPrice').text());
+ });
+</script>
 @stop

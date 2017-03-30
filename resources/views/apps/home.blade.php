@@ -21,7 +21,7 @@
           <input type="hidden" id="placeLongitude" name="placeLongitude">
           <input type="hidden" id="placeName" name="placeName">
           <input type="hidden" id="placeAddress" name="placeAddress">
-          <input type="hidden" id="rideFlag" name="rideFlag" value="poolpoint">
+          <input type="hidden" id="poolORAny" name="poolORAny" value="">
         </form>
       </div>
     </div>
@@ -54,24 +54,26 @@
           PUText.innerHTML = "Order canceled, Thank You!";
           popUp.classList.remove('hidden');
         }
+
+        $('#poolORAny').val('poolpoint');
       });
 
       function poolpoint(){
       	var btn = document.getElementById("poolpoint");
       	var btn2 = document.getElementById("anywhere");
-        var rideFlag = document.getElementById('rideFlag');
+        var poolORAny = document.getElementById('poolORAny');
       	btn2.style.backgroundColor = '#acb0b7';
       	btn.style.backgroundColor = '#f2961c';
-        rideFlag.value = 'poolpoint';
+        poolORAny.value = 'poolpoint';
       }
 
       function anywhere(){
       	var btn = document.getElementById("poolpoint");
       	var btn2 = document.getElementById("anywhere");
-        var rideFlag = document.getElementById('rideFlag');
+        var poolORAny = document.getElementById('poolORAny');
       	btn.style.backgroundColor = '#acb0b7';
       	btn2.style.backgroundColor = '#f2961c';
-        rideFlag.value = 'anywhere';
+        poolORAny.value = 'anywhere';
       }
 
       function cleanURL(link){

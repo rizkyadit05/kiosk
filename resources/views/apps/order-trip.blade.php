@@ -4,6 +4,7 @@
   <div class="col-md-6">
     <form method="post" action="{{ url('post-order') }}">
       <input type="hidden" name="_token" value="{{csrf_token()}}">
+      <input type="hidden" id="rideFlag" name="rideFlag" value="shared">
       <div class="row orderTopMenu">
         <div class="col-md-12">
           <div class="margin-1">
@@ -18,26 +19,25 @@
         </div>
         <div class="col-md-12">
           <div class="row margin-2">
-            <div class="col-md-2 padding-0" onclick="setPerson('personal')">
+            <div class="col-md-2 padding-0" onclick="setRide('personal')">
               <p class="otmCircleLeftLabel">Personal</p>
               <div class="otmCircleLeft"></div>
             </div>
             <div class="col-md-8 padding-0">
               <hr class="otmBetween">
             </div>
-            <input type="hidden" name="rideFlag" id="rideFlag" value="shared">
-            <div class="col-md-2 padding-0" id="sharedRide" onclick="setPerson('shared')">
+            <div class="col-md-2 padding-0" id="sharedRide" onclick="setRide('shared')"">
               <p>Shared</p>
               <div class="otmCircleRight"></div>
               <div class="margin-left-20px" style="font-size: 1.2em;">
-                <select name="sharedTripCount" class="orderSO">
+                <select name="sharedTripCount" id="sharedTripCount" class="orderSO">
                   <option value="5">5</option>
                   <option value="4">4</option>
                   <option value="3">3</option>
                   <option value="2">2</option>
                   <option value="1">1</option>
                 </select>
-                <span class="inline glyphicon glyphicon-chevron-up" aria-hidden="true"></span>              
+                <span id="sharedTripCountImg" class="inline glyphicon glyphicon-chevron-up" aria-hidden="true"></span>            
               </div>
             </div>
           </div>
@@ -56,7 +56,7 @@
                   <b><p class="margin-bot-0" id="platinumPrice">IDR 54.000</p></b>
                 </div>
               </div>
-              <input type="radio" id="platinumRadio" onclick="setCar('platinum')"  name="rideClass" value="platinum" style="margin-left: 50%;" checked="">
+              <input type="radio" id="platinumRadio" onclick="setCar('platinum')"  value="platinum" style="margin-left: 50%;" checked="">
             </div>
             <div class="col-md-4">
               <div class="goldBox bubbleBox" onclick="setCar('gold')">
@@ -66,7 +66,7 @@
                   <b><p class="margin-bot-0" id="goldPrice">IDR 36.000</p></b>
                 </div>
               </div>
-              <input type="radio" id="goldRadio" onclick="setCar('gold')" name="rideClass" value="gold" style="margin-left: 50%;">
+              <input type="radio" id="goldRadio" onclick="setCar('gold')" value="gold" style="margin-left: 50%;">
             </div>
             <div class="col-md-4">
               <div class="silverBox bubbleBox" onclick="setCar('silver')">
@@ -76,7 +76,7 @@
                   <b><p class="margin-bot-0" id="silverPrice">IDR 18.000</p></b>
                 </div>
               </div>
-              <input type="radio" id="silverRadio" onclick="setCar('silver')"  name="rideClass" value="silver" style="margin-left: 50%;">            
+              <input type="radio" id="silverRadio" onclick="setCar('silver')" value="silver" style="margin-left: 50%;">            
             </div>                    
           </div>
           <div class="row">
@@ -125,25 +125,45 @@
 
     </script>
     <script type="text/javascript">
-     function setPerson(active){
-        var flag = $('#rideFlag').val();
-        // alert(flag);
+     $(function(){
+        var active = document.getElementById('rideFlag').value;
+        // alert(active);
 
-        if(active != flag){
+        if(active == 'personal'){
+          $('.otmCircleLeft').css('background-color', 'black');
+          $('.otmCircleRight').css('background-color', '#ccc7c4')
+          $('#sharedTripCount').addClass('hidden');
+          $('#sharedTripCountImg').addClass('hidden');
+        }
 
-          if(flag == 'shared'){
-            $('.otmCircleLeft').css('background-color', 'black');
-            $('.otmCircleRight').css('background-color', '#ccc7c4')
-            $('#rideFlag').val('personal');
-          }
+        else{
+          $('.otmCircleLeft').css('background-color', '#ccc7c4');
+          $('.otmCircleRight').css('background-color', 'black');        
+        }
+      });
 
-          else{
-            $('.otmCircleLeft').css('background-color', '#ccc7c4');
-            $('.otmCircleRight').css('background-color', 'black');
-            $('#rideFlag').val('shared');          
-          }
+     function setRide(selected){
+      
+      var active = document.getElementById('rideFlag');
+      // console.log(flag.value + " " + selected);
+      if(selected != active.value){
+        if(selected == 'personal'){
+          $('.otmCircleLeft').css('background-color', 'black');
+          $('.otmCircleRight').css('background-color', '#ccc7c4')
+          $('#sharedTripCount').addClass('hidden');
+          $('#sharedTripCountImg').addClass('hidden');
+          active.value = "personal";
+        }
+
+        else{
+          $('.otmCircleLeft').css('background-color', '#ccc7c4');
+          $('.otmCircleRight').css('background-color', 'black');
+          $('#sharedTripCount').removeClass('hidden');
+          $('#sharedTripCountImg').removeClass('hidden'); 
+          active.value = "shared";       
         }
       }
+     }
 
       function setCar(type){
 

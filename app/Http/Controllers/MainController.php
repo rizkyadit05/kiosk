@@ -20,28 +20,28 @@ class MainController extends Controller
 			->with('latitude', $result["placeLatitude"])
 			->with('longitude', $result["placeLongitude"])
 			->with('title', $result["placeName"])
-			->with('address', $result["placeAddress"])
-			->with('ride_flag', $result["rideFlag"]);
+			->with('address', $result["placeAddress"]);
 	}
 
 	public function post_order(){
 		$result = Request::all();
 		// print_r($result);
-		return view('apps/trip-preferences');
+		return view('apps/trip-preferences')
+			->with('rideFlag' ,$result["rideFlag"]);
 	}
 
 	public function post_av_trip(){
 		$result = Request::all();
 		// print_r($result);
 		return view('apps/invoice')
-			->with('rideFlag', 'shared');
+			->with('rideFlag' ,$result["rideFlag"]);
 	}
 
 	public function post_new_trip(){
 		$result = Request::all();
 		// print_r($result);
 		return view('apps/invoice')
-			->with('rideFlag', 'personal');
+			->with('rideFlag' ,$result["rideFlag"]);
 	}
 
 	public function post_inv_ok(){

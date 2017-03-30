@@ -103,7 +103,7 @@ table.table {
 }
 
 .round-border{
-	border-radius: 25px;
+	border-radius: 10px;
 }
 
 .tp-1st-box{
@@ -170,6 +170,10 @@ table.table {
 
 .margin-top-3{
 	margin-top: 3%;
+}
+
+.margin-top-4{
+	margin-top: 4%;
 }
 
 .margin-left-2{
