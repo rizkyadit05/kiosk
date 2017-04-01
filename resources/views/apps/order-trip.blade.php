@@ -2,7 +2,7 @@
 @section('content')
 <div class="row row-eq-height">
   <div class="col-md-6">
-    <form method="post" action="{{ url('post-order') }}">
+    <form method="post" class="fullHeight" action="{{ url('post-order') }}">
       <input type="hidden" name="_token" value="{{csrf_token()}}">
       <input type="hidden" id="rideFlag" name="rideFlag" value="shared">
       <div class="row orderTopMenu">
@@ -20,70 +20,66 @@
         <div class="col-md-12">
           <div class="row margin-2">
             <div class="col-md-2 padding-0" onclick="setRide('personal')">
-              <p class="otmCircleLeftLabel">Personal</p>
+              <p class="otmCircleLeftLabel" style="font-size: 1.5vw;">Personal</p>
               <div class="otmCircleLeft"></div>
             </div>
             <div class="col-md-8 padding-0">
               <hr class="otmBetween">
             </div>
             <div class="col-md-2 padding-0" id="sharedRide" onclick="setRide('shared')"">
-              <p>Shared</p>
+              <p style="font-size: 1.5vw;">Shared</p>
               <div class="otmCircleRight"></div>
               <div class="margin-left-20px" style="font-size: 1.2em;">
-                <select name="sharedTripCount" id="sharedTripCount" class="orderSO">
+                <select style="font-size: 1.5vw;" name="sharedTripCount" id="sharedTripCount" class="orderSO">
                   <option value="5">5</option>
                   <option value="4">4</option>
                   <option value="3">3</option>
                   <option value="2">2</option>
                   <option value="1">1</option>
                 </select>
-                <span id="sharedTripCountImg" class="inline glyphicon glyphicon-chevron-up" aria-hidden="true"></span>            
+                <span style="font-size: 1.5vw;" id="sharedTripCountImg" class="inline glyphicon glyphicon-chevron-up" aria-hidden="true"></span>            
               </div>
             </div>
           </div>
         </div>
       </div>
-      <div class="row">
-        <div class="col-md-12 orderBottomMenu">
-          <div class="row">
-            <input type="hidden" name="typeFlag" id="typeFlag" value="platinum">
-            <input type="hidden" name="tripPrice" id="tripPrice" value="">
-            <div class="col-md-4">
-              <div class="platinumBox bubbleBox" onclick="setCar('platinum')" style="border: 2px solid blue">
-                <div class="platinumBoxDesc text-center">
-                  <b><p class="margin-bot-0">Platinum</p></b>
-                  <p class="margin-bot-0">(Alphard, Vellfire)</p>
-                  <b><p class="margin-bot-0" id="platinumPrice">IDR 54.000</p></b>
-                </div>
+      <div class="row orderBottomMenu">
+        <div class="col-md-12">
+          <input type="hidden" name="typeFlag" id="typeFlag" value="platinum">
+          <input type="hidden" name="tripPrice" id="tripPrice" value="">
+          <div class="col-md-4">
+            <div class="platinumBox bubbleBox twoKBox" onclick="setCar('platinum')" style="border: 2px solid blue">
+              <div class="platinumBoxDesc text-center">
+                <b><p class="margin-bot-0">Platinum</p></b>
+                <p class="margin-bot-0">(Alphard, Vellfire)</p>
+                <b><p class="margin-bot-0" id="platinumPrice">IDR 54.000</p></b>
               </div>
-              <input type="radio" id="platinumRadio" onclick="setCar('platinum')"  value="platinum" style="margin-left: 50%;" checked="">
             </div>
-            <div class="col-md-4">
-              <div class="goldBox bubbleBox" onclick="setCar('gold')">
-                <div class="goldBoxDesc text-center">
-                  <b><p class="margin-bot-0">Gold</p></b>
-                  <p class="margin-bot-0">(Terrios, Inova)</p>
-                  <b><p class="margin-bot-0" id="goldPrice">IDR 36.000</p></b>
-                </div>
+            <input type="radio" id="platinumRadio" onclick="setCar('platinum')"  value="platinum" style="margin-left: 50%;" checked="">
+          </div>
+          <div class="col-md-4">
+            <div class="goldBox bubbleBox twoKBox" onclick="setCar('gold')">
+              <div class="goldBoxDesc text-center">
+                <b><p class="margin-bot-0">Gold</p></b>
+                <p class="margin-bot-0">(Terrios, Inova)</p>
+                <b><p class="margin-bot-0" id="goldPrice">IDR 36.000</p></b>
               </div>
-              <input type="radio" id="goldRadio" onclick="setCar('gold')" value="gold" style="margin-left: 50%;">
             </div>
-            <div class="col-md-4">
-              <div class="silverBox bubbleBox" onclick="setCar('silver')">
-                <div class="silverBoxDesc text-center">
-                  <b><p class="margin-bot-0">Silver</p></b>
-                  <p class="margin-bot-0">(Xenia, Ertiga)</p>
-                  <b><p class="margin-bot-0" id="silverPrice">IDR 18.000</p></b>
-                </div>
+            <input type="radio" id="goldRadio" onclick="setCar('gold')" value="gold" style="margin-left: 50%;">
+          </div>
+          <div class="col-md-4">
+            <div class="silverBox bubbleBox twoKBox" onclick="setCar('silver')">
+              <div class="silverBoxDesc text-center">
+                <b><p class="margin-bot-0">Silver</p></b>
+                <p class="margin-bot-0">(Xenia, Ertiga)</p>
+                <b><p class="margin-bot-0" id="silverPrice">IDR 18.000</p></b>
               </div>
-              <input type="radio" id="silverRadio" onclick="setCar('silver')" value="silver" style="margin-left: 50%;">            
+            </div>
+            <input type="radio" id="silverRadio" onclick="setCar('silver')" value="silver" style="margin-left: 50%;">            
             </div>                    
-          </div>
-          <div class="row">
-            <div class="col-md-12">
-              <button type="submit" class="btn btn-order"><b><p id="tripPriceBtn">IDR 18.000</p></b><b><p>ORDER NOW</p></b></button>
-            </div>        
-          </div>
+          <div class="col-md-12">
+            <button type="submit" class="btn btn-order"><b><p id="tripPriceBtn">IDR 18.000</p></b><b><p>ORDER NOW</p></b></button>
+          </div>        
         </div>
       </div>
       </form>
@@ -120,7 +116,7 @@
         });
       }
 
-      $('#headerMenu').html('<button onclick="window.history.back()" class="btn text-2" style=""><b>BACK</b></button><a href="#"><img style="width: 28%; margin-left: 26.5%;" src="{{ asset("assets/images/logo.png") }}"></a>');
+      $('#headerMenu').html('<button onclick="window.history.back()" class="btn text-2" style=""><b>BACK</b></button><a href="#"><img class="headerImgBtn" src="{{ asset("assets/images/logo.png") }}"></a>');
       $('#tripPriceBtn').text($('#platinumPrice').text());
 
     </script>

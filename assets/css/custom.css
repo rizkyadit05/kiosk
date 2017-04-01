@@ -19,11 +19,12 @@ body{
 
 .headerImage{
 	width: 28%; 
-	margin-left: 35%;
+	margin-left: 34%;
 }
 
-@media only screen and (min-width: 1500px){
-	.headerImage{ width: 18%; }
+.headerImgBtn{
+	width: 28%; 
+	margin-left: 26.5%;
 }
 
 .fullHeight{
@@ -292,10 +293,10 @@ table.table {
 }
 
 #pac-input {
-	width: 80%;
+	width: 97vw;
 	box-sizing: border-box;
 	border: 2px solid #ccc;
-	border-radius: 4px;
+	border-radius: 15px;
 	font-size: 16px;
 	background-color: white;
 	background-image: url('searchicon.png');
@@ -304,6 +305,9 @@ table.table {
 	background-repeat: no-repeat;
 	padding: 12px 20px 12px 40px;
 	margin-top: 8%;
+	margin-left: 1%;
+	margin-right: 1%;
+	left: 0 !important;
 }
 
 @media only screen and (max-width: 1122px) {
@@ -393,6 +397,10 @@ table.table {
     margin-top: 100%;
 }
 
+@media only screen and (min-width: 1920px){
+	.between{ margin-top: 70%; }
+}
+
 .parent
 { 
     display:-moz-box; /* Firefox */
@@ -419,20 +427,20 @@ table.table {
 }
 
 #otmAddress{
-	font-size: 1.5em;
+	font-size: 1.5vw;
 }
 
 #otmPrice{
-	font-size: 2em;
+	font-size: 2vw;
 	margin-bottom: 0;
 }
 
 #otmDesc{
-	font-size: 1.2em;
+	font-size: 1.2vw;
 }
 
 .otmCircleLeftLabel{
-	margin-left: 38px;
+	margin-left: 33%;
 }
 
 .otmCircleLeft{
@@ -444,7 +452,7 @@ table.table {
 	background-size: 50px 50px;
 	background-position: center;
 	background-color: #ccc7c4;
-	margin-left: 33px;
+	margin-left: 33%;
 }
 
 .otmCircleRight{
@@ -460,7 +468,7 @@ table.table {
 
 .otmBetween{
 	border: 2px solid #ccc7c4;
-	margin-top: 15%;
+	margin-top: 17%;
 }
 
 .orderBottomMenu{
@@ -542,7 +550,7 @@ table.table {
 .btn-order{
 	margin-bottom: 20px;
 	background-color: #f2961c;
-	font-size: 2em;
+	font-size: 2vw;
 	width: 70%;
 	border-radius: 25px;
 	margin-left: 15%;
@@ -604,10 +612,78 @@ table.table {
 		margin-left: 15px;
 		margin-top: 50px;
 	}
+}
 
 @media only screen and (min-width: 1016px) and (max-width: 1122px){
 	.otmBetween{
 		margin-left: 10px;
+	}
+}
+
+@media only screen and (min-width: 2160px) and (min-height: 1462px){
+	.otmBetween{
+		margin-top: 17%;
+	}
+
+	.otmCircleLeft{
+		width: 130px;
+		height: 130px;
+		background-size: 100px 100px;
+	}
+
+	.otmCircleRight{
+		width: 130px;
+		height: 130px;
+		background-size: 100px 100px;
+	}
+
+	.orderBottomMenu{
+		padding-top: 10%;
+	}
+	
+	.row-eq-height { height: 100%; }
+	.orderTopMenu{ height: 50%; }
+	.orderBottomMenu{ 
+		height: 50%; 
+	}
+
+	.twoKBox{
+		height: 230px;
+		margin-bottom: 5px;
+		background-size: 150px 120px;
+		font-size: 1vw;
+	}
+
+	.platinumBoxDesc{
+		padding-top: 100px;
+	}
+	.goldBoxDesc{
+		padding-top: 100px;
+	}
+	.silverBoxDesc{
+		padding-top: 100px;
+	}
+
+	.btn-order{
+		margin-top: 40px;
+	}
+
+	#headerMenu{
+		height: 200px !important;
+	}
+}
+
+@media only screen and (min-height: 780px) and (max-height: 1461px){
+	.row-eq-height { height: 100%; }
+	.orderTopMenu{ height: 61%; }
+	.orderBottomMenu{ 
+		height: 39%; 
+	}
+
+	.btn-order{
+		font-size: 1.5vw;
+		margin-top: 20px;
+		margin-bottom: 0;
 	}
 }
 

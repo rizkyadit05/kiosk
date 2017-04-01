@@ -27,8 +27,8 @@
     </div>
    </div>
 	<div class="col-md-12 fullHeight" style="padding: 0;">
-		<input id="pac-input" class="controls" type="text" placeholder="Type Your Destination Here">
-	    <div id="map"></div>
+	  <input id="pac-input" class="controls" type="text" placeholder="Type Your Destination Here">
+    <div id="map"></div>
 	</div>
 </div>
 @stop
