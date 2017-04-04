@@ -1,11 +1,26 @@
 @extends('layout/default')
 @section('content')
 <div class="row">
-	<div class="col-md-12">
-		<b><p class="text-center bodyHead">TRIP PREFERENCES</p></b>
-	</div>
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">Lets GO</h4>
+      </div>
+      <div class="modal-body">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+<div class="col-md-12">
+	<b><p class="text-center bodyHead">TRIP PREFERENCES</p></b>
 </div>
-<div class="row row-eq-height">
+</div>
+<div class="row">
 	<div class="col-md-5 bodyContent tp-1st-box">
 		<div class="row">
 			<div class="col-md-12">
@@ -14,6 +29,7 @@
 					<b><p style="font-size: 2vw; margin: 0;">Pick Available Shared Trip</p></b>
 					<p style="font-size: 1.5vw;">Trip to same destination and same car type</p>
 				</div>
+				<span style="font-size: 3vw; margin-left: 0%;" onclick="questionFlag('lCard')" class="pull-right glyphicon glyphicon-info-sign"></span>
 			</div>
 		</div>
 		<div class="row">
@@ -58,6 +74,39 @@
 								<td>4/8</td>
 								<td class="hidden">FAKE</td>
 							</form>
+							</tr>
+							<tr onclick="submit(3)">
+							<form method="post" action="{{ url('post-av-trip') }}" id="form_3">
+								<input type="hidden" name="_token" value="{{csrf_token()}}">
+								<input type="hidden" name="idTrip" value="2">
+								<input type="hidden" name="rideFlag" value="{{ $rideFlag }}">
+								<td>3</td>
+								<td><img alt="Down" src="{{ asset('assets/images/d.png') }}"> IDR 41.000</td>
+								<td>4/8</td>
+								<td class="hidden">FAKE</td>
+							</form>
+							</tr>
+							<tr onclick="submit(4)">
+							<form method="post" action="{{ url('post-av-trip') }}" id="form_4">
+								<input type="hidden" name="_token" value="{{csrf_token()}}">
+								<input type="hidden" name="idTrip" value="2">
+								<input type="hidden" name="rideFlag" value="{{ $rideFlag }}">
+								<td>4</td>
+								<td><img alt="Down" src="{{ asset('assets/images/d.png') }}"> IDR 41.000</td>
+								<td>4/8</td>
+								<td class="hidden">FAKE</td>
+							</form>
+							</tr>
+							<tr onclick="submit(5)">
+							<form method="post" action="{{ url('post-av-trip') }}" id="form_5">
+								<input type="hidden" name="_token" value="{{csrf_token()}}">
+								<input type="hidden" name="idTrip" value="2">
+								<input type="hidden" name="rideFlag" value="{{ $rideFlag }}">
+								<td>5</td>
+								<td><img alt="Down" src="{{ asset('assets/images/d.png') }}"> IDR 41.000</td>
+								<td>4/8</td>
+								<td class="hidden">FAKE</td>
+							</form>
 							</tr>							
 						</tbody>
 					</table>		
@@ -70,7 +119,8 @@
 		<div class="row">
 			<div class="col-md-12">
 				<img style="width: 11%;" class="pull-left" src="{{ asset('assets/images/add.png') }}">
-				<b><p class="pull-left contentHeader" style="font-size: 2vw;">Host New Shared Trip</p></b>		
+				<b><p class="pull-left contentHeader" style="font-size: 2vw;">Host New Shared Trip</p></b>
+				<span style="font-size: 3vw; margin-left: 0%;" onclick="questionFlag('rCard')" class="pull-right glyphicon glyphicon-info-sign"></span>		
 			</div>
 		</div>
 		<div class="row">
@@ -103,11 +153,26 @@
 	function submit(count){
 		document.getElementById("form_"+count).submit();
 	}
+
+	function questionFlag(bool){
+
+		if(bool == 'lCard'){
+			$('.modal-body').html('<p>Available Shared Trip</p>');
+			$('#myModal').modal('show');
+		}
+
+		else{
+			$('.modal-body').html('<p>Host New Shared Trip</p>');
+			$('#myModal').modal('show');
+		}
+	}
 </script>
 <script type="text/javascript">
 	$(document).ready(function() {
     $('#tpd-table').DataTable( {
-        "order": [[ 3, "desc" ]]
+        "order": [[ 3, "desc" ]],
+        "aLengthMenu": [[5, 50, 75, -1], [25, 50, 75, "All"]],
+    	"pageLength": 5
     });
 
     $("label").remove();

@@ -62,7 +62,7 @@ body{
 }
 
 table.table {
-	font-size: 2vw;
+	font-size: 1.5vw;
 }
 
 .text-1{
@@ -192,7 +192,7 @@ table.table {
     -webkit-appearance: none;
     display: inline;
     font-size: 2em;
-     background: #fafafa url("dg.png") no-repeat 90% 50%;
+    background: #fafafa url("dg.png") no-repeat 90% 50%;
 }
 
 .select-style select:focus {
@@ -207,7 +207,11 @@ table.table {
     -webkit-appearance:none;
     appearance:none;
     box-shadow: none;
-    font-weight: bold;
+    font-weight: bold;	
+    width: 55%;
+    box-shadow: none;
+    background-image: none;
+    background: url("dg.png") no-repeat 90% 50%;   
 }
 
 .inline{
@@ -368,7 +372,7 @@ table.table {
 	background-image: url('pool.png');
 	background-repeat: no-repeat;
 	background-size: 100px 60px;
-	background-position: 8vw;
+	background-position: 8vw, right;
 }
 
 #poolpoint b{

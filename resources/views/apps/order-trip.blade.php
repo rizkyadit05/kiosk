@@ -12,7 +12,7 @@
             <p id="otmAddress">{{ $address }}</p>
           </div>
           <div class="margin-1 margin-top-3">
-            <p id="otmPrice">IDR 2000 - IDR 30000</p>
+            <p id="otmPrice"></p>
             <p id="otmDesc">(Price may vary due to personal/shared trip and type of car)</p>
           </div>
           <hr style="background-color: black; height: 4px;">
@@ -37,7 +37,7 @@
                   <option value="2">2</option>
                   <option value="1">1</option>
                 </select>
-                <span style="font-size: 1.5vw;" id="sharedTripCountImg" class="inline glyphicon glyphicon-chevron-up" aria-hidden="true"></span>            
+<!--                 <span style="font-size: 1.5vw;" id="sharedTripCountImg" class="inline glyphicon glyphicon-chevron-up" aria-hidden="true"></span>   -->          
               </div>
             </div>
           </div>
@@ -52,7 +52,7 @@
               <div class="platinumBoxDesc text-center">
                 <b><p class="margin-bot-0">Platinum</p></b>
                 <p class="margin-bot-0">(Alphard, Vellfire)</p>
-                <b><p class="margin-bot-0" id="platinumPrice">IDR 54.000</p></b>
+                <b><p class="margin-bot-0" id="platinumPrice"></p></b>
               </div>
             </div>
             <input type="radio" id="platinumRadio" onclick="setCar('platinum')"  value="platinum" style="margin-left: 50%;" checked="">
@@ -62,7 +62,7 @@
               <div class="goldBoxDesc text-center">
                 <b><p class="margin-bot-0">Gold</p></b>
                 <p class="margin-bot-0">(Terrios, Inova)</p>
-                <b><p class="margin-bot-0" id="goldPrice">IDR 36.000</p></b>
+                <b><p class="margin-bot-0" id="goldPrice"></p></b>
               </div>
             </div>
             <input type="radio" id="goldRadio" onclick="setCar('gold')" value="gold" style="margin-left: 50%;">
@@ -72,13 +72,13 @@
               <div class="silverBoxDesc text-center">
                 <b><p class="margin-bot-0">Silver</p></b>
                 <p class="margin-bot-0">(Xenia, Ertiga)</p>
-                <b><p class="margin-bot-0" id="silverPrice">IDR 18.000</p></b>
+                <b><p class="margin-bot-0" id="silverPrice"></p></b>
               </div>
             </div>
             <input type="radio" id="silverRadio" onclick="setCar('silver')" value="silver" style="margin-left: 50%;">            
             </div>                    
           <div class="col-md-12">
-            <button type="submit" class="btn btn-order"><b><p id="tripPriceBtn">IDR 18.000</p></b><b><p>ORDER NOW</p></b></button>
+            <button type="submit" class="btn btn-order"><b><p id="tripPriceBtn"></p></b><b><p>ORDER NOW</p></b></button>
           </div>        
         </div>
       </div>
@@ -121,6 +121,7 @@
 
     </script>
     <script type="text/javascript">
+
      $(function(){
         var active = document.getElementById('rideFlag').value;
         // alert(active);
@@ -136,6 +137,32 @@
           $('.otmCircleLeft').css('background-color', '#ccc7c4');
           $('.otmCircleRight').css('background-color', 'black');        
         }
+
+        //This line of codes below, are used to change format of number to price format
+        var otmPrice = document.getElementById('otmPrice');
+        var platinumPrice = document.getElementById('platinumPrice');
+        var goldPrice = document.getElementById('goldPrice');
+        var silverPrice = document.getElementById('silverPrice');
+        var tripPriceBtn = document.getElementById('tripPriceBtn');
+
+        //Throw your php variable below
+        var otmPricePHP = '1000';
+        var otmPricePHP2 = '56000';
+        var platinumPricePHP = '56000';
+        var goldPricePHP = '36000';
+        var silverPricePHP = '16000';
+
+        otmPricePHP = otmPricePHP.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1.");
+        otmPricePHP2 = otmPricePHP2.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1.");
+        platinumPricePHP = platinumPricePHP.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1.");
+        goldPricePHP = goldPricePHP.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1.");
+        silverPricePHP = silverPricePHP.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1.");
+        // alert(otmPrice.innerHTML);
+        otmPrice.innerHTML = "IDR " + otmPricePHP + " - " + "IDR " + otmPricePHP2;
+        platinumPrice.innerHTML = "IDR " + platinumPricePHP;
+        goldPrice.innerHTML = "IDR " + goldPricePHP;
+        silverPrice.innerHTML = "IDR " + silverPricePHP;
+        tripPriceBtn.innerHTML = "IDR " + platinumPricePHP;
       });
 
      function setRide(selected){

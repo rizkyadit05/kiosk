@@ -1,19 +1,35 @@
 @extends('layout/default')
 @section('content')
 <div class="row">
-  <div id="popUp" class="hidden margin-bot-0" role="alert">
+  <input type="hidden" name="questionFlag" id="questionFlag" value="none">
+<!--   <div id="popUp" class="hidden margin-bot-0" role="alert">
     <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
     <strong>Success!</strong> <p id="PUText"></p>
-  </div>
+  </div> -->
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">Lets GO</h4>
+      </div>
+      <div class="modal-body">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
 </div>
 <div id="wrapper" class="row fullHeight">
   <div id="over_map" class="col-md-12">
     <div class="row">
       <div class="col-md-12 homeHead">
         <div class='parent'>
-          <div class='buttonLWrapper'><button class="btn" id="poolpoint" onclick="poolpoint()"><b>To Pool Point</b></button></div>
+          <div class='buttonLWrapper'><div class="btn" id="poolpoint" onclick="poolpoint()"><b>To Pool Point</b><span style="font-size: 2vw; margin-left: 10%;" onclick="questionFlag('pool')" class="glyphicon glyphicon-info-sign"></span></div></div>
           <div class='betweenWrapper'> <hr class="between"></div>
-          <div class='buttonRWrapper'><button class="btn" id="anywhere" onclick="anywhere()"><b>To Anywhere</b></button></div>
+          <div class='buttonRWrapper'><div class="btn" id="anywhere" onclick="anywhere()"><b>To Anywhere</b><span style="font-size: 2vw; margin-left: 10%;" onclick="questionFlag('any')" class="glyphicon glyphicon-info-sign"></span></div></div>
         </div>
         <form method="post" action="{{ url('order') }}" id="homeForm">
           <input type="hidden" name="_token" value="{{csrf_token()}}">
@@ -38,42 +54,75 @@
         var invFlag = "{{ $invFlag }}";
 
         if(invFlag == 'ok'){
-          var popUp = document.getElementById('popUp');
-          var PUText = document.getElementById('PUText');
+          // var popUp = document.getElementById('popUp');
+          // var PUText = document.getElementById('PUText');
 
-          popUp.className += " alert alert-success alert-dismissible";
-          PUText.innerHTML = "Please take the ticket and complete the payment!";
-          popUp.classList.remove('hidden');
+          // popUp.className += " alert alert-success alert-dismissible";
+          // PUText.innerHTML = "Please take the ticket and complete the payment!";
+          // popUp.classList.remove('hidden');
+          $('.modal-body').html('<p>Thank You!</p><p>Please take the ticket and complete the payment!</p>');
+          $('#myModal').modal('show');
         }
 
-        else if(invFlag == 'cancel'){
-          var popUp = document.getElementById('popUp');
-          var PUText = document.getElementById('PUText');
+        // else if(invFlag == 'cancel'){
+        //   var popUp = document.getElementById('popUp');
+        //   var PUText = document.getElementById('PUText');
 
-          popUp.className += " alert alert-success alert-dismissible";
-          PUText.innerHTML = "Order canceled, Thank You!";
-          popUp.classList.remove('hidden');
-        }
+        //   popUp.className += " alert alert-success alert-dismissible";
+        //   PUText.innerHTML = "Order canceled, Thank You!";
+        //   popUp.classList.remove('hidden');
+        // }
 
         $('#poolORAny').val('poolpoint');
       });
 
+      function questionFlag(bool){
+        document.getElementById('questionFlag').value = "in use";
+
+        if(bool == "pool"){
+          $('.modal-body').html('<p>This is poolpoint</p>');
+          $('#myModal').modal('show');
+        }
+        
+        else{
+          $('.modal-body').html('<p>This is anywhere</p>');
+          $('#myModal').modal('show');
+        }
+      }
+
       function poolpoint(){
-      	var btn = document.getElementById("poolpoint");
-      	var btn2 = document.getElementById("anywhere");
-        var poolORAny = document.getElementById('poolORAny');
-      	btn2.style.backgroundColor = '#acb0b7';
-      	btn.style.backgroundColor = '#f2961c';
-        poolORAny.value = 'poolpoint';
+
+        var bool = document.getElementById('questionFlag').value;
+
+        if(bool == "none"){
+          var btn = document.getElementById("poolpoint");
+          var btn2 = document.getElementById("anywhere");
+          var poolORAny = document.getElementById('poolORAny');
+          btn2.style.backgroundColor = '#acb0b7';
+          btn.style.backgroundColor = '#f2961c';
+          poolORAny.value = 'poolpoint';
+        }
+
+        else
+          document.getElementById('questionFlag').value = "none";
       }
 
       function anywhere(){
-      	var btn = document.getElementById("poolpoint");
-      	var btn2 = document.getElementById("anywhere");
-        var poolORAny = document.getElementById('poolORAny');
-      	btn.style.backgroundColor = '#acb0b7';
-      	btn2.style.backgroundColor = '#f2961c';
-        poolORAny.value = 'anywhere';
+
+        var bool = document.getElementById('questionFlag').value;
+
+        if(bool == "none"){
+          var btn = document.getElementById("poolpoint");
+          var btn2 = document.getElementById("anywhere");
+          var poolORAny = document.getElementById('poolORAny');
+          btn.style.backgroundColor = '#acb0b7';
+          btn2.style.backgroundColor = '#f2961c';
+          poolORAny.value = 'anywhere';
+        }
+
+        else{
+          document.getElementById('questionFlag').value = "none";
+        }
       }
 
       function cleanURL(link){

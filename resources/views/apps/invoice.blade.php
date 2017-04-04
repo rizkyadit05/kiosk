@@ -35,8 +35,8 @@
 			<form method="post" action="{{ url('post-inv-ok') }}">
 				<input type="hidden" name="_token" value="{{csrf_token()}}">
 				<div class="col-md-10 col-md-offset-1 layout-btn-invoice">
-					<button formaction="{{ url('post-inv-cancel') }}" class="btn confirm pull-left text-3 width-40 round-border" style="background-color: #ccc7c4;"><b>CANCEL</b></button>
-					<button class="btn confirm pull-right text-3 width-40 round-border" style="background-color: #f2961c;"><b>OK</b></button>
+<!-- 					<button formaction="{{ url('post-inv-cancel') }}" class="btn confirm pull-left text-3 width-40 round-border" style="background-color: #ccc7c4;"><b>CANCEL</b></button> -->
+					<button class="btn confirm text-3 width-40 round-border" style="background-color: #f2961c; margin-left: 30%;"><b>OK</b></button>
 				</div>				
 			</form>
 		</div>
