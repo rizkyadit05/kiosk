@@ -794,3 +794,11 @@ table.table {
 	margin-left: 65%;
 	border-radius: 10px;
 }
+
+.gPlay{
+	width: 100%;
+}
+
+@media only screen and (max-width: 880px){
+	.gPlay{ width: 30% !important; }
+}

@@ -245,7 +245,7 @@
 	<div class="footer-right">
 
 		<p style="margin-left: 15px;">Download</p>
-		<a href="#"><img style="width: 100%;" src="{{ asset('assets/images/gplay.png') }}"></a>
+		<a href="#"><img class="gPlay" style="" src="{{ asset('assets/images/gplay.png') }}"></a>
 		
 
 		<div class="footer-icons" style="margin-left: 15px;">
