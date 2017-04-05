@@ -84,8 +84,8 @@
       </div>
     </div>
   </div>
-  <a class="left carousel-control opacity-0" href="#myCarousel" data-slide="prev"></a> 
-  <a class="right carousel-control opacity-0" href="#myCarousel" data-slide="next"></a> 
+  <a class="left carousel-control opacity-0" style="width: 5%;" href="#myCarousel" data-slide="prev"></a> 
+  <a class="right carousel-control opacity-0" style="width: 5%;" href="#myCarousel" data-slide="next"></a> 
  </div>
  <div class="container-fluid">
 	 <div class="row" style="margin-top: 3%; margin-bottom: 3%;">
@@ -258,6 +258,11 @@
 	</div>
 
 </footer>
+<div class="row" style="background-color: #000000;">
+	<div class="col-md-12">
+		<p class="text-2 text-center" style="color: #ffffff;"><b>Copyright &copy; 2017 Let's Go Inc. All rights reserved.</b></p>
+	</div>
+</div>
 <script type="text/javascript">
 function initAutocomplete() {
     var uluru = {lat: -25.363, lng: 131.044};
