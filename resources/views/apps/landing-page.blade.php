@@ -359,7 +359,7 @@ function getRoute() {
             var distance = response.rows[0].elements[0].distance.value;
             var duration = response.rows[0].elements[0].duration.value;
 
-            $('#priceEstimate').text("IDR "+distance);
+            $('#priceEstimate b').text("IDR "+distance);
             $('#priceEstimate').removeClass("hidden");
         } else {
             alert("Unable to find the distance via road.");
