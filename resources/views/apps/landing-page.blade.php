@@ -93,7 +93,7 @@
 	 	<div class="col-md-6">
 	 		<img class="" style="width: 50%; margin-left: 20%;" src="{{ asset('assets/images/taxi-cab.png') }}">
 	 	</div>
-	 	<div class="col-md-6" style="padding: 1%; font-size: 1.5vw;">
+	 	<div class="col-md-6 whatIS">
  			"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
 	 	</div>
 	 </div>
@@ -136,13 +136,13 @@
 			 </div>
 	 	</div>
 	 	<div class="col-md-6" style="padding: 5%;">
-	 		<ol style="font-size: 1.5vw;">
-	 			<li>Lorem lorem lorem</li>
-	 			<li>Lorem lorem lorem</li>
-	 			<li>Lorem lorem lorem</li>
-	 			<li>Lorem lorem lorem</li>
-	 			<li>Lorem lorem lorem</li>
-	 		</ol>
+	 		<ul class="howTO" style="">
+	 			<li>1. Lorem lorem lorem</li>
+	 			<li>2. Lorem lorem lorem</li>
+	 			<li>3. Lorem lorem lorem</li>
+	 			<li>4. Lorem lorem lorem</li>
+	 			<li>5. Lorem lorem lorem</li>
+	 		</ul>
 	 	</div>
 	 </div>
 	 <div class="row" style="margin-top: 3%; margin-bottom: 3%;">
@@ -188,17 +188,29 @@
 	  <p><a class="btn btn-lg" href="#" role="button" style="color: #000000;"><b>Baca Cerita</b>   <span class="glyphicon glyphicon-chevron-right"></span></a></p>		
 	</div>
 </div>
-<div class="row" style="background-color: #f2f3f3; margin-bottom: 3%;">
+<div class="row" style="background-color: #f2f3f3;">
 	<div class="col-md-6">
 		<h1 class="text-center" style="color: #202b5c; margin-bottom: 5%;">ESTIMASI HARGA</h1>
-		<form action="javascript:getRoute();">
-	        <input class="landOrigins" placeholder="Ketik Lokasi Anda" type="text" id="landOrigins" value="" required="">
-	        <input class="landDestination" placeholder="Ketik Lokasi Tujuan Anda" type="text" id="landDestination" value="" required="">	
-	        <button type="submit" class="btn btn-lg btn-jmb"><b>Lihat Harga</b></button>
+		<form class="form-horizontal" action="javascript:getRoute();">
+			<div class="form-group">
+				<div class="col-md-11 col-md-offset-1">
+					<input class="landOrigins" placeholder="Ketik Lokasi Anda" type="text" id="landOrigins" value="" required="">
+				</div>
+			</div>
+	        <div class="form-group">
+	        	<div class="col-md-11 col-md-offset-1">
+	        		<input class="landDestination" placeholder="Ketik Lokasi Tujuan Anda" type="text" id="landDestination" value="" required="">
+	        	</div>
+	        </div> 
+	        <div class="form-group">
+		        <div class="col-md-12">
+		        	<button type="submit" class="btn btn-lg btn-jmb"><b>Lihat Harga</b></button>
+		        </div>
+	        </div>
 	        <p id="priceEstimate" class="text-3 text-center hidden"><b></b></p>
 		</form>
 	</div>
-	<div class="col-md-6" style="height: 50vh">
+	<div class="col-md-6" style="height: 50vh; padding: 30px;">
 		<div id="mapLand"></div>
 	</div>
 </div>
@@ -270,6 +282,30 @@ function initAutocomplete() {
       center: uluru,
       zoom:17
     });
+
+// Try HTML5 geolocation.
+if (navigator.geolocation) {
+  navigator.geolocation.getCurrentPosition(function(position) {
+    var pos = {
+      lat: position.coords.latitude,
+      lng: position.coords.longitude
+    };
+    
+    // infoWindow.setPosition(pos);
+    // infoWindow.setContent('Location found.');\
+    var marker = new google.maps.Marker({
+      position: pos,
+      map: map
+    });
+    
+    map.setCenter(pos);
+  }, function() {
+    handleLocationError(true, map.getCenter());
+  });
+} else {
+  // Browser doesn't support Geolocation
+  handleLocationError(false, map.getCenter());
+}
   }
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA8gA9tWFieGusrRmLqpdDhcPwpTBiWM8M&js?sensor=false&libraries=places&callback=initAutocomplete"></script>

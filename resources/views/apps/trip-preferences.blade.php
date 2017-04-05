@@ -38,9 +38,10 @@
 					<table id="tpd-table" class="table text-center" cellspacing="0" width="100%">
 						<thead>
 							<tr>
-								<th class="text-center" style="padding-left: 7%;"><b>ID TRIP</b></th>
+								<th class="text-center" style="padding-left: 7%;"><b>ID</b></th>
 								<th class="text-center"><b>PRICE</b></th>
 								<th class="text-center"><b>QUOTA</b></th>
+								<th class="text-center" id="choose"><b>Action</b></th>
 								<th class="hidden">FAKE</th>
 							</tr>
 						</thead>
@@ -49,6 +50,7 @@
 								<th class="text-center" style="padding-left: 7%;"><b>ID TRIP</b></th>
 								<th class="text-center"><b>PRICE</b></th>
 								<th class="text-center"><b>QUOTA</b></th>
+								<th class="text-center"><b>Action</b></th>
 								<th class="hidden">FAKE</th>
 							</tr>
 						</tfoot>
@@ -61,6 +63,7 @@
 								<td>1</td>
 								<td><img alt="Down" src="{{ asset('assets/images/d.png') }}"> IDR 21.000</td>
 								<td>4/6</td>
+								<td><button class="btn btn-primary">Choose</button></td>
 								<td class="hidden">FAKE</td>
 							</form>
 							</tr>	
@@ -72,6 +75,7 @@
 								<td>2</td>
 								<td><img alt="Down" src="{{ asset('assets/images/d.png') }}"> IDR 41.000</td>
 								<td>4/8</td>
+								<td><button class="btn btn-primary">Choose</button></td>
 								<td class="hidden">FAKE</td>
 							</form>
 							</tr>
@@ -83,6 +87,7 @@
 								<td>3</td>
 								<td><img alt="Down" src="{{ asset('assets/images/d.png') }}"> IDR 41.000</td>
 								<td>4/8</td>
+								<td><button class="btn btn-primary">Choose</button></td>
 								<td class="hidden">FAKE</td>
 							</form>
 							</tr>
@@ -94,6 +99,7 @@
 								<td>4</td>
 								<td><img alt="Down" src="{{ asset('assets/images/d.png') }}"> IDR 41.000</td>
 								<td>4/8</td>
+								<td><button class="btn btn-primary">Choose</button></td>
 								<td class="hidden">FAKE</td>
 							</form>
 							</tr>
@@ -105,6 +111,7 @@
 								<td>5</td>
 								<td><img alt="Down" src="{{ asset('assets/images/d.png') }}"> IDR 41.000</td>
 								<td>4/8</td>
+								<td><button class="btn btn-primary">Choose</button></td>
 								<td class="hidden">FAKE</td>
 							</form>
 							</tr>							
@@ -172,8 +179,13 @@
     $('#tpd-table').DataTable( {
         "order": [[ 3, "desc" ]],
         "aLengthMenu": [[5, 50, 75, -1], [25, 50, 75, "All"]],
-    	"pageLength": 5
+    	"pageLength": 5,
+    	"columnDefs": [
+		   { "orderable": false, "targets": 3 }
+		 ]
     });
+
+    $("#choose").removeClass("sorting_desc");
 
     $("label").remove();
 

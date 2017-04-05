@@ -382,6 +382,7 @@ table.table {
 	background-repeat: no-repeat;
 	background-size: 100px 60px;
 	background-position: 8vw, right;
+	padding-top: 18px;
 }
 
 #poolpoint b{
@@ -398,6 +399,7 @@ table.table {
 	background-repeat: no-repeat;
 	background-size: 100px 60px;
 	background-position: 8vw;
+	padding-top: 18px;
 }
 
 #anywhere b{
@@ -684,6 +686,24 @@ table.table {
 	#headerMenu{
 		height: 200px !important;
 	}
+
+	#anywhere{
+		padding-top: 0;
+	}
+	
+	#anywhere span{
+		font-size: 1.8vw !important;
+		margin-top: 10px;
+	}
+
+	#poolpoint{
+		padding-top: 0;
+	}
+
+	#poolpoint span{
+		font-size: 1.8vw !important;
+		margin-top: 10px;
+	}
 }
 
 @media only screen and (min-height: 780px) and (max-height: 1461px){
@@ -740,13 +760,11 @@ table.table {
 }
 
 #mapLand{
-	height: 90%;
-	top: 5vh;
+	height: 100%;
 }
 
 .landOrigins{
-	width: 80%;
-	margin-left: 5%;
+	width: 100%;
 	margin-bottom: 3%;
     padding: 12px 20px;
     box-sizing: border-box;
@@ -755,8 +773,7 @@ table.table {
 }
 
 .landDestination{
-	width: 80%;
-	margin-left: 5%;
+	width: 100%;
 	padding: 12px 20px;
     box-sizing: border-box;
     border: 2px solid black;
@@ -790,8 +807,7 @@ table.table {
 .btn-jmb{
 	background-color: #f59822;
 	color: #000000;
-	margin: 3%;
-	margin-left: 65%;
+	float: right;
 	border-radius: 10px;
 }
 
@@ -799,6 +815,17 @@ table.table {
 	width: 100%;
 }
 
+.howTO{
+	font-size: 2vw; text-align: center; 
+	list-style: none;
+}
+
+.whatIS{
+	padding: 1%; 
+	font-size: 1.5vw;
+}
+
 @media only screen and (max-width: 880px){
 	.gPlay{ width: 30% !important; }
+	.howTO{ font-size: 3vw; }
 }
