@@ -53,4 +53,8 @@ class MainController extends Controller
 		return view('apps/home')
 			->with('invFlag', 'cancel');
 	}
+
+	public function landing_page(){
+		return view('apps/landing-page');
+	}
 }

@@ -102,7 +102,7 @@
       //
 
       function initAutocomplete() {
-        var pos = {lat: {{ $latitude }}, lng: {{ $longitude }}}
+        var pos = {lat: {{ $latitude }}, lng: {{ $longitude }}};
         var map = new google.maps.Map(document.getElementById('map'), {
           center: pos,
           zoom:17,
