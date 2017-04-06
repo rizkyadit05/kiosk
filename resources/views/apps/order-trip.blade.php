@@ -17,19 +17,19 @@
           </div>
           <hr style="background-color: black; height: 4px;">
         </div>
-        <div class="col-md-12">
-          <div class="row margin-2">
+        <div class="col-md-12" style="padding-left: 20%; padding-right: 20%; margin-bottom: 5%;">
+          <div class="row">
             <div class="col-md-2 padding-0" onclick="setRide('personal')">
-              <p class="otmCircleLeftLabel" style="font-size: 1.5vw;">Personal</p>
+              <p class="otmCircleLeftLabel" style="">Personal Trip</p>
               <div class="otmCircleLeft"></div>
             </div>
-            <div class="col-md-8 padding-0">
+            <div class="col-md-7 padding-0">
               <hr class="otmBetween">
             </div>
-            <div class="col-md-2 padding-0" id="sharedRide" onclick="setRide('shared')"">
-              <p style="font-size: 1.5vw;">Shared</p>
+            <div class="col-md-3 padding-0" id="sharedRide" onclick="setRide('shared')"">
+              <p class="otmCircleRightLabel" style="">Shared Trip</p>
               <div class="otmCircleRight"></div>
-              <div class="margin-left-20px" style="font-size: 1.2em;">
+              <div class="margin-left-20px" style="font-size: 1.2em; z-index: 1; position: relative;">
                 <select style="font-size: 1.5vw;" name="sharedTripCount" id="sharedTripCount" class="orderSO">
                   <option value="5">5</option>
                   <option value="4">4</option>

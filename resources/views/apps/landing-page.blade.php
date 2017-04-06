@@ -2,6 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 	<title>Lets GO</title>
+	 <meta name="viewport" content="width=device-width">
 	<!-- CSS -->
 	<link rel="stylesheet" type="text/css" href="{{ asset('assets/css/bootstrap-theme.min.css') }}">
 	<link rel="stylesheet" type="text/css" href="{{ asset('assets/css/bootstrap.min.css') }}">
@@ -182,10 +183,10 @@
 	</div>
 </div>
 <div class="jumbotron">
-	<div class="container">
+	<div class="container cnt-jmb">
 	  <h1>John Titor</h1>
 	  <p>Lorem lorem lorem lorem</p>
-	  <p><a class="btn btn-lg" href="#" role="button" style="color: #000000;"><b>Baca Cerita</b>   <span class="glyphicon glyphicon-chevron-right"></span></a></p>		
+	  <p><a class="btn btn-lg" href="#" role="button" style="color: #000000; font-size: 2vw;"><b>Baca Cerita</b>   <span class="glyphicon glyphicon-chevron-right"></span></a></p>		
 	</div>
 </div>
 <div class="row" style="background-color: #f2f3f3;">
@@ -195,6 +196,11 @@
 			<div class="form-group">
 				<div class="col-md-11 col-md-offset-1">
 					<input class="landOrigins" placeholder="Ketik Lokasi Anda" type="text" id="landOrigins" value="" required="">
+				</div>
+			</div>
+			<div class="line">
+				<div class="col-md-12">
+					<img style="" src="{{ asset('assets/images/line.png') }}">
 				</div>
 			</div>
 	        <div class="form-group">

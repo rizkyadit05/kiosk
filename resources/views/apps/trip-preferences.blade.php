@@ -63,7 +63,7 @@
 								<td>1</td>
 								<td><img alt="Down" src="{{ asset('assets/images/d.png') }}"> IDR 21.000</td>
 								<td>4/6</td>
-								<td><button class="btn btn-primary">Choose</button></td>
+								<td><button class="btn btn-org"><b>Choose</b></button></td>
 								<td class="hidden">FAKE</td>
 							</form>
 							</tr>	
@@ -75,7 +75,7 @@
 								<td>2</td>
 								<td><img alt="Down" src="{{ asset('assets/images/d.png') }}"> IDR 41.000</td>
 								<td>4/8</td>
-								<td><button class="btn btn-primary">Choose</button></td>
+								<td><button class="btn btn-org"><b>Choose</b></button></td>
 								<td class="hidden">FAKE</td>
 							</form>
 							</tr>
@@ -87,7 +87,7 @@
 								<td>3</td>
 								<td><img alt="Down" src="{{ asset('assets/images/d.png') }}"> IDR 41.000</td>
 								<td>4/8</td>
-								<td><button class="btn btn-primary">Choose</button></td>
+								<td><button class="btn btn-org"><b>Choose</b></button></td>
 								<td class="hidden">FAKE</td>
 							</form>
 							</tr>
@@ -99,7 +99,7 @@
 								<td>4</td>
 								<td><img alt="Down" src="{{ asset('assets/images/d.png') }}"> IDR 41.000</td>
 								<td>4/8</td>
-								<td><button class="btn btn-primary">Choose</button></td>
+								<td><button class="btn btn-org"><b>Choose</b></button></td>
 								<td class="hidden">FAKE</td>
 							</form>
 							</tr>
@@ -111,7 +111,7 @@
 								<td>5</td>
 								<td><img alt="Down" src="{{ asset('assets/images/d.png') }}"> IDR 41.000</td>
 								<td>4/8</td>
-								<td><button class="btn btn-primary">Choose</button></td>
+								<td><button class="btn btn-org"><b>Choose</b></button></td>
 								<td class="hidden">FAKE</td>
 							</form>
 							</tr>							

@@ -361,14 +361,14 @@ table.table {
 
 .buttonLWrapper{
 	width: 45%;
-	margin: 1%;
+	margin: 10px;
 	margin-left: 3%;
 	margin-right: 0;
 }
 
 .buttonRWrapper{
 	width: 45%;
-	margin: 1%;
+	margin: 10px;
 	margin-right: 3%;
 	margin-left: 0;	
 }
@@ -409,11 +409,11 @@ table.table {
 
 .between {
     border: 3px solid black;
-    margin-top: 100%;
+    margin-top: 80%;
 }
 
 @media only screen and (min-width: 1920px){
-	.between{ margin-top: 70%; }
+	.between{ margin-top: 40px; }
 }
 
 .parent
@@ -455,7 +455,9 @@ table.table {
 }
 
 .otmCircleLeftLabel{
-	margin-left: 33%;
+	margin-left: 19%;
+	font-size: 1.5vw;
+	width: 200px;
 }
 
 .otmCircleLeft{
@@ -468,6 +470,8 @@ table.table {
 	background-position: center;
 	background-color: #ccc7c4;
 	margin-left: 33%;
+	z-index: 1;
+	position: relative;
 }
 
 .otmCircleRight{
@@ -479,11 +483,24 @@ table.table {
 	background-size: 50px 50px;
 	background-position: center;
 	background-color: black;
+	z-index: 1;
+	position: relative;
+}
+
+.otmCircleRightLabel{
+	font-size: 1.5vw; 
+	margin-left: -8%;
+}
+
+@media only screen and (max-width: 1000px){
+	.otmCircleRightLabel{ margin-left: 0; }
 }
 
 .otmBetween{
 	border: 2px solid #ccc7c4;
-	margin-top: 17%;
+	margin: 0;
+	margin-bottom: 5%;
+	margin-top: 27%;
 }
 
 .orderBottomMenu{
@@ -575,6 +592,10 @@ table.table {
 	.confirm { width: 100%; }
 }
 
+.btn-org{
+	background-color: #f59822;
+}
+
 /*@media only screen and (min-width: 560px){
 	.text-1{
 		font-size: 1vw;
@@ -637,13 +658,17 @@ table.table {
 
 @media only screen and (min-width: 2160px) and (min-height: 1462px){
 	.otmBetween{
-		margin-top: 17%;
+		margin-top: 27%;
 	}
 
 	.otmCircleLeft{
 		width: 130px;
 		height: 130px;
 		background-size: 100px 100px;
+	}
+
+	.otmCircleLeftLabel{
+		width: 300px;
 	}
 
 	.otmCircleRight{
@@ -766,18 +791,20 @@ table.table {
 .landOrigins{
 	width: 100%;
 	margin-bottom: 3%;
-    padding: 12px 20px;
+    padding: 12px 40px;
     box-sizing: border-box;
     border: 2px solid black;
     border-radius: 15px;
+    font-size: 2vw;
 }
 
 .landDestination{
 	width: 100%;
-	padding: 12px 20px;
+	padding: 12px 40px;
     box-sizing: border-box;
     border: 2px solid black;
     border-radius: 15px;
+    font-size: 2vw;
 }
 
 .logoFooter{
@@ -802,6 +829,7 @@ table.table {
 .carousel-caption p a{
 	background-color: #f59822;
 	color: #000000;
+	font-size: 2vw;
 }
 
 .btn-jmb{
@@ -809,6 +837,7 @@ table.table {
 	color: #000000;
 	float: right;
 	border-radius: 10px;
+	font-size: 2vw;
 }
 
 .gPlay{
@@ -825,7 +854,29 @@ table.table {
 	font-size: 2vw;
 }
 
+.line{
+	z-index: 1;
+	position: absolute;
+}
+
+.line img{
+	height: 100px;
+	margin-top: -70px;
+	margin-left: 60px;
+}
+
 @media only screen and (max-width: 880px){
-	.gPlay{ width: 30% !important; }
-	.howTO{ font-size: 3vw; }
+	.gPlay { width: 40% !important; }
+	.howTO { font-size: 3vw; }
+	.line img { margin-left: 5px; }
+}
+
+@media only screen and (min-width: 2160px){
+	.gPlay { width: 40% !important; }
+	.cnt-jmb{ margin-left: 10%; }
+	.line img { 
+		height: 200px;
+		margin-top: -120px;
+		margin-left: 100px;
+	}
 }
