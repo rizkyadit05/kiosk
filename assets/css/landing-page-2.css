@@ -17,7 +17,7 @@
 
 .nav-ri-txt{
 	color: #00579b !important;
-	font-size: 1.5vw;
+	font-size: 1.5em;
 }
 
 .carousel-caption {
@@ -42,8 +42,9 @@
 }
 
 .tryIphone{
-	width: 200px;
-	height: 600px;
+	width: 20vw;
+	height: 40vw;
+	margin-left: 35%;
 	background-size: 100% 100%;
 	background-repeat: no-repeat;	
 	background-image: url('../images/landing-page-2/iphone_6_port_gold.png');

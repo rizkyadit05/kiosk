@@ -46,7 +46,7 @@
     </div>
     <!-- /.container -->
 </nav>
-<div id="myCarousel" class="carousel slide" data-ride="carousel"> 
+<div id="myCarousel" class="carousel slide" data-ride="carousel" style="width: 100%;"> 
   <!-- Indicators -->
 <!--   <ol class="carousel-indicators">
     <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
@@ -91,9 +91,9 @@
   <a class="left carousel-control opacity-0" style="width: 5%;" href="#myCarousel" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a> 
   <a class="right carousel-control opacity-0" style="width: 5%;" href="#myCarousel" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a> 
  </div>
- <div class="container">
+ <div class="container-fluid">
  	<div class="row">
- 		<div class="col-md-1 tryIphone" style="width: 300px; margin-left: 40%;">
+ 		<div class="col-md-1 tryIphone">
  			<div class="inner-try">
 				<div id="myCarousel2" class="carousel slide"  style="height: 100%;"> 
 				  <div class="carousel-inner" style="height: 100%;">
