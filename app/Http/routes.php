@@ -37,6 +37,10 @@ Route::get('random', function(){
 	return view('random');
 });
 
+Route::get('landing-page-2', function(){
+	return view('apps/landing-page-2');
+});
+
 Route::get('trip-preferences', function(){
 	return view('apps/trip-preferences');
 });

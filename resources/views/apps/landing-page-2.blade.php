@@ -2,11 +2,10 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 	<title>Lets GO</title>
-	 <meta name="viewport" content="width=device-width">
+	<meta name="viewport" content="width=device-width">
 	<!-- CSS -->
 	<link rel="stylesheet" type="text/css" href="{{ asset('assets/css/bootstrap-theme.min.css') }}">
 	<link rel="stylesheet" type="text/css" href="{{ asset('assets/css/bootstrap.min.css') }}">
-	<link rel="stylesheet" type="text/css" href="{{ asset('assets/css/custom.css') }}">
 	<link rel="stylesheet" type="text/css" href="{{ asset('assets/css/landing-page-2.css') }}">
 	<link rel="stylesheet" type="text/css" href="{{ asset('assets/css/logo-nav.css') }}">
 	<!-- CSS Footer -->
@@ -36,13 +35,10 @@
         <div class="navbar-collapse collapse" id="bs-example-navbar-collapse-1" aria-expanded="false" style="height: 1px;">
             <ul class="nav navbar-nav navbar-right">
                 <li>
-                    <a class="nav-ri-txt nav-ri-border" href="#"><b>Gabung dengan Let's Go</b></a>
+                    <a class="nav-ri-txt" href="#"><b>Login</b></a>
                 </li>
                 <li>
-                    <a class="nav-ri-txt" href="#">Login</a>
-                </li>
-                <li>
-                    <a class="nav-ri-txt" href="#">Bantuan</a>
+                    <a class="nav-ri-txt" href="#"><b>Bantuan</b></a>
                 </li>
             </ul>
         </div>
@@ -52,42 +48,48 @@
 </nav>
 <div id="myCarousel" class="carousel slide" data-ride="carousel"> 
   <!-- Indicators -->
-  <ol class="carousel-indicators">
+<!--   <ol class="carousel-indicators">
     <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
     <li data-target="#myCarousel" data-slide-to="1"></li>
     <li data-target="#myCarousel" data-slide-to="2"></li>
-  </ol>
+  </ol> -->
   <div class="carousel-inner">
-    <div class="item active"> <img src="http://lorempixel.com/1200/500/sports" style="width:100%" alt="First slide">
+    <div class="item active"> <img src="{{ asset('assets/images/landing-page-2/pexels-photo.jpg') }}" style="width:100%" alt="First slide">
       <div class="container">
         <div class="carousel-caption">
-          <p class="text-4">Dapatkan voucher</p>
-          <p class="text-4">IDR 100.000</p>
-          <p><a class="btn btn-lg" href="#" role="button"><b>Info Lanjut</b></a></p>
+          <p class="text-3"><b>WE ARE THE BEST</b></p>
+          <p class="text-3"><b>ONE SOLUTION</b></p>
+          <hr class="caro-top-hr">
+          <p class="text-1-8">Lorem lorem lorem</p>
+          <p><a class="btn btn-primary" href="#" role="button"><b>GABUNG SEKARANG</b></a></p>
         </div>
       </div>
     </div>
-    <div class="item"> <img src="http://lorempixel.com/1200/500/people" style="width:100%" data-src="" alt="Second    slide">
+    <div class="item"> <img src="{{ asset('assets/images/landing-page-2/pexels-photo.jpg') }}" style="width:100%" alt="Second slide">
       <div class="container">
         <div class="carousel-caption">
-          <p class="text-4">Dapatkan voucher</p>
-          <p class="text-4">IDR 100.000</p>
-          <p><a class="btn btn-lg" href="#" role="button"><b>Info Lanjut</b></a></p>
+          <p class="text-3"><b>WE ARE THE BEST</b></p>
+          <p class="text-3"><b>ONE SOLUTION</b></p>
+          <hr class="caro-top-hr">
+          <p class="text-1-8">Lorem lorem lorem</p>
+          <p><a class="btn btn-primary" href="#" role="button"><b>GABUNG SEKARANG</b></a></p>
         </div>
       </div>
     </div>
-    <div class="item"> <img src="http://lorempixel.com/1200/500/abstract" style="width:100%" data-src="" alt="Third slide">
+    <div class="item"> <img src="{{ asset('assets/images/landing-page-2/pexels-photo.jpg') }}" style="width:100%" alt="Third slide">
       <div class="container">
         <div class="carousel-caption">
-          <p class="text-4">Dapatkan voucher</p>
-          <p class="text-4">IDR 100.000</p>
-          <p><a class="btn btn-lg" href="#" role="button"><b>Info Lanjut</b></a></p>
+          <p class="text-3"><b>WE ARE THE BEST</b></p>
+          <p class="text-3"><b>ONE SOLUTION</b></p>
+          <hr class="caro-top-hr">
+          <p class="text-1-8">Lorem lorem lorem</p>
+          <p><a class="btn btn-primary" href="#" role="button"><b>GABUNG SEKARANG</b></a></p>
         </div>
       </div>
-    </div>
+    </div>    
   </div>
-  <a class="left carousel-control opacity-0" style="width: 5%;" href="#myCarousel" data-slide="prev"></a> 
-  <a class="right carousel-control opacity-0" style="width: 5%;" href="#myCarousel" data-slide="next"></a> 
+  <a class="left carousel-control opacity-0" style="width: 5%;" href="#myCarousel" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a> 
+  <a class="right carousel-control opacity-0" style="width: 5%;" href="#myCarousel" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a> 
  </div>
  <div class="container">
  	<div class="row">

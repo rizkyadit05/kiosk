@@ -1,0 +1,62 @@
+.margin-top-2{
+	margin-top: 2%;
+}
+
+.text-1-8{
+	font-size: 1.8vw;
+}
+
+.text-3{
+	font-size: 3vw;
+}
+
+.navbar-default {
+    background-color: white !important;
+    border-color: white !important;
+}
+
+.nav-ri-txt{
+	color: #00579b !important;
+	font-size: 1.5vw;
+}
+
+.carousel-caption {
+    top: 35%;
+    left: 10%;
+    right: auto;
+    text-align: left;
+}
+
+.carousel-caption p a{
+	color: #ffffff;
+	font-size: 1.3vw;
+	margin-top: 30px;
+	padding: 10px 20px 10px 20px;
+}
+
+.caro-top-hr{
+	border: 2px solid white;
+	width: 30%;
+	margin-left: 0;
+	margin-bottom: 40px;
+}
+
+.tryIphone{
+	width: 200px;
+	height: 600px;
+	background-size: 100% 100%;
+	background-repeat: no-repeat;	
+	background-image: url('../images/landing-page-2/iphone_6_port_gold.png');
+	position: absolute;
+	z-index: 1;
+}
+
+.inner-try{
+	position: absolute;
+	z-index: 1;
+	top:    12.5%;
+	bottom: 12.5%;
+	left:   7%;
+	right:  7%;
+	overflow: hidden;
+}
