@@ -33,6 +33,10 @@ Route::get('landing-page', 'MainController@landing_page');
 // 	return view('apps/order-trip');
 // });
 
+Route::get('random', function(){
+	return view('random');
+});
+
 Route::get('trip-preferences', function(){
 	return view('apps/trip-preferences');
 });

@@ -10,11 +10,11 @@
 	<link rel="stylesheet" type="text/css" href="{{ asset('assets/css/logo-nav.css') }}">
 	<!-- CSS Footer -->
 	<link rel="stylesheet" href="{{ asset('assets/css/footer-distributed-with-address-and-phones.css') }}">
-	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="{{ asset('assets/fonts/font-awesome/css/font-awesome.min.css') }}">
+	<link href="{{ asset('assets/css/jquerysctipttop.css') }}" rel="stylesheet" type="text/css">
 	<!-- Javascript -->
 	<script src="{{ asset('assets/js/jquery.min.js') }}" type="text/javascript"></script>
 	<script src="{{ asset('assets/js/bootstrap.min.js') }}" type="text/javascript"></script>
-	<link href="http://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
 </head>
 <body class="fullHeight" style="background-color: white;">
 <nav class="navbar navbar-default	 navbar-fixed-top" role="navigation" style="background-color: white;">

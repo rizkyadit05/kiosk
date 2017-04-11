@@ -33,6 +33,24 @@
             .title {
                 font-size: 96px;
             }
+            .twocolordiv  {
+                position: absolute;
+                z-index: 1;
+                background: green;
+                width:500px;
+                height:100px;
+            }
+
+            .twocolordiv:before {
+                content: "";
+                position: absolute;
+                z-index: -1;
+                top: 0;
+                right: 20%;
+                bottom: 0;
+                left: 0;
+                background: red;
+            }
         </style>
     </head>
     <body>
@@ -40,6 +58,7 @@
             <div class="content">
                 <div class="title">Laravel 5</div>
             </div>
+            <div class="twocolordiv"></div>
         </div>
     </body>
 </html>
