@@ -9,9 +9,9 @@
 	<link rel="stylesheet" type="text/css" href="{{ asset('assets/css/landing-page-2.css') }}">
 	<link rel="stylesheet" type="text/css" href="{{ asset('assets/css/logo-nav.css') }}">
 	<!-- CSS Footer -->
-	<link rel="stylesheet" href="{{ asset('assets/css/footer-distributed-with-address-and-phones.css') }}">
+<!-- 	<link rel="stylesheet" href="{{ asset('assets/css/footer-distributed-with-address-and-phones.css') }}">
 	<link rel="stylesheet" href="{{ asset('assets/fonts/font-awesome/css/font-awesome.min.css') }}">
-	<link href="{{ asset('assets/css/jquerysctipttop.css') }}" rel="stylesheet" type="text/css">
+	<link href="{{ asset('assets/css/jquerysctipttop.css') }}" rel="stylesheet" type="text/css"> -->
 	<!-- Javascript -->
 	<script src="{{ asset('assets/js/jquery.min.js') }}" type="text/javascript"></script>
 	<script src="{{ asset('assets/js/bootstrap.min.js') }}" type="text/javascript"></script>
@@ -115,7 +115,7 @@
       </div>
     </div>
     <div class="col-md-12 float-base-bot">  
-      <div class="row">
+      <div class="row fullHeight">
         <div class="col-md-1 iphone">
           <div class="inner-iphone">
             <div id="myCarousel2" class="carousel slide fullHeight"> 
@@ -132,17 +132,84 @@
              </div>
           </div>
         </div>
-        <div class="col-md-6">
-          
+        <div class="col-md-6 col-sm-6 col-xs-6 howTo">
+          <p class="howToTitle"><b>CARA</b></p>
+          <p class="howToTitle"><b>MENGGUNAKAN</b></p>
+          <p style="color: white; font-size: 30px;"><b>LET'S GO</b></p>
+          <hr class="how-to-hr"> 
+          <br>
+          <a href=""><img style="width: 200px;" src="{{ asset('assets/images/landing-page-2/google-play.png') }}"></a>
+          <p></p>
+          <a href=""><img style="width: 200px;" src="{{ asset('assets/images/landing-page-2/app-store.png') }}"></a>          
         </div>
-        <div class="col-md-6 iphone-nav">
+        <div class="col-md-6 col-sm-6 col-xs-6 iphone-nav">
           <ul>
-            <a href="#myCarousel2" data-slide-to="0"><li>HAHA</li></a>
-            <a href="#myCarousel2" data-slide-to="1"><li>HEHE</li></a>
-            <a href="#myCarousel2" data-slide-to="2"><li>HOHO</li></a>
-            <a href="#myCarousel2" data-slide-to="3"><li>HUHU</li></a>
+            <a href="#myCarousel2" data-slide-to="0"><li><p>1. Lorem</p><p>Description</p></li></a>
+            <a href="#myCarousel2" data-slide-to="1"><li><p>2. Lorem</p><p>Description</p></li></a>
+            <a href="#myCarousel2" data-slide-to="2"><li><p>3. Lorem</p><p>Description</p></li></a>
+            <a href="#myCarousel2" data-slide-to="3"><li><p>4. Lorem</p><p>Description</p></li></a>
           </ul>
         </div>           
+      </div>
+    </div>
+    <div class="col-md-12">
+      <div class="text-center">
+        <p>PROMO MENARIK SETIAP HARINYA</p>
+        <p class="text-3"><b>PROMO</b></p>
+      </div>
+      <div class="col-md-3 promo-bot">   
+        <a href="">
+          <img class="img-responsive img-hover" src="{{ asset('assets/images/landing-page-2/pig.jpg') }}">
+          <br>
+          <div class="text-center">
+            <p class="promo-bot-title"><b>LOREM IPSUM</b></p>
+            <p class="promo-bot-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+          </div>
+        </a>
+      </div>
+      <div class="col-md-3">   
+        <a href="">
+          <img class="img-responsive img-hover" src="{{ asset('assets/images/landing-page-2/junk.jpeg') }}">
+          <br>
+          <div class="text-center">
+            <p class="promo-bot-title"><b>LOREM IPSUM</b></p>
+            <p class="promo-bot-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+          </div>
+        </a>  
+      </div>
+      <div class="col-md-3">   
+        <a href="">
+          <img class="img-responsive img-hover" src="{{ asset('assets/images/landing-page-2/food.jpeg') }}">
+          <br>
+          <div class="text-center">
+            <p class="promo-bot-title"><b>LOREM IPSUM</b></p>
+            <p class="promo-bot-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+          </div>          
+        </a>
+      </div>
+      <div class="col-md-3">
+        <a href="">
+          <img class="img-responsive img-hover" src="{{ asset('assets/images/landing-page-2/shoes.jpg') }}">
+          <br>
+          <div class="text-center">
+            <p class="promo-bot-title"><b>LOREM IPSUM</b></p>
+            <p class="promo-bot-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+          </div>          
+        </a>
+      </div>            
+    </div>
+    <div class="col-md-12">
+      <div class="row row-eq-height">
+        <div class="col-md-4">
+          <p>UNTUK MENGENAL KOMUNITAS KAMI</p>
+          <p><b>CERITA MEREKA</b></p>
+          <hr>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+          <button class="btn btn-primary">GABUNG SEKARANG</button>
+        </div>
+        <div class="col-md-8">
+          
+        </div>
       </div>
     </div>
  	</div>
