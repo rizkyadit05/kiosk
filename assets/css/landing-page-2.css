@@ -1,9 +1,21 @@
+.white{
+	color: white;
+}
+
 .margin-top-2{
 	margin-top: 2%;
 }
 
+.text-1-5{
+	font-size: 1.5vw;
+}
+
 .text-1-8{
 	font-size: 1.8vw;
+}
+
+.text-2{
+	font-size: 2vw;
 }
 
 .text-3{
@@ -18,6 +30,10 @@
 .nav-ri-txt{
 	color: #00579b !important;
 	font-size: 1.5em;
+}
+
+#myCarousel{
+	margin-bottom: 100px;
 }
 
 .carousel-caption {
@@ -41,10 +57,102 @@
 	margin-bottom: 40px;
 }
 
-.tryIphone{
-	width: 20vw;
-	height: 40vw;
-	margin-left: 35%;
+.au{
+	margin-bottom: 150px;
+}
+
+.au-title{
+	color: #a5a8af;
+}
+
+.au-hr{
+	border: 2px solid #8faaea;
+	width: 20%;
+	margin-left: 0;
+}
+
+.what-is{
+	font-size: 18px;
+}
+
+.fullHeight{
+	height: 100% !important; 
+}
+
+.fullWidth{
+	width: 100% !important;
+}
+
+.float-base-top{
+	background-image: url('../images/landing-page-2/blue.png');
+	width: 100%;
+	height: 337px;
+}
+
+.fbt-txt{
+	padding: 150px 30px 200px 15px;
+}
+
+.fbt-float-box{
+	position: absolute;
+	z-index: 1;
+	width: 40vw;
+	margin-left: 51%;
+	background: #88b7d5;
+	top: -80px;
+	padding: 20px 20px 20px 20px;
+}
+
+.fbt-float-box p{
+	color: white;
+	font-size: 16px;
+}
+
+.ourMission{
+	font-size: 18px;
+}
+
+.CEO{
+	font-size: 16px;
+}
+
+.fbt-float-box:before {
+	top: 100%;
+	left: 0;
+	border: solid transparent;
+	content: " ";
+	height: 0;
+	width: 0;
+	position: absolute;
+	pointer-events: none;
+    position: absolute;
+    right: 0;
+    border-width: 0 0 20px 20px;
+    border-style: solid;
+    border-color: transparent #88b7d5;
+}
+
+.fbt-float-image{
+	position: absolute;
+	z-index: 1;
+	width: 650px;
+	height: 650px;
+	top: -450px;
+}
+
+.float-base-bot{
+	background-image: url('../images/landing-page-2/background.png');
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+	width: 100%;
+	height: 477px;
+}
+
+.iphone{
+	width: 16vw;
+	height: 32vw;
+	top: 20%;
+	margin-left: 42.5%;
 	background-size: 100% 100%;
 	background-repeat: no-repeat;	
 	background-image: url('../images/landing-page-2/iphone_6_port_gold.png');
@@ -52,7 +160,7 @@
 	z-index: 1;
 }
 
-.inner-try{
+.inner-iphone{
 	position: absolute;
 	z-index: 1;
 	top:    12.5%;
@@ -60,4 +168,46 @@
 	left:   7%;
 	right:  7%;
 	overflow: hidden;
+}
+
+.iphone-nav{
+	top: 200px;
+	left: 200px;
+}
+
+@media only screen and (max-width: 425px){
+	.fbt-float-image{ 
+		position: absolute;
+		z-index: 1;
+		width: 200px;
+		height: 200px;
+		top: -100px;
+	}
+	.fbt-float-box p{ font-size: 10px; }
+	.what-is{
+		font-size: 14px;
+	}	
+}
+
+@media only screen and (max-width: 768px) and (min-width: 426px){
+	.fbt-float-box p{ font-size: 10px; }
+	.fbt-float-image{ 
+		position: absolute;
+		z-index: 1;
+		width: 320px;
+		height: 320px;
+		top: -100px;
+	}
+	.fbt-txt{ margin-left: 380px; }
+}
+
+@media only screen and (max-width: 1024px) and (min-width: 769px){
+	.fbt-float-image{ 
+		position: absolute;
+		z-index: 1;
+		width: 470px;
+		height: 470px;
+		top: -350px;
+	}
+	.fbt-float-box p{ font-size: 12px; }	
 }

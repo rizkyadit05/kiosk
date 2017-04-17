@@ -189,38 +189,40 @@
 	  <p><a class="btn btn-lg" href="#" role="button" style="color: #000000; font-size: 2vw;"><b>Baca Cerita</b>   <span class="glyphicon glyphicon-chevron-right"></span></a></p>		
 	</div>
 </div>
-<div class="row" style="background-color: #f2f3f3;">
-	<div class="col-md-6">
-		<h1 class="text-center" style="color: #202b5c; margin-bottom: 5%;">ESTIMASI HARGA</h1>
-		<form class="form-horizontal" action="javascript:getRoute();">
-			<div class="form-group">
-				<div class="col-md-11 col-md-offset-1">
-					<input class="landOrigins" placeholder="Ketik Lokasi Anda" type="text" id="landOrigins" value="" required="">
+<div class="container-fluid">
+	<div class="row" style="background-color: #f2f3f3;">
+		<div class="col-md-6">
+			<h1 class="text-center" style="color: #202b5c; margin-bottom: 5%;">ESTIMASI HARGA</h1>
+			<form class="form-horizontal" action="javascript:getRoute();">
+				<div class="form-group">
+					<div class="col-md-11 col-md-offset-1">
+						<input class="landOrigins" placeholder="Ketik Lokasi Anda" type="text" id="landOrigins" value="" required="">
+					</div>
 				</div>
-			</div>
-			<div class="line">
-				<div class="col-md-12">
-					<img style="" src="{{ asset('assets/images/line.png') }}">
+				<div class="line">
+					<div class="col-md-12">
+						<img style="" src="{{ asset('assets/images/line.png') }}">
+					</div>
 				</div>
-			</div>
-	        <div class="form-group">
-	        	<div class="col-md-11 col-md-offset-1">
-	        		<input class="landDestination" placeholder="Ketik Lokasi Tujuan Anda" type="text" id="landDestination" value="" required="">
-	        	</div>
-	        </div> 
-	        <div class="form-group">
-		        <div class="col-md-12">
-		        	<button type="submit" class="btn btn-lg btn-jmb"><b>Lihat Harga</b></button>
+		        <div class="form-group">
+		        	<div class="col-md-11 col-md-offset-1">
+		        		<input class="landDestination" placeholder="Ketik Lokasi Tujuan Anda" type="text" id="landDestination" value="" required="">
+		        	</div>
+		        </div> 
+		        <div class="form-group">
+			        <div class="col-md-12">
+			        	<button type="submit" class="btn btn-lg btn-jmb"><b>Lihat Harga</b></button>
+			        </div>
 		        </div>
-	        </div>
-	        <p id="priceEstimate" class="text-3 text-center hidden"><b></b></p>
-		</form>
+		        <p id="priceEstimate" class="text-3 text-center hidden"><b></b></p>
+			</form>
+		</div>
+		<div class="col-md-6" style="height: 50vh; padding: 30px;">
+			<div id="mapLand"></div>
+		</div>
 	</div>
-	<div class="col-md-6" style="height: 50vh; padding: 30px;">
-		<div id="mapLand"></div>
-	</div>
-</div>
-<footer class="footer-distributed">
+	<div class="row">
+<footer class="footer-distributed col-md-12">
 
 	<div class="footer-left">
 
@@ -275,11 +277,13 @@
 
 	</div>
 
-</footer>
+</footer>		
+	</div>
 <div class="row" style="background-color: #000000;">
 	<div class="col-md-12">
 		<p class="text-2 text-center" style="color: #ffffff;"><b>Copyright &copy; 2017 Let's Go Inc. All rights reserved.</b></p>
 	</div>
+</div>
 </div>
 <script type="text/javascript">
 function initAutocomplete() {

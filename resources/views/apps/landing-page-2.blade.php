@@ -93,25 +93,58 @@
  </div>
  <div class="container-fluid">
  	<div class="row">
- 		<div class="col-md-1 tryIphone">
- 			<div class="inner-try">
-				<div id="myCarousel2" class="carousel slide"  style="height: 100%;"> 
-				  <div class="carousel-inner" style="height: 100%;">
-				    <div class="item active" style="height: 100%;"> <img src="{{ asset('assets/images/jmb-bck.jpg') }}" style="width: 100%; height: 100%" alt="First slide">
-				    </div>
-				    <div class="item" style="height: 100%;"> <img src="{{ asset('assets/images/jmb-bck.jpg') }}" style="width: 100%; height: 100%" data-src="" alt="Second slide">
-				    </div>
-				    <div class="item" style="height: 100%;"> <img src="{{ asset('assets/images/jmb-bck.jpg') }}" style="width: 100%; height: 100%" data-src="" alt="Third slide">
-				    </div>
-				  </div>
-				 </div>
- 			</div>
- 		</div>
- 		<div class="col-md-12">
- 			<a href="#myCarousel2" data-slide-to="0">HAHA</a>
- 			<a href="#myCarousel2" data-slide-to="1">HEHE</a>
- 			<a href="#myCarousel2" data-slide-to="2">HOHO</a>
- 		</div>
+    <div class="col-md-5 col-md-offset-6 au">
+      <p class="au-title">TENTANG KAMI</p>
+      <p class="text-3"><b>APA ITU LET'S GO</b></p>
+      <hr class="au-hr">
+      <br>
+      <div class="what-is">
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+      </div>
+    </div>
+    <div class="col-md-12 float-base-top">
+      <div class="row">
+          <img class="fbt-float-image" src="{{ asset('assets/images/landing-page-2/pexels-photo-1.jpg') }}">
+          <div class="fbt-float-box">
+            <p><b>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</b></p>
+          </div>
+        <div class="col-md-5 col-md-offset-6 fbt-txt">
+          <p class="ourMission white"><b>MISI KAMI</b></p>
+          <p class="CEO white">CEO Let's GO</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-12 float-base-bot">  
+      <div class="row">
+        <div class="col-md-1 iphone">
+          <div class="inner-iphone">
+            <div id="myCarousel2" class="carousel slide fullHeight"> 
+              <div class="carousel-inner fullHeight">
+                <div class="item active fullHeight"> <img class="fullWidth fullHeight" src="{{ asset('assets/images/jmb-bck.jpg') }}"  alt="First slide">
+                </div>
+                <div class="item fullHeight"> <img class="fullWidth fullHeight" src="{{ asset('assets/images/jmb-bck.jpg') }}" alt="Second slide">
+                </div>
+                <div class="item fullHeight"> <img class="fullWidth fullHeight" src="{{ asset('assets/images/jmb-bck.jpg') }}" alt="Third slide">
+                </div>
+                <div class="item fullHeight"> <img class="fullWidth fullHeight" src="{{ asset('assets/images/jmb-bck.jpg') }}" alt="fourth slide">
+                </div>
+              </div>
+             </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          
+        </div>
+        <div class="col-md-6 iphone-nav">
+          <ul>
+            <a href="#myCarousel2" data-slide-to="0"><li>HAHA</li></a>
+            <a href="#myCarousel2" data-slide-to="1"><li>HEHE</li></a>
+            <a href="#myCarousel2" data-slide-to="2"><li>HOHO</li></a>
+            <a href="#myCarousel2" data-slide-to="3"><li>HUHU</li></a>
+          </ul>
+        </div>           
+      </div>
+    </div>
  	</div>
  </div>
 </body>
