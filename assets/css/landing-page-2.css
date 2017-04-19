@@ -22,11 +22,8 @@
 	font-size: 3vw;
 }
 
-.row-eq-height{
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
+.margin-left-0{
+	margin-left: 0 !important;
 }
 
 .navbar-default {
@@ -68,8 +65,9 @@
 	margin-bottom: 150px;
 }
 
-.au-title{
+.sec-title{
 	color: #a5a8af;
+	font-size: 16px;
 }
 
 .au-hr{
@@ -145,6 +143,7 @@
 	width: 650px;
 	height: 650px;
 	top: -450px;
+	left: 0;
 }
 
 .float-base-bot{
@@ -164,13 +163,13 @@
 }
 
 .howToTitle{
-	color: yellow;
+	color: #f2c400;
 	font-size: 30px;
 	margin-bottom: 0;
 }
 
 .how-to-hr{
-	border: 2px solid yellow;
+	border: 2px solid #f2c400;
 	width: 20%;
 	margin-right: 0;
 }
@@ -232,6 +231,173 @@
 	font-size: 16px;
 }
 
+.com-container{
+	margin-bottom: 5%;
+}
+
+.com-img-container{
+	height: 500px;
+}
+
+.com-story-l{
+	padding-left: 3%;
+}
+
+.com-story-r{
+	position: absolute;
+	color: white;
+	width: 40%;
+	top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+	text-align: center;
+}
+
+.com-hr{
+	border: 2px solid #8faaea;
+	width: 20%;
+	margin-left: 0;
+}
+
+.com-img-bg{
+/*	background-image: url('../images/landing-page-2/3.jpg');
+	background-repeat: no-repeat;
+	background-size: 100% 100%;*/
+    -webkit-filter: brightness(40%); /* Safari 6.0 - 9.0 */
+    filter: brightness(40%);	
+    width: 95%;
+    height: 95%;
+    position: absolute;
+}
+
+.com-img-gal{
+	top: 60%;
+	width: 95%;
+	height: 80px;	
+	position: absolute;
+	padding-left: 10%;
+	padding-right: 10%;
+
+}
+
+.com-img-gal-item{
+	width: 15%;
+	height: 100%;	
+	float: left;
+	margin-left: 6%;
+    border: 2px solid #ddd;
+    border-radius: 50%;
+    padding: 5px;
+    filter: grayscale(100%);
+}
+
+.com-img-gal-item:hover,
+.CIG-item-active:hover{
+	box-shadow: 0 0 6px 3px rgba(0, 140, 186, 1);
+}
+
+.CIG-item-active{
+	width: 15%;
+	height: 100%;	
+	float: left;
+	margin-left: 6%;
+    border: 2px solid #ddd;
+    border-radius: 50%;
+    padding: 5px;
+	transform:scale(1.3,1.3);
+	filter: grayscale(0);
+}
+
+.see-another{
+	position: absolute;
+	color: white;
+	right: 10%;
+	bottom: 15%;
+}
+
+.prc-est{
+	padding-left: 5%;
+	padding-right: 5%;
+}
+
+#landOrigins{
+	width: 100%;
+	border: 1px solid black;
+	padding: 12px 40px;
+	font-size: 18px;
+	box-sizing: border-box;
+}
+
+.line{
+	z-index: 1;
+	position: absolute;
+}
+
+.line img{
+	height: 100px;
+	margin-top: -60px;
+}
+
+#landDestination{
+	width: 100%;
+	border: 1px solid black;
+	padding: 12px 40px;
+	font-size: 18px;
+	box-sizing: border-box;	
+}
+
+.btn-prc{
+	float: right;
+	background-color: #f2c400;
+}
+
+footer{
+	background-color: #f2c400;
+	padding: 2%;
+}
+
+.f-s-1 a{
+	font-size: 15px;
+	color: black;
+}
+
+.f-s-2 a{
+	font-size: 15px;
+	color: black;
+}
+
+.f-s-3 a{
+	font-size: 15px;
+	color: black;
+}
+
+.footer-logo{
+	width: 200px;
+}
+
+@media only screen and (min-width: 1024px){
+	.footer-logo{
+		width: 100px;
+	}
+}
+
+@media only screen and (max-width: 768px){
+	.f-s-0{ padding-left: 40%; margin-bottom: 3%;}
+	.f-s-1{ padding-left: 40%; margin-bottom: 3%;}
+	.f-s-2{ padding-left: 40%; margin-bottom: 3%;}
+	.f-s-3{ padding-left: 40%; margin-bottom: 3%;}
+	.f-s-4{ padding-left: 40%; }
+}
+
+@media only screen and (min-width: 992px){
+	.row-eq-height{
+	    display: -webkit-box;
+	    display: -webkit-flex;
+	    display: -ms-flexbox;
+	    display: flex;
+	}
+}
+
 @media only screen and (max-width: 425px){
 	.fbt-float-image{ 
 		position: absolute;
@@ -239,6 +405,7 @@
 		width: 200px;
 		height: 200px;
 		top: -100px;
+		left: 0;
 	}
 	.fbt-float-box p{ font-size: 10px; }
 	.what-is{
@@ -254,6 +421,7 @@
 		width: 320px;
 		height: 320px;
 		top: -100px;
+		left: 0;
 	}
 	.fbt-txt{ margin-left: 380px; }
 }
@@ -265,6 +433,7 @@
 		width: 470px;
 		height: 470px;
 		top: -350px;
+		left: 0;
 	}
 	.fbt-float-box p{ font-size: 12px; }	
 }

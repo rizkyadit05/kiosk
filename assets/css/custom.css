@@ -749,21 +749,31 @@ table.table {
 .navbar-default {
     background-color: white !important;
     border-color: white !important;
+    
 }
 
 .nav-ri-txt{
 	color: #00579b !important;
 }
 
-.nav-ri-border{
-	border: 2px solid #00579b;
-	border-radius: 15px;
+.nav-ri-txt:hover,
+.nav-ri-txt:focus{
+	border-bottom: 2px solid #00579b;
 }
+
+/*.border-bot{
+	border-bottom: 2px
+}*/
 
 .caro-custom {
     background-color: none !important;
     color: #00579b !important;
     background-image: none !important;
+}
+
+.filter{
+    -webkit-filter: brightness(50%); /* Safari 6.0 - 9.0 */
+    filter: brightness(50%);
 }
 
 .opacity-0{
@@ -777,7 +787,7 @@ table.table {
 }
 
 .jumbotron{
-	background-image: url('../images/jmb-bck.jpg');
+	background-image: url('../images/landing-page/banner-story-hme.jpg');
 }
 
 .jumbotron p a{
@@ -795,7 +805,7 @@ table.table {
     box-sizing: border-box;
     border: 2px solid black;
     border-radius: 15px;
-    font-size: 1.5vw;
+    font-size: 18px;
 }
 
 .landDestination{
@@ -804,7 +814,8 @@ table.table {
     box-sizing: border-box;
     border: 2px solid black;
     border-radius: 15px;
-    font-size: 1.5vw;
+    font-size: 18px;
+    /*font-size: 1.5vw;*/
 }
 
 .logoFooter{
@@ -829,7 +840,7 @@ table.table {
 .carousel-caption p a{
 	background-color: #f59822;
 	color: #000000;
-	font-size: 2vw;
+	font-size: 18px;
 }
 
 .btn-jmb{
@@ -841,17 +852,30 @@ table.table {
 }
 
 .gPlay{
-	width: 100%;
+	width: 200px;
 }
 
 .howTO{
-	font-size: 2vw; text-align: center; 
+	font-size: 1.5vw; 
+	text-align: left; 
 	list-style: none;
+}
+
+.howTOImg{
+	width:40%; 
+	margin: auto;
 }
 
 .whatIS{
 	padding: 1%; 
-	font-size: 2vw;
+	font-size: 1.5vw;
+}
+.whatISImg{
+	background-image: url('../images/landing-page/letsgo.png');
+	background-repeat: no-repeat;
+	background-size: 80% 100%;
+	background-position: center;
+	filter: brightness(80%);
 }
 
 .line{
@@ -865,14 +889,45 @@ table.table {
 	margin-left: 60px;
 }
 
+.jmb-person{
+	color: white; 
+}
+
+.jmb-desc{
+	color: white; 
+}
+
 @media only screen and (max-width: 880px){
-	.gPlay { width: 40% !important; }
-	.howTO { font-size: 3vw; }
+	/*.gPlay { width: 40% !important; }*/
+	.whatIS, .howTO { font-size: 14px; }
 	.line img { margin-left: 5px; }
+	.whatISImg{ height: 250px; }
+	.carousel-caption p a{ font-size: 11px; }
+	.whatISImg{
+		background-size: 80% 100%;
+		height: 220px;
+		margin-bottom: 10px;
+	}
+	.howTOImg{ 
+		height: 400px !important;
+		width: 200px !important; 
+	}
+}
+
+@media only screen and (max-width: 425px){
+	.whatISImg{ height: 150px; }
+	.howTOImg{ 
+		height: 300px !important;
+		width: 150px !important; 
+	}
+}
+
+@media only screen and (max-width: 325px){
+	#myCarousel{ margin-top: 40px; }
 }
 
 @media only screen and (min-width: 2160px){
-	.gPlay { width: 40% !important; }
+	/*.gPlay { width: 40% !important; }*/
 	.cnt-jmb{ margin-left: 10%; }
 	.line img { 
 		height: 200px;

@@ -150,7 +150,7 @@
 	  <div class="col-md-4">
 	    <div class="">
 	      <a href="#">
-	        <img src="{{ asset('assets/images/nature.jpg') }}" alt="Nature" style="width:100%">
+	        <img src="{{ asset('assets/images/nature.jpg') }}" alt="Nature" style="width:200px">
 	        <div class="caption">
 	          <p class="text-center text-2" style="color: #00579b;">Lorem ipsum...</p>
 	          <p class="text-justify" style="color: #000000;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
