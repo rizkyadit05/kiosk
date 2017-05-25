@@ -178,7 +178,7 @@
             componentRestrictions: {country: 'id'}
         };
 
-        var searchBox = new google.maps.places.Autocomplete(input, options);
+        var searchBox = new google.maps.places.SearchBox(input, options);
         map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
 
         // Bias the SearchBox results towards current map's viewport.
