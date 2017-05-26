@@ -25,9 +25,12 @@
 				<p class="text-center text-2">Jalan Siaga II,Pasar Minggu, Kota Jakarta Selatan, DKI Jakarta</p>
 				<b><p class="text-center text-3-5">IDR 100.000</p></b>
 			</div>
+			<div class="col-md-12 text-center">
+				<svg id="barcode"></svg>
+			</div>
 		</div>
 	</div>
-	<div class="col-md-12">
+	<div class="col-md-12 hidden-print">
 		<div class="row">
 			<div class="col-md-8 col-md-offset-2 padding-btn-invoice">
 				<b><p class="text-center text-2-7">PLEASE TAKE THE TICKET AND COMPLETE THE PAYMENT</p></b>
@@ -48,6 +51,8 @@
  $(function() {
 	$('#headerMenu').html('<button onclick="window.history.back()" class="btn text-2" style=""><b>BACK</b></button><a href="#"><img class="headerImgBtn" src="{{ asset("assets/images/logo.png") }}"></a>');
     $('#tripPriceBtn').text($('#platinumPrice').text());
+    JsBarcode("#barcode", "Hi world!");
  });
 </script>
 @stop
+

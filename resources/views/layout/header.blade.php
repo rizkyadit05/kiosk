@@ -1,5 +1,5 @@
 <header>
-  <nav class="">
+  <nav class="hidden-print">
     <div class="container-fluid myHeader">
       <!-- Brand and toggle get grouped for better mobile display -->
       <div class="row">
