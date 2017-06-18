@@ -5,11 +5,21 @@
     <form method="post" class="fullHeight" action="{{ url('post-order') }}">
       <input type="hidden" name="_token" value="{{csrf_token()}}">
       <input type="hidden" id="rideFlag" name="rideFlag" value="shared">
+      <input type="hidden" id="lat_awal" name="lat_awal" value="{{ $result['lat_awal'] or ''}}">
+          <input type="hidden" id="lng_awal" name="lng_awal" value="{{ $result['lng_awal'] or ''}}">
+          <input type="hidden" id="lat_akhir" name="lat_akhir" value="{{ $result['lat_akhir'] or ''}}">
+          <input type="hidden" id="lng_akhir" name="lng_akhir" value="{{ $result['lng_akhir'] or ''}}">
+          <input type="hidden" id="duration" name="duration" value="{{ $result['duration'] or ''}}">
+          <input type="hidden" id="distance" name="distance" value="{{ $result['distance'] or '' }}">
+          <input type="hidden" id="placeName" name="place_name" value="{{ $result['place_name'] or '' }}">
+          <input type="hidden" id="placeAddress" name="place_address" value="{{ $result['place_address'] or '' }}">
+          <input type="hidden" name="pool_name" id="pool_name">
+          <input type="hidden" name="pool_address" id="pool_address">
       <div class="row orderTopMenu">
         <div class="col-md-12">
           <div class="margin-1">
-            <b><p id="otmTitle">{{ $title }}</p></b>
-            <p id="otmAddress">{{ $address }}</p>
+            <b><p id="otmTitle"></p></b>
+            <p id="otmAddress">Address Pool</p>
           </div>
           <div class="margin-1 margin-top-3">
             <p id="otmPrice"></p>
@@ -47,6 +57,9 @@
         <div class="col-md-12">
           <input type="hidden" name="typeFlag" id="typeFlag" value="platinum">
           <input type="hidden" name="tripPrice" id="tripPrice" value="">
+          <div class="package">
+            
+          </div>
           <div class="col-md-4">
             <div class="platinumBox bubbleBox twoKBox" onclick="setCar('platinum')" style="border: 2px solid blue">
               <div class="platinumBoxDesc text-center">
@@ -102,7 +115,7 @@
       //
 
       function initAutocomplete() {
-        var pos = {lat: {{ $latitude }}, lng: {{ $longitude }}};
+        var pos = {lat: parseFloat($('#lat_akhir').val()), lng: parseFloat($('#lng_akhir').val())}
         var map = new google.maps.Map(document.getElementById('map'), {
           center: pos,
           zoom:17,
@@ -111,7 +124,7 @@
 
         var marker = new google.maps.Marker({
           position: pos,
-          title: '{{ $title }}',
+          title: '',
           map: map
         });
       }
@@ -121,7 +134,44 @@
 
     </script>
     <script type="text/javascript">
-
+    function renderPackage(data){
+      html = '<div class="col-md-4"> \
+            <div class="platinumBox bubbleBox twoKBox" onclick="setCar(\''+ data.nama_package +'\')" style="border: 2px solid blue"> \
+              <div class="platinumBoxDesc text-center">\
+                <b><p class="margin-bot-0">'+ data.nama_package +'</p></b>\
+                <p class="margin-bot-0">(Alphard, Vellfire)</p>\
+                <b><p class="margin-bot-0" id="platinumPrice"></p></b>\
+              </div>\
+            </div>\
+            <input type="radio" id="platinumRadio" onclick="setCar(\''+ data.nama_package +'\')"  value="'+ data.nama_package +'" style="margin-left: 50%;" checked>\
+          </div>'
+    }
+    function estimate(){
+      $.ajax({
+        url: "http://103.200.4.20:10001/orders/estimatePoolsAndPrivate",
+        method:"POST",
+        headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+        crossDomain:true,
+        xhrFields: {
+            withCredentials: true
+        },
+        // dataType: 'json',
+        data: {
+          distance:$('#distance').val(),
+          duration:$('#duration').val(),
+          lat_awal:$('#lat_awal').val(),
+          long_awal:$('#lng_awal').val(),
+          lat_akhir:$('#lat_akhir').val(),
+          long_akhir:$('#lng_akhir').val()
+        },
+        success:function(res) {
+              console.log(res.data);
+              $('#pool_name').val(res.data[0].pools.pool_to_nama);
+              $('#pool_address').val(res.data[0].pools.pool_to_alamat);
+          }
+        // context: document.body
+      });
+    }
      $(function(){
         var active = document.getElementById('rideFlag').value;
         // alert(active);
@@ -137,6 +187,7 @@
           $('.otmCircleLeft').css('background-color', '#ccc7c4');
           $('.otmCircleRight').css('background-color', 'black');        
         }
+        estimate();
 
         //This line of codes below, are used to change format of number to price format
         var otmPrice = document.getElementById('otmPrice');
@@ -144,7 +195,6 @@
         var goldPrice = document.getElementById('goldPrice');
         var silverPrice = document.getElementById('silverPrice');
         var tripPriceBtn = document.getElementById('tripPriceBtn');
-
         //Throw your php variable below
         var otmPricePHP = '1000';
         var otmPricePHP2 = '56000';

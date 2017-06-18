@@ -33,10 +33,14 @@
         </div>
         <form method="post" action="{{ url('order') }}" id="homeForm">
           <input type="hidden" name="_token" value="{{csrf_token()}}">
-          <input type="hidden" id="placeLatitude" name="placeLatitude">
-          <input type="hidden" id="placeLongitude" name="placeLongitude">
-          <input type="hidden" id="placeName" name="placeName">
-          <input type="hidden" id="placeAddress" name="placeAddress">
+          <input type="hidden" id="lat_awal" name="lat_awal">
+          <input type="hidden" id="lng_awal" name="lng_awal">
+          <input type="hidden" id="placeLatitude" name="lat_akhir">
+          <input type="hidden" id="placeLongitude" name="lng_akhir">
+          <input type="hidden" id="duration" name="duration">
+          <input type="hidden" id="distance" name="distance">
+          <input type="hidden" id="placeName" name="place_name">
+          <input type="hidden" id="placeAddress" name="place_address">
           <input type="hidden" id="poolORAny" name="poolORAny" value="">
         </form>
       </div>
@@ -135,8 +139,39 @@
         return link.replace(/\//g, ' ');
       }
 
+      function getDistance(){
+         var distanceService = new google.maps.DistanceMatrixService();
+         var awal = new google.maps.LatLng(
+              parseFloat($("#lat_awal").val()),
+              parseFloat($("#lng_awal").val()) 
+            );
+         var akhir = new google.maps.LatLng(
+              parseFloat($("#placeLatitude").val()),
+              parseFloat($("#placeLongitude").val())
+            );
+         distanceService.getDistanceMatrix({
+            origins: [awal],
+            destinations: [akhir],
+            travelMode: google.maps.TravelMode.WALKING,
+            unitSystem: google.maps.UnitSystem.METRIC,
+            durationInTraffic: true,
+            avoidHighways: false,
+            avoidTolls: false
+        },function (response, status) {
+            if (status !== google.maps.DistanceMatrixStatus.OK) {
+                console.log('Error:', status);
+                alert('Oops Sorry Something Wrong');
+            } else {
+                console.log(response);
+                $("#distance").val((response.rows[0].elements[0].distance.value)/1000).show();
+                $("#duration").val(Math.ceil(response.rows[0].elements[0].duration.value/60)).show();
+                document.getElementById("homeForm").submit();
+            }
+        });
+      }
+
       function initAutocomplete() {
-        var uluru = {lat: -25.363, lng: 131.044};
+        var uluru = {lat: -6.3804836, lng: 106.81549919999999};
         var map = new google.maps.Map(document.getElementById('map'), {
           center: uluru,
           zoom: 16,
@@ -160,7 +195,8 @@
               lat: position.coords.latitude,
               lng: position.coords.longitude
             };
-            
+            $('#lat_awal').val(position.coords.latitude);
+            $('#lng_awal').val(position.coords.longitude);
             // infoWindow.setPosition(pos);
             // infoWindow.setContent('Location found.');\
             var marker = new google.maps.Marker({
@@ -270,8 +306,8 @@
           $('#placeLongitude').val(place.geometry.location.lng());
           $('#placeName').val(place.name);
           $('#placeAddress').val(place.formatted_address);
-
-          document.getElementById("homeForm").submit();
+          getDistance();
+          // document.getElementById("homeForm").submit();
         });
       }
 
