@@ -53,7 +53,8 @@
           </div>
         </div>
       </div>
-      <div class="row orderBottomMenu">
+      <!-- Tab Personal -->
+      <div class="row orderBottomMenu" id="tab_personal">
         <div class="col-md-12">
           <input type="hidden" name="typeFlag" id="typeFlag" value="platinum">
           <input type="hidden" name="tripPrice" id="tripPrice" value="">
@@ -61,8 +62,10 @@
             
           </div>
           <div class="col-md-4">
-            <div class="platinumBox bubbleBox twoKBox" onclick="setCar('platinum')" style="border: 2px solid blue">
-              <div class="platinumBoxDesc text-center">
+            <div class="packageBox bubbleBox twoKBox" id="platinumBox" onclick="setCar('platinum')" style="border: 2px solid blue; 
+              background-color: #8891aa;">
+              <div class="packageBoxDesc text-center" id="platinumBoxDesc">
+                <img class="img-responsive" src="{{ asset('assets/images/SUV.png') }}" style="height: 70%; margin-left: 25%;">
                 <b><p class="margin-bot-0">Platinum</p></b>
                 <p class="margin-bot-0">(Alphard, Vellfire)</p>
                 <b><p class="margin-bot-0" id="platinumPrice"></p></b>
@@ -71,8 +74,9 @@
             <input type="radio" id="platinumRadio" onclick="setCar('platinum')"  value="platinum" style="margin-left: 50%;" checked="">
           </div>
           <div class="col-md-4">
-            <div class="goldBox bubbleBox twoKBox" onclick="setCar('gold')">
-              <div class="goldBoxDesc text-center">
+            <div class="packageBox bubbleBox twoKBox" id="goldBox" onclick="setCar('gold')" style="background-color: #f9bb00;">
+              <div class="packageBoxDesc text-center" id="goldBoxDesc">
+                <img class="img-responsive" src="{{ asset('assets/images/minivan.png') }}" style="height: 70%; margin-left: 25%;">
                 <b><p class="margin-bot-0">Gold</p></b>
                 <p class="margin-bot-0">(Terrios, Inova)</p>
                 <b><p class="margin-bot-0" id="goldPrice"></p></b>
@@ -81,8 +85,56 @@
             <input type="radio" id="goldRadio" onclick="setCar('gold')" value="gold" style="margin-left: 50%;">
           </div>
           <div class="col-md-4">
-            <div class="silverBox bubbleBox twoKBox" onclick="setCar('silver')">
-              <div class="silverBoxDesc text-center">
+            <div class="packageBox bubbleBox twoKBox" id="silverBox" onclick="setCar('silver')" style="background-color: #e8e5de;">
+              <div class="packageBoxDesc text-center">
+                <img class="img-responsive" src="{{ asset('assets/images/city-car.png') }}" style="height: 70%; margin-left: 25%;">
+                <b><p class="margin-bot-0">Silver</p></b>
+                <p class="margin-bot-0">(Xenia, Ertiga)</p>
+                <b><p class="margin-bot-0" id="silverPrice"></p></b>
+              </div>
+            </div>
+            <input type="radio" id="silverRadio" onclick="setCar('silver')" value="silver" style="margin-left: 50%;">            
+            </div>                    
+          <div class="col-md-12">
+            <button type="submit" class="btn btn-order"><b><p id="tripPriceBtn"></p></b><b><p>ORDER NOW</p></b></button>
+          </div>        
+        </div>
+      </div>
+      <!-- Tab Shared -->
+      <div class="row orderBottomMenu hidden" id="tab_shared">
+        <div class="col-md-12">
+          <input type="hidden" name="typeFlag" id="typeFlag" value="platinum">
+          <input type="hidden" name="tripPrice" id="tripPrice" value="">
+          <div class="package">
+            
+          </div>
+          <div class="col-md-4">
+            <div class="packageBox bubbleBox twoKBox" id="platinumBox" onclick="setCar('platinum')" style="border: 2px solid blue; 
+              background-color: #8891aa;">
+              <div class="packageBoxDesc text-center" id="platinumBoxDesc">
+                <img class="img-responsive" src="{{ asset('assets/images/SUV.png') }}" style="height: 70%; margin-left: 25%;">
+                <b><p class="margin-bot-0">Platinum</p></b>
+                <p class="margin-bot-0">(Alphard, Vellfire)</p>
+                <b><p class="margin-bot-0" id="platinumPrice"></p></b>
+              </div>
+            </div>
+            <input type="radio" id="platinumRadio" onclick="setCar('platinum')"  value="platinum" style="margin-left: 50%;" checked="">
+          </div>
+          <div class="col-md-4">
+            <div class="packageBox bubbleBox twoKBox" id="goldBox" onclick="setCar('gold')" style="background-color: #f9bb00;">
+              <div class="packageBoxDesc text-center" id="goldBoxDesc">
+                <img class="img-responsive" src="{{ asset('assets/images/minivan.png') }}" style="height: 70%; margin-left: 25%;">
+                <b><p class="margin-bot-0">Gold</p></b>
+                <p class="margin-bot-0">(Terrios, Inova)</p>
+                <b><p class="margin-bot-0" id="goldPrice"></p></b>
+              </div>
+            </div>
+            <input type="radio" id="goldRadio" onclick="setCar('gold')" value="gold" style="margin-left: 50%;">
+          </div>
+          <div class="col-md-4">
+            <div class="packageBox bubbleBox twoKBox" id="silverBox" onclick="setCar('silver')" style="background-color: #e8e5de;">
+              <div class="packageBoxDesc text-center">
+                <img class="img-responsive" src="{{ asset('assets/images/city-car.png') }}" style="height: 70%; margin-left: 25%;">
                 <b><p class="margin-bot-0">Silver</p></b>
                 <p class="margin-bot-0">(Xenia, Ertiga)</p>
                 <b><p class="margin-bot-0" id="silverPrice"></p></b>
@@ -225,6 +277,8 @@
           $('.otmCircleRight').css('background-color', '#ccc7c4')
           $('#sharedTripCount').addClass('hidden');
           $('#sharedTripCountImg').addClass('hidden');
+          $('#tab_shared').addClass('hidden');
+          $('#tab_personal').removeClass('hidden');
           active.value = "personal";
         }
 
@@ -233,6 +287,8 @@
           $('.otmCircleRight').css('background-color', 'black');
           $('#sharedTripCount').removeClass('hidden');
           $('#sharedTripCountImg').removeClass('hidden'); 
+          $('#tab_personal').addClass('hidden');
+          $('#tab_shared').removeClass('hidden');
           active.value = "shared";       
         }
       }
@@ -242,32 +298,15 @@
 
         var typeFlag = $('#typeFlag');      
 
-        $('.'+typeFlag.val()+'Box').css('border', '');
+        $('#'+typeFlag.val()+'Box').css('border', '');
         document.getElementById(typeFlag.val()+'Radio').checked = false;
 
-        if(type == 'platinum'){
-           $('.platinumBox').css('border', '2px solid blue');
-           document.getElementById('platinumRadio').checked = true;
-           typeFlag.val(type);
-           $('#tripPrice').val($('#platinumPrice').text());
-           $('#tripPriceBtn').text($('#platinumPrice').text());
-        }
+         $('#'+type+'Box').css('border', '2px solid blue');
+         document.getElementById(type+'Radio').checked = true;
+         typeFlag.val(type);
+         $('#tripPrice').val($('#'+type+'Price').text());
+         $('#tripPriceBtn').text($('#'+type+'Price').text());
 
-        else if(type == 'gold'){
-          $('.goldBox').css('border', '2px solid blue')
-           document.getElementById('goldRadio').checked = true;
-           typeFlag.val(type);
-           $('#tripPrice').val($('#goldPrice').text());
-           $('#tripPriceBtn').text($('#goldPrice').text());           
-        }
-
-        else if(type == 'silver'){
-          $('.silverBox').css('border', '2px solid blue')
-           document.getElementById('silverRadio').checked = true;
-           typeFlag.val(type);
-           $('#tripPrice').val($('#silverPrice').text());
-           $('#tripPriceBtn').text($('#silverPrice').text());                     
-        }
         console.log($('#tripPrice').val());
       }
     </script>

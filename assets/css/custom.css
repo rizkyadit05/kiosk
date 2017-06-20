@@ -525,7 +525,22 @@ table.table {
   border: 2px solid blue;
 }
 
-.platinumBox{
+.packageBox{
+	width: 100%;
+	height: 110px;
+	margin: 1%;
+	margin-top: 10px;
+	background-repeat: no-repeat;
+	background-size: 100px 60px;
+	background-position: top;
+}
+
+.packageBoxDesc{
+	width: 100%;
+	height: 70px;
+}
+
+/*.platinumBox{
 	width: 100%;
 	height: 110px;
 	background-color: #8891aa;
@@ -541,9 +556,9 @@ table.table {
 	width: 100%;
 	height: 70px;
 	padding-top: 50px;
-}
+}*/
 
-.goldBox{
+/*.goldBox{
 	width: 100%;
 	height: 110px;
 	background-color: #f9bb00;
@@ -559,9 +574,9 @@ table.table {
 	width: 100%;
 	height: 70px;
 	padding-top: 50px;	
-}
+}*/
 
-.silverBox{
+/*.silverBox{
 	width: 100%;
 	height: 110px;
 	background-color: #e8e5de;
@@ -577,7 +592,7 @@ table.table {
 	width: 100%;
 	height: 70px;
 	padding-top: 50px;	
-}
+}*/
 
 .btn-order{
 	margin-bottom: 20px;

@@ -81,9 +81,13 @@
         $('#poolORAny').val('poolpoint');
       });
 
-      $( "#pac-input" ).focus(function() {
+      $( "#pac-input" ).focusin(function() {
         $('#virtualKeyboard').removeClass('hidden');
       });
+
+      // $( "#pac-input" ).focusout(function() {
+      //   $('#virtualKeyboard').addClass('hidden');
+      // });
 
       function questionFlag(bool){
         document.getElementById('questionFlag').value = "in use";
