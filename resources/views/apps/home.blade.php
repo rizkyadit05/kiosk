@@ -311,7 +311,7 @@
           $('#placeName').val(place.name);
           $('#placeAddress').val(place.formatted_address);
           getDistance();
-          // document.getElementById("homeForm").submit();
+          document.getElementById("homeForm").submit();
         });
       }
 

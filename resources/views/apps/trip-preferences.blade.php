@@ -1,5 +1,67 @@
 @extends('layout/default')
 @section('content')
+{{-- {{dd(Request::all())}} --}}
+<?php 
+	$request = Request::all();
+?>
+<div class="modal fade" id="phone" role="dialog">
+  <div class="modal-dialog" role="document">
+      	<form id="create_order" action="{{ url('join') }}" method="POST">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">Lets GO - Please Insert Your Phone Number</h4>
+      </div>
+      <div class="modal-body clearfix">
+      		<input type="hidden" name="_token" value="{{ csrf_token() }}">
+			<input type='hidden' name='rideFlag' value='{{ $rideFlag }}'>
+	  		<input type='hidden' name='pools_from_id' value='{{ $request['pools_from_id'] }}'>
+			<input type='hidden' name='pools_to_id' value='{{ $request['pools_to_id'] }}'>
+
+			<input type='hidden' name='lat_door' value='{{ $request['lat_door'] }}'>
+			<input type='hidden' name='long_door' value='{{ $request['long_door'] }}'>
+			<input type='hidden' name='alamat_door' value='{{ $request['alamat_door'] }}'>
+			<!-- -->
+			<input type='hidden' name='route_id' value='{{ $request['route_id'] }}'>
+
+			<input type='hidden' name='lat_awal' value='{{ $request['lat_awal'] }}'>
+			<input type='hidden' name='long_awal' value='{{ $request['lng_awal'] }}'>
+			<input type='hidden' name='alamat_awal' value='{{ $request['alamat_door'] }}'>
+
+			<input type='hidden' name='lat_akhir' value='{{ $request['lat_akhir'] }}'>
+			<input type='hidden' name='long_akhir' value='{{ $request['lng_akhir'] }}'>
+			<input type='hidden' name='alamat_akhir' value='{{ $request['place_address'] }}'>
+
+			<input type='hidden' name='harga_awal'  value='{{ $request['harga'] or '0' }}'>
+			<input type='hidden' name='harga_akhir' id="harga_akhir" value='{{ $request['harga_final'] or '0' }}'>
+			<input type='hidden' name='harga_tambahan' id="harga_tambahan" value='{{ $request['harga_extra'] or '0' }}'>
+
+			<input type='hidden' name='distance' value='{{ $request['distance'] }}'>
+			<input type='hidden' name='duration' value='{{ $request['duration'] }}'>
+
+			<input type='hidden' name='car_package_id' value='{{ $request['package'] }}'>
+
+			<input type='hidden' name='number_of_shared' id="number_of_shared" value="{{ $request['sharedTripCount'] or 0 }}">
+
+			<input type='hidden' name='order_id' id="order_id">
+			<input type='hidden' name='price_user_add' id="price_user_add">
+			<input type='hidden' name='price_user_total' id="price_user_total">
+			<input type='hidden' name='user_id' id="user_id" value="0">
+	      <div class="col-md-12">
+	      	<div class="form-group">
+		      	<input type="text" id='phone_input' class="form-control" placeholder="Insert Your Phone Number">
+		    </div>
+	      </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn" data-dismiss="modal">Close</button>
+        <a href="#" id="create_order_btn" class="btn btn-primary" onclick="submit_btn()">Create</a>
+      </div>
+  	</form>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
 <div class="row">
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog">
   <div class="modal-dialog" role="document">
@@ -16,6 +78,7 @@
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
+
 <div class="col-md-12">
 	<b><p class="text-center bodyHead">TRIP PREFERENCES</p></b>
 </div>
@@ -54,67 +117,7 @@
 								<th class="hidden">FAKE</th>
 							</tr>
 						</tfoot>
-						<tbody>
-							<tr onclick="submit(1)">
-							<form method="post" action="{{ url('post-av-trip') }}" id="form_1">
-								<input type="hidden" name="_token" value="{{csrf_token()}}">
-								<input type="hidden" name="idTrip" value="1">
-								<input type="hidden" name="rideFlag" value="{{ $rideFlag }}">
-								<td>1</td>
-								<td><img alt="Down" src="{{ asset('assets/images/d.png') }}"> IDR 21.000</td>
-								<td>4/6</td>
-								<td><button class="btn btn-org"><b>Choose</b></button></td>
-								<td class="hidden">FAKE</td>
-							</form>
-							</tr>	
-							<tr onclick="submit(2)">
-							<form method="post" action="{{ url('post-av-trip') }}" id="form_2">
-								<input type="hidden" name="_token" value="{{csrf_token()}}">
-								<input type="hidden" name="idTrip" value="2">
-								<input type="hidden" name="rideFlag" value="{{ $rideFlag }}">
-								<td>2</td>
-								<td><img alt="Down" src="{{ asset('assets/images/d.png') }}"> IDR 41.000</td>
-								<td>4/8</td>
-								<td><button class="btn btn-org"><b>Choose</b></button></td>
-								<td class="hidden">FAKE</td>
-							</form>
-							</tr>
-							<tr onclick="submit(3)">
-							<form method="post" action="{{ url('post-av-trip') }}" id="form_3">
-								<input type="hidden" name="_token" value="{{csrf_token()}}">
-								<input type="hidden" name="idTrip" value="2">
-								<input type="hidden" name="rideFlag" value="{{ $rideFlag }}">
-								<td>3</td>
-								<td><img alt="Down" src="{{ asset('assets/images/d.png') }}"> IDR 41.000</td>
-								<td>4/8</td>
-								<td><button class="btn btn-org"><b>Choose</b></button></td>
-								<td class="hidden">FAKE</td>
-							</form>
-							</tr>
-							<tr onclick="submit(4)">
-							<form method="post" action="{{ url('post-av-trip') }}" id="form_4">
-								<input type="hidden" name="_token" value="{{csrf_token()}}">
-								<input type="hidden" name="idTrip" value="2">
-								<input type="hidden" name="rideFlag" value="{{ $rideFlag }}">
-								<td>4</td>
-								<td><img alt="Down" src="{{ asset('assets/images/d.png') }}"> IDR 41.000</td>
-								<td>4/8</td>
-								<td><button class="btn btn-org"><b>Choose</b></button></td>
-								<td class="hidden">FAKE</td>
-							</form>
-							</tr>
-							<tr onclick="submit(5)">
-							<form method="post" action="{{ url('post-av-trip') }}" id="form_5">
-								<input type="hidden" name="_token" value="{{csrf_token()}}">
-								<input type="hidden" name="idTrip" value="2">
-								<input type="hidden" name="rideFlag" value="{{ $rideFlag }}">
-								<td>5</td>
-								<td><img alt="Down" src="{{ asset('assets/images/d.png') }}"> IDR 41.000</td>
-								<td>4/8</td>
-								<td><button class="btn btn-org"><b>Choose</b></button></td>
-								<td class="hidden">FAKE</td>
-							</form>
-							</tr>							
+						<tbody id="avaliableList">											
 						</tbody>
 					</table>		
 				</div>			
@@ -131,34 +134,78 @@
 			</div>
 		</div>
 		<div class="row">
-			<form method="post" action="{{ url('post-new-trip') }}">
-				<input type="hidden" name="_token" value="{{ csrf_token() }}">
+			{{-- <form method="post" action="{{ url('post-new-trip') }}"> --}}
+				{{-- <input type="hidden" name="_token" value="{{ csrf_token() }}">
 				<input type="hidden" name="tripPrice" value="30000">
-				<input type="hidden" name="rideFlag" value="{{ $rideFlag }}">
+				<input type="hidden" name="rideFlag" value="{{ $rideFlag }}"> --}}
 				<div class="col-md-10 col-md-offset-2 margin-top-2 margin-custom-1">
+				@if($rideFlag != 'personal')
 					<p class="text-2 inline" style="">Shared with many others: </p> 
-					<select name="sharedTripCount" class="select-style">
-						<option value="1">1</option>
-						<option value="2">2</option>
-						<option value="3">3</option>
-						<option value="4">4</option>
+					<select name="sharedTripCount" class="select-style" id="sharedTripCount">
+					@for($i = 1; $i <= 5; $i++)
+						<option value="{{ $i }}" @if($i == ($request['sharedTripCount'] )) selected @endif>{{ $i }}</option>
+					@endfor
 					</select>
+				@else
+					<input type="hidden" name="sharedTripCount" value="0">
+				@endif
 				</div>
 				<div class="col-md-10 col-md-offset-2 margin-top-2">
-					<p class="margin-top-2 margin-custom-1"><sup class="text-2">Price</sup><b class="text-3"> IDR 30.000</b></p>
+					<p class="margin-top-2 margin-custom-1"><sup class="text-2">Price</sup><b class="text-3" id="price_create"> IDR {{ $request['tripPrice'] }}</b></p>
 				</div>
 				<div class="col-md-10 col-md-offset-2 margin-top-4">
-					<button class="btn text-2 round-border margin-custom-2" style="background-color: #f2961c; width: 75%;"><b>CREATE</b></button>
+					<button class="btn text-2 round-border margin-custom-2" style="background-color: #f2961c; width: 75%;" onclick="create()"><b>CREATE</b></button>
 				</div>			
-			</form>
+			{{-- </form> --}}
 		</div>
 	</div>
 </div>
 @stop
 @section('script')
 <script type="text/javascript">
+
+	var csrf_token = "{{csrf_token()}}";
+
+	function submit_btn(){
+		console.log($('#phone_input').val());
+		$.ajax({
+	        url: "http://103.200.4.20:10001/users/checkPhoneNumber",
+	        method:"POST",
+	        headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+	        crossDomain:true,
+	        xhrFields: {
+	            // withCredentials: true
+	        },
+	        async:false,
+	        data: {
+	          nohp:$('#phone_input').val(),
+	        },
+	        success:function(res) {
+	              console.log(res.data);
+	              $('#user_id').val(res.data[0].id);
+	              $('#create_order').submit();
+	          }
+	    });
+	}
+
 	function submit(count){
-		document.getElementById("form_"+count).submit();
+		$('#order_id').val($('#order_id_'+count).val());
+		$('#price_user_add').val($('#price_user_add_'+count).val());
+		$('#price_user_total').val($('#price_user_total_'+count).val());
+		$('#create_order').attr('action',"{{ url('join') }}");
+		$('#create_order_btn').text("Join");
+		$('#phone').modal('show');
+		// document.getElementById("form_"+count).submit();
+	}
+
+	function create(){
+		$('#create_order').attr('action',"{{ url('create') }}");
+		$('#create_order_btn').text("Create");
+		var price = parseInt($('#harga_akhir').val() / $('#sharedTripCount :selected').val()) + parseInt($('#harga_tambahan').val());
+		// console.log(($('#harga_akhir').val() / $('#sharedTripCount :selected').val()));
+		$('#price_user_total').val(price);
+		$('#price_user_add').val($('#harga_tambahan').val());
+		$('#phone').modal('show');
 	}
 
 	function questionFlag(bool){
@@ -173,9 +220,61 @@
 			$('#myModal').modal('show');
 		}
 	}
+
+	function renderList(value){
+		var price = (value.harga_akhir / value.number_of_shared) + value.harga_tambahan;
+		var price_total = value.harga_akhir + value.harga_tambahan;
+		return "<tr onclick='submit("+ value.id +")'>"+				
+					"<td>"+ value.id+"</td>"+
+					"<td>"+price+"</td>"+
+					"<td>"+ value.filled_seat+"/"+ value.number_of_shared+"</td>"+
+					"<td><button class='btn btn-org'><b>Choose</b></button></td>"+
+					"<td class='hidden'>"+				
+					"<form method='post' action='{{ url('join') }}' id='form_"+ value.id+"'>\
+						<input type='hidden' id='order_id_"+ value.id+"' value='"+ value.id+"'>\
+						<input type='hidden' id='price_user_add_"+ value.id+"' value='"+price+"'>\
+						<input type='hidden' id='price_user_total_"+ value.id+"' value='"+price_total+"'>\
+					</form>"+
+					"FAKE</td>"+
+				"</tr>";
+	}
+	function availableTrip(){
+		$.ajax({
+        url: "http://103.200.4.20:10001/orders/availableSharedTrip",
+        method:"POST",
+        headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+        crossDomain:true,
+        xhrFields: {
+            withCredentials: true
+        },
+        async:false,
+        // dataType: 'json',
+        data: {
+          pools_from_id:{{ $request['pools_from_id'] or '' }},
+          pools_to_id:{{ $request['pools_to_id'] or '' }},
+        },
+        success:function(res) {
+              console.log(res.data);
+              $.each(res.data, function(key,value){
+                $('#avaliableList').append(renderList(value));
+              });
+          }
+        // context: document.body
+      });
+	}
+
+	$('#sharedTripCount').change(function(e){
+		var price = parseInt($('#harga_akhir').val() / $('#sharedTripCount :selected').val()) + parseInt($('#harga_tambahan').val());
+		$('#price_user_total').val(price);
+		$('#price_create').text("IDR "+price);
+		$('#number_of_shared').val($('#sharedTripCount :selected').val());
+	});
 </script>
 <script type="text/javascript">
 	$(document).ready(function() {
+
+	availableTrip();
+
     $('#tpd-table').DataTable( {
         "order": [[ 3, "desc" ]],
         "aLengthMenu": [[5, 50, 75, -1], [25, 50, 75, "All"]],

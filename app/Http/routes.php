@@ -24,7 +24,8 @@ Route::post('post-new-trip', 'MainController@post_new_trip');
 Route::post('post-inv-ok', 'MainController@post_inv_ok');
 // Route::post('post-inv-cancel', 'MainController@post_inv_cancel');
 Route::get('landing-page', 'MainController@landing_page');
-
+Route::post('join','CreateOrderController@join');
+Route::post('create','CreateOrderController@create');
 //Front End Purposes
 
 // Route::get('/order/{latitude}/{longitude}/{title}/{address}/{ride_flag}', 'MainController@index');

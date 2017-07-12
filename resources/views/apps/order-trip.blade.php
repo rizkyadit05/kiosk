@@ -1,10 +1,17 @@
 @extends('layout/default')
 @section('content')
+{{-- {{dd(Request::all())}} --}}
+
 <div class="row row-eq-height">
   <div class="col-md-6">
+    <?php 
+      $request = Request::all();
+      // dd($request);
+    ?>
     <form method="post" class="fullHeight" action="{{ url('post-order') }}">
       <input type="hidden" name="_token" value="{{csrf_token()}}">
       <input type="hidden" id="rideFlag" name="rideFlag" value="shared">
+      <input type="hidden" name="type" id="rideType" value="{{ $request['poolORAny'] }}">
       <input type="hidden" id="lat_awal" name="lat_awal" value="{{ $result['lat_awal'] or ''}}">
           <input type="hidden" id="lng_awal" name="lng_awal" value="{{ $result['lng_awal'] or ''}}">
           <input type="hidden" id="lat_akhir" name="lat_akhir" value="{{ $result['lat_akhir'] or ''}}">
@@ -13,8 +20,19 @@
           <input type="hidden" id="distance" name="distance" value="{{ $result['distance'] or '' }}">
           <input type="hidden" id="placeName" name="place_name" value="{{ $result['place_name'] or '' }}">
           <input type="hidden" id="placeAddress" name="place_address" value="{{ $result['place_address'] or '' }}">
+          <input type="hidden" name="city_id" id="city_id">
           <input type="hidden" name="pool_name" id="pool_name">
           <input type="hidden" name="pool_address" id="pool_address">
+          <input type="hidden" name="pools_from_id" id="pools_from_id">
+          <input type="hidden" name="pools_to_id" id="pools_to_id">
+          <input type="hidden" name="lat_door" id="lat_door">
+          <input type="hidden" name="long_door" id="lng_door">
+          <input type="hidden" name="notes_door" id="notes_door">
+          <input type="hidden" name="alamat_door" id="alamat_door">
+          <input type="hidden" name="route_id" id="route_id">
+          <input type="hidden" name="harga" id="harga">
+          <input type="hidden" name="harga_final" id="harga_final">
+          <input type="hidden" name="harga_extra" id="harga_extra">
       <div class="row orderTopMenu">
         <div class="col-md-12">
           <div class="margin-1">
@@ -54,99 +72,32 @@
         </div>
       </div>
       <!-- Tab Personal -->
+      <input type="hidden" name="tripPrice" id="tripPrice" value="">
       <div class="row orderBottomMenu" id="tab_personal">
         <div class="col-md-12">
           <input type="hidden" name="typeFlag" id="typeFlag" value="platinum">
-          <input type="hidden" name="tripPrice" id="tripPrice" value="">
-          <div class="package">
-            
+          {{-- <input type="hidden" name="tripPrice" id="tripPrice" value=""> --}}
+          <div class="package">            
           </div>
-          <div class="col-md-4">
-            <div class="packageBox bubbleBox twoKBox" id="platinumBox" onclick="setCar('platinum')" style="border: 2px solid blue; 
-              background-color: #8891aa;">
-              <div class="packageBoxDesc text-center" id="platinumBoxDesc">
-                <img class="img-responsive" src="{{ asset('assets/images/SUV.png') }}" style="height: 70%; margin-left: 25%;">
-                <b><p class="margin-bot-0">Platinum</p></b>
-                <p class="margin-bot-0">(Alphard, Vellfire)</p>
-                <b><p class="margin-bot-0" id="platinumPrice"></p></b>
-              </div>
-            </div>
-            <input type="radio" id="platinumRadio" onclick="setCar('platinum')"  value="platinum" style="margin-left: 50%;" checked="">
+          <div class="row" id='privatePackage'>            
           </div>
-          <div class="col-md-4">
-            <div class="packageBox bubbleBox twoKBox" id="goldBox" onclick="setCar('gold')" style="background-color: #f9bb00;">
-              <div class="packageBoxDesc text-center" id="goldBoxDesc">
-                <img class="img-responsive" src="{{ asset('assets/images/minivan.png') }}" style="height: 70%; margin-left: 25%;">
-                <b><p class="margin-bot-0">Gold</p></b>
-                <p class="margin-bot-0">(Terrios, Inova)</p>
-                <b><p class="margin-bot-0" id="goldPrice"></p></b>
-              </div>
-            </div>
-            <input type="radio" id="goldRadio" onclick="setCar('gold')" value="gold" style="margin-left: 50%;">
-          </div>
-          <div class="col-md-4">
-            <div class="packageBox bubbleBox twoKBox" id="silverBox" onclick="setCar('silver')" style="background-color: #e8e5de;">
-              <div class="packageBoxDesc text-center">
-                <img class="img-responsive" src="{{ asset('assets/images/city-car.png') }}" style="height: 70%; margin-left: 25%;">
-                <b><p class="margin-bot-0">Silver</p></b>
-                <p class="margin-bot-0">(Xenia, Ertiga)</p>
-                <b><p class="margin-bot-0" id="silverPrice"></p></b>
-              </div>
-            </div>
-            <input type="radio" id="silverRadio" onclick="setCar('silver')" value="silver" style="margin-left: 50%;">            
-            </div>                    
-          <div class="col-md-12">
-            <button type="submit" class="btn btn-order"><b><p id="tripPriceBtn"></p></b><b><p>ORDER NOW</p></b></button>
-          </div>        
+                 
         </div>
       </div>
       <!-- Tab Shared -->
       <div class="row orderBottomMenu hidden" id="tab_shared">
         <div class="col-md-12">
           <input type="hidden" name="typeFlag" id="typeFlag" value="platinum">
-          <input type="hidden" name="tripPrice" id="tripPrice" value="">
-          <div class="package">
-            
+          <div class="package">            
           </div>
-          <div class="col-md-4">
-            <div class="packageBox bubbleBox twoKBox" id="platinumBox" onclick="setCar('platinum')" style="border: 2px solid blue; 
-              background-color: #8891aa;">
-              <div class="packageBoxDesc text-center" id="platinumBoxDesc">
-                <img class="img-responsive" src="{{ asset('assets/images/SUV.png') }}" style="height: 70%; margin-left: 25%;">
-                <b><p class="margin-bot-0">Platinum</p></b>
-                <p class="margin-bot-0">(Alphard, Vellfire)</p>
-                <b><p class="margin-bot-0" id="platinumPrice"></p></b>
-              </div>
-            </div>
-            <input type="radio" id="platinumRadio" onclick="setCar('platinum')"  value="platinum" style="margin-left: 50%;" checked="">
-          </div>
-          <div class="col-md-4">
-            <div class="packageBox bubbleBox twoKBox" id="goldBox" onclick="setCar('gold')" style="background-color: #f9bb00;">
-              <div class="packageBoxDesc text-center" id="goldBoxDesc">
-                <img class="img-responsive" src="{{ asset('assets/images/minivan.png') }}" style="height: 70%; margin-left: 25%;">
-                <b><p class="margin-bot-0">Gold</p></b>
-                <p class="margin-bot-0">(Terrios, Inova)</p>
-                <b><p class="margin-bot-0" id="goldPrice"></p></b>
-              </div>
-            </div>
-            <input type="radio" id="goldRadio" onclick="setCar('gold')" value="gold" style="margin-left: 50%;">
-          </div>
-          <div class="col-md-4">
-            <div class="packageBox bubbleBox twoKBox" id="silverBox" onclick="setCar('silver')" style="background-color: #e8e5de;">
-              <div class="packageBoxDesc text-center">
-                <img class="img-responsive" src="{{ asset('assets/images/city-car.png') }}" style="height: 70%; margin-left: 25%;">
-                <b><p class="margin-bot-0">Silver</p></b>
-                <p class="margin-bot-0">(Xenia, Ertiga)</p>
-                <b><p class="margin-bot-0" id="silverPrice"></p></b>
-              </div>
-            </div>
-            <input type="radio" id="silverRadio" onclick="setCar('silver')" value="silver" style="margin-left: 50%;">            
-            </div>                    
+          <div class="row" id="sharedPackage"></div>
           <div class="col-md-12">
-            <button type="submit" class="btn btn-order"><b><p id="tripPriceBtn"></p></b><b><p>ORDER NOW</p></b></button>
           </div>        
         </div>
       </div>
+      <div class="col-md-12">
+        <button type="submit" class="btn btn-order"><b><p id="tripPriceBtn"></p></b><b><p>ORDER NOW</p></b></button>
+      </div> 
       </form>
   </div>
   <div class="col-md-6 padding-0">
@@ -186,17 +137,25 @@
 
     </script>
     <script type="text/javascript">
-    function renderPackage(data){
-      html = '<div class="col-md-4"> \
-            <div class="platinumBox bubbleBox twoKBox" onclick="setCar(\''+ data.nama_package +'\')" style="border: 2px solid blue"> \
-              <div class="platinumBoxDesc text-center">\
-                <b><p class="margin-bot-0">'+ data.nama_package +'</p></b>\
-                <p class="margin-bot-0">(Alphard, Vellfire)</p>\
-                <b><p class="margin-bot-0" id="platinumPrice"></p></b>\
+    var route, city;
+
+    function renderPackage(value, price){
+      var random = (Math.floor(Math.random() * 100 ) + 1).toString();
+      return "<div class='col-md-4'> \
+            <input type='hidden' id='harga_awal_" + value.nama_package+random +"' value='"+value.harga+"'>\
+            <input type='hidden' id='harga_akhir_" + value.nama_package+random +"' value='"+value.harga_final+"'>\
+            <input type='hidden' id='harga_extra_" + value.nama_package+random +"' value='"+value.harga_extra+"'>\
+            <div class='packageBox bubbleBox twoKBox' id='" + value.nama_package + random  +"Box' onclick=\"setCar('" + value.nama_package + random +"')\" style=' \
+              background-color: " + value.warna_package +"; min-height: 200px;'> \
+              <div class='packageBoxDesc text-center' id='" + value.nama_package +"BoxDesc'> \
+                <img class='img-responsive' src='" + value.image_package +"' style='margin-left: 25%;max-width:100px;'>\
+                <b><p class='margin-bot-0'>" + value.nama_package +"</p></b>\
+                <p class='margin-bot-0'>(" + value.example_package +")</p>\
+                <b><p class='margin-bot-0' id='" + value.nama_package+random +"Price'>" + price +"</p></b>\
               </div>\
             </div>\
-            <input type="radio" id="platinumRadio" onclick="setCar(\''+ data.nama_package +'\')"  value="'+ data.nama_package +'" style="margin-left: 50%;" checked>\
-          </div>'
+            <input type='radio' id='" + value.nama_package+random +"Radio' name='package' onclick=\"setCar('" + value.nama_package+random +"')\"  value='" + value.car_package_id +"' style='margin-left: 50%;'>\
+          </div>";
     }
     function estimate(){
       $.ajax({
@@ -215,15 +174,93 @@
           long_awal:$('#lng_awal').val(),
           lat_akhir:$('#lat_akhir').val(),
           long_akhir:$('#lng_akhir').val()
+          // lat_akhir:-6.448576,
+          // long_akhir:106.802576
         },
         success:function(res) {
               console.log(res.data);
               $('#pool_name').val(res.data[0].pools.pool_to_nama);
+              $('#otmTitle').text(res.data[0].pools.pool_to_nama);
               $('#pool_address').val(res.data[0].pools.pool_to_alamat);
+              $('#otmAddress').text(res.data[0].pools.pool_to_alamat);
+              $('#pools_from_id').val(res.data[0].pools.pool_from_id);
+              $('#pools_to_id').val(res.data[0].pools.pool_to_id);
+              $('#alamat_door').val(res.data[0].pools.pool_from_alamat);
+              $('#lat_door').val(res.data[0].pools.pool_from_lat);
+              $('#lng_door').val(res.data[0].pools.pool_from_long);
+              $('#route_id').val(res.data[0].pools.route_id);
+              $('#harga').val(res.data[0].pools.harga);
+              $('#harga_final').val(res.data[0].pools.harga_final);
+              $('#harga_extra').val(res.data[0].pools.harga_extra);
+              $('#city_id').val(res.data[0].pools.city_id);
+              $.each(res.data[0].prices_private, function(key,value){
+                $('#privatePackage').append(renderPackage(value, value.harga_final + value.harga_extra));
+              });
+              route = res.data[0].pools.route_id;
+              city = res.data[0].pools.city_id;
+              if($('#rideType').val() == 'anywhere'){
+                estimateShareAnywhere(city);
+              }else{
+                estimateSharePool(route, city);
+              }
           }
         // context: document.body
       });
     }
+
+    function estimateSharePool(route,city){
+      $.ajax({
+        url: "http://103.200.4.20:10001/orders/estimateSharedPools",
+        method:"POST",
+        headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+        crossDomain:true,
+        xhrFields: {
+            withCredentials: true
+        },
+        // dataType: 'json',
+        data: {
+          route_id: route,
+          city_id: city
+        },
+        success:function(res) {
+              console.log(res.data);
+              // $('#pool_name').val(res.data[0].pools.pool_to_nama);
+              // $('#pool_address').val(res.data[0].pools.pool_to_alamat);
+
+              $.each(res.data[0].prices_shared_pool, function(key,value){
+                $('#sharedPackage').append(renderPackage(value,(value.harga_final / $('#sharedTripCount').val()) + value.harga_extra));
+              });
+          }
+        // context: document.body
+      });
+    }
+
+    function estimateShareAnywhere(city){
+      $.ajax({
+        url: "http://103.200.4.20:10001/orders/estimateSharedLocation",
+        method:"POST",
+        headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+        crossDomain:true,
+        xhrFields: {
+            withCredentials: true
+        },
+        // dataType: 'json',
+        data: {
+          lat_awal : $('#lat_awal').val(),
+          long_awal : $('#lng_awal').val(),
+          lat_akhir : $('#lat_akhir').val(),
+          long_akhir : $('#lng_akhir').val(),
+          city_id : city
+        },
+        success:function(res) {
+              console.log(res.data);
+              $.each(res.data[0].prices_shared_location, function(key,value){
+                $('#sharedPackage').append(renderPackage(value,(value.harga_final / $('#sharedTripCount').val()) + value.harga_extra));
+              });
+          }
+      });
+    }
+
      $(function(){
         var active = document.getElementById('rideFlag').value;
         // alert(active);
@@ -240,31 +277,6 @@
           $('.otmCircleRight').css('background-color', 'black');        
         }
         estimate();
-
-        //This line of codes below, are used to change format of number to price format
-        var otmPrice = document.getElementById('otmPrice');
-        var platinumPrice = document.getElementById('platinumPrice');
-        var goldPrice = document.getElementById('goldPrice');
-        var silverPrice = document.getElementById('silverPrice');
-        var tripPriceBtn = document.getElementById('tripPriceBtn');
-        //Throw your php variable below
-        var otmPricePHP = '1000';
-        var otmPricePHP2 = '56000';
-        var platinumPricePHP = '56000';
-        var goldPricePHP = '36000';
-        var silverPricePHP = '16000';
-
-        otmPricePHP = otmPricePHP.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1.");
-        otmPricePHP2 = otmPricePHP2.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1.");
-        platinumPricePHP = platinumPricePHP.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1.");
-        goldPricePHP = goldPricePHP.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1.");
-        silverPricePHP = silverPricePHP.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1.");
-        // alert(otmPrice.innerHTML);
-        otmPrice.innerHTML = "IDR " + otmPricePHP + " - " + "IDR " + otmPricePHP2;
-        platinumPrice.innerHTML = "IDR " + platinumPricePHP;
-        goldPrice.innerHTML = "IDR " + goldPricePHP;
-        silverPrice.innerHTML = "IDR " + silverPricePHP;
-        tripPriceBtn.innerHTML = "IDR " + platinumPricePHP;
       });
 
      function setRide(selected){
@@ -299,16 +311,29 @@
         var typeFlag = $('#typeFlag');      
 
         $('#'+typeFlag.val()+'Box').css('border', '');
-        document.getElementById(typeFlag.val()+'Radio').checked = false;
+        // document.getElementById(typeFlag.val()+'Radio').checked = false;
 
          $('#'+type+'Box').css('border', '2px solid blue');
          document.getElementById(type+'Radio').checked = true;
          typeFlag.val(type);
          $('#tripPrice').val($('#'+type+'Price').text());
          $('#tripPriceBtn').text($('#'+type+'Price').text());
+         $('#harga').val($('#harga_awal_'+type).val());
+         $('#harga_final').val($('#harga_akhir_'+type).val());
+         $('#harga_extra').val($('#harga_extra_'+type).val());
 
         console.log($('#tripPrice').val());
       }
+
+      $('#sharedTripCount').change(function(event){
+          $('#sharedPackage').html('');
+           if($('#rideType').val() == 'anywhere'){
+            estimateShareAnywhere(city);
+           }
+           else{
+            estimateSharePool(route, city);
+           }
+      });
     </script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA8gA9tWFieGusrRmLqpdDhcPwpTBiWM8M&libraries=places&callback=initAutocomplete"
          async defer></script>

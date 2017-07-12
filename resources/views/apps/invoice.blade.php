@@ -1,5 +1,6 @@
 @extends('layout/default')
 @section('content')
+{{-- {{dd($response)}} --}}
 <div class="row">
 	<div class="col-md-12">
 		<b><p class="text-center bodyHead">INVOICE</p></b>
@@ -9,21 +10,21 @@
 			<div class="col-md-12" style="">
 				<img width="8%" style="" class="pull-left" src="{{ asset('assets/images/people.png') }}">
 				<div class="pull-left contentHeader margin-top-0">
-					@if($rideFlag == 'personal')
+					@if(!$response->data[0]->order->is_shared)
 					<p class="text-1-5" style="margin: 0;">Personal</p>
 					@else
 					<p class="text-1-5" style="margin: 0;">Share Trip</p>
-					<p class="text-1-5" style="margin: 0;">5 People </p>
-					<p class="text-1-5" style="margin: 0;">#5 Entry Queue</p>
+					<p class="text-1-5" style="margin: 0;">{{ $response->data[0]->order->number_of_shared }} People </p>
+					<p class="text-1-5" style="margin: 0;">#{{ $response->data[0]->orderuser->entry_queue }} Entry Queue</p>
 					@endif
 				</div>
-				<b><p class="pull-right text-2" style="display: inline;">ID TRIP 1234</p></b>
+				<b><p class="pull-right text-2" style="display: inline;">ID TRIP {{ $response->data[0]->order->id }}</p></b>
 			</div>
 		</div>
 		<div class="row">
 			<div class="col-md-12">
-				<p class="text-center text-2">Jalan Siaga II,Pasar Minggu, Kota Jakarta Selatan, DKI Jakarta</p>
-				<b><p class="text-center text-3-5">IDR 100.000</p></b>
+				<p class="text-center text-2">{{ $response->data[0]->order->alamat_akhir }}</p>
+				<b><p class="text-center text-3-5">IDR {{ ($response->data[0]->order->harga_akhir / $response->data[0]->order->number_of_shared) + $response->data[0]->order->harga_tambahan }}</p></b>
 			</div>
 			<div class="col-md-12 text-center">
 				<svg id="barcode"></svg>
@@ -51,7 +52,7 @@
  $(function() {
 	$('#headerMenu').html('<button onclick="window.history.back()" class="btn text-2" style=""><b>BACK</b></button><a href="#"><img class="headerImgBtn" src="{{ asset("assets/images/logo.png") }}"></a>');
     $('#tripPriceBtn').text($('#platinumPrice').text());
-    JsBarcode("#barcode", "Hi world!");
+    JsBarcode("#barcode", "{{ $response->data[0]->order->id }}");
  });
 </script>
 @stop
