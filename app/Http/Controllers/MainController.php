@@ -15,12 +15,12 @@ class MainController extends Controller
 
 	public function order(){
 		$result = Request::all();
-		$result['distance'] = "1";
-		$result['duration'] = "1";
-		$result['lat_awal'] = "-6.38003";
-		$result['lng_awal'] = "106.81564";
-		$result['lat_akhir'] = "-6.448576";
-		$result['lng_akhir'] = "106.802576";
+		// $result['distance'] = "1";
+		// $result['duration'] = "1";
+		// $result['lat_awal'] = "-6.38003";
+		// $result['lng_awal'] = "106.81564";
+		// $result['lat_akhir'] = "-6.448576";
+		// $result['lng_akhir'] = "106.802576";
 		// dd($result);
 		// print_r($result);
 		return view('apps/order-trip')->with(['result'=>$result]);

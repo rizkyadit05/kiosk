@@ -222,8 +222,7 @@
 	}
 
 	function renderList(value){
-		var price = (value.harga_akhir / value.number_of_shared) + value.harga_tambahan;
-		var price_total = value.harga_akhir + value.harga_tambahan;
+		var price = Math.ceil(((value.harga_akhir/1000) / value.number_of_shared) *1000) + parseInt($('#harga_tambahan').val());
 		return "<tr onclick='submit("+ value.id +")'>"+				
 					"<td>"+ value.id+"</td>"+
 					"<td>"+price+"</td>"+
@@ -232,8 +231,8 @@
 					"<td class='hidden'>"+				
 					"<form method='post' action='{{ url('join') }}' id='form_"+ value.id+"'>\
 						<input type='hidden' id='order_id_"+ value.id+"' value='"+ value.id+"'>\
-						<input type='hidden' id='price_user_add_"+ value.id+"' value='"+price+"'>\
-						<input type='hidden' id='price_user_total_"+ value.id+"' value='"+price_total+"'>\
+						<input type='hidden' id='price_user_add_"+ value.id+"' value='"+$('#harga_tambahan').val()+"'>\
+						<input type='hidden' id='price_user_total_"+ value.id+"' value='"+price+"'>\
 					</form>"+
 					"FAKE</td>"+
 				"</tr>";
@@ -264,7 +263,7 @@
 	}
 
 	$('#sharedTripCount').change(function(e){
-		var price = parseInt($('#harga_akhir').val() / $('#sharedTripCount :selected').val()) + parseInt($('#harga_tambahan').val());
+		var price = Math.ceil((($('#harga_akhir').val()/1000) / $('#sharedTripCount :selected').val()) * 1000) + parseInt($('#harga_tambahan').val());
 		$('#price_user_total').val(price);
 		$('#price_create').text("IDR "+price);
 		$('#number_of_shared').val($('#sharedTripCount :selected').val());

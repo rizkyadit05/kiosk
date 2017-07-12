@@ -179,30 +179,37 @@
         },
         success:function(res) {
               console.log(res.data);
-              $('#pool_name').val(res.data[0].pools.pool_to_nama);
-              $('#otmTitle').text(res.data[0].pools.pool_to_nama);
-              $('#pool_address').val(res.data[0].pools.pool_to_alamat);
-              $('#otmAddress').text(res.data[0].pools.pool_to_alamat);
-              $('#pools_from_id').val(res.data[0].pools.pool_from_id);
-              $('#pools_to_id').val(res.data[0].pools.pool_to_id);
-              $('#alamat_door').val(res.data[0].pools.pool_from_alamat);
-              $('#lat_door').val(res.data[0].pools.pool_from_lat);
-              $('#lng_door').val(res.data[0].pools.pool_from_long);
-              $('#route_id').val(res.data[0].pools.route_id);
-              $('#harga').val(res.data[0].pools.harga);
-              $('#harga_final').val(res.data[0].pools.harga_final);
-              $('#harga_extra').val(res.data[0].pools.harga_extra);
-              $('#city_id').val(res.data[0].pools.city_id);
-              $.each(res.data[0].prices_private, function(key,value){
-                $('#privatePackage').append(renderPackage(value, value.harga_final + value.harga_extra));
-              });
-              route = res.data[0].pools.route_id;
-              city = res.data[0].pools.city_id;
-              if($('#rideType').val() == 'anywhere'){
-                estimateShareAnywhere(city);
+              if(res.status == -31){
+                alert('No Pool Found');
+                window.location.replace("{{ url('/home') }}");
               }else{
-                estimateSharePool(route, city);
+                $('#pool_name').val(res.data[0].pools.pool_to_nama);
+                $('#otmTitle').text(res.data[0].pools.pool_to_nama);
+                $('#pool_address').val(res.data[0].pools.pool_to_alamat);
+                $('#otmAddress').text(res.data[0].pools.pool_to_alamat);
+                $('#pools_from_id').val(res.data[0].pools.pool_from_id);
+                $('#pools_to_id').val(res.data[0].pools.pool_to_id);
+                $('#alamat_door').val(res.data[0].pools.pool_from_alamat);
+                $('#lat_door').val(res.data[0].pools.pool_from_lat);
+                $('#lng_door').val(res.data[0].pools.pool_from_long);
+                $('#route_id').val(res.data[0].pools.route_id);
+                $('#harga').val(res.data[0].pools.harga);
+                $('#harga_final').val(res.data[0].pools.harga_final);
+                $('#harga_extra').val(res.data[0].pools.harga_extra);
+                $('#city_id').val(res.data[0].pools.city_id);
+                $.each(res.data[0].prices_private, function(key,value){
+                  $('#privatePackage').append(renderPackage(value,(value.harga_final + value.harga_extra)));
+                });
+                route = res.data[0].pools.route_id;
+                city = res.data[0].pools.city_id;
+                if($('#rideType').val() == 'anywhere'){
+                  estimateShareAnywhere(city);
+                }else{
+                  estimateSharePool(route, city);
+                  console.log('pool');
+                }
               }
+              
           }
         // context: document.body
       });
@@ -228,7 +235,8 @@
               // $('#pool_address').val(res.data[0].pools.pool_to_alamat);
 
               $.each(res.data[0].prices_shared_pool, function(key,value){
-                $('#sharedPackage').append(renderPackage(value,(value.harga_final / $('#sharedTripCount').val()) + value.harga_extra));
+                var harga = Math.ceil((((value.harga_final / 1000) / $('#sharedTripCount').val()) * 1000) + value.harga_extra);
+                $('#sharedPackage').append(renderPackage(value,harga));
               });
           }
         // context: document.body
