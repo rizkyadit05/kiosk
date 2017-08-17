@@ -129,7 +129,12 @@
 		<div class="row">
 			<div class="col-md-12">
 				<img style="width: 11%;" class="pull-left" src="{{ asset('assets/images/add.png') }}">
-				<b><p class="pull-left contentHeader" style="font-size: 2vw;">Host New Shared Trip</p></b>
+				<b><p class="pull-left contentHeader" style="font-size: 2vw;">
+					@if($rideFlag != 'personal')
+						Host New Shared Trip
+					@else Private Trip 
+					@endif
+				</p></b>
 				<span style="font-size: 3vw; margin-left: 0%;" onclick="questionFlag('rCard')" class="pull-right glyphicon glyphicon-info-sign"></span>		
 			</div>
 		</div>

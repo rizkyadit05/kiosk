@@ -141,6 +141,7 @@
 
     function renderPackage(value, price){
       var random = (Math.floor(Math.random() * 100 ) + 1).toString();
+
       return "<div class='col-md-4'> \
             <input type='hidden' id='harga_awal_" + value.nama_package+random +"' value='"+value.harga+"'>\
             <input type='hidden' id='harga_akhir_" + value.nama_package+random +"' value='"+value.harga_final+"'>\
@@ -198,7 +199,8 @@
                 $('#harga_extra').val(res.data[0].pools.harga_extra);
                 $('#city_id').val(res.data[0].pools.city_id);
                 $.each(res.data[0].prices_private, function(key,value){
-                  $('#privatePackage').append(renderPackage(value,(value.harga_final + value.harga_extra)));
+                  var harga = ((Math.ceil((value.harga_final / 1000)) * 1000) + value.harga_extra);
+                  $('#privatePackage').append(renderPackage(value,harga));
                 });
                 route = res.data[0].pools.route_id;
                 city = res.data[0].pools.city_id;
@@ -235,7 +237,7 @@
               // $('#pool_address').val(res.data[0].pools.pool_to_alamat);
 
               $.each(res.data[0].prices_shared_pool, function(key,value){
-                var harga = Math.ceil((((value.harga_final / 1000) / $('#sharedTripCount').val()) * 1000) + value.harga_extra);
+                var harga = ((Math.ceil((value.harga_final / 1000) / $('#sharedTripCount').val()) * 1000) + value.harga_extra);
                 $('#sharedPackage').append(renderPackage(value,harga));
               });
           }
@@ -263,7 +265,8 @@
         success:function(res) {
               console.log(res.data);
               $.each(res.data[0].prices_shared_location, function(key,value){
-                $('#sharedPackage').append(renderPackage(value,(value.harga_final / $('#sharedTripCount').val()) + value.harga_extra));
+                var harga = ((Math.ceil((value.harga_final / 1000) / $('#sharedTripCount').val()) * 1000) + value.harga_extra);
+                $('#sharedPackage').append(renderPackage(value,harga));
               });
           }
       });

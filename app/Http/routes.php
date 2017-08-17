@@ -16,6 +16,7 @@ Route::get('/', function () {
 });
 
 Route::get('home', 'MainController@home');
+Route::get('error', 'MainController@error');
 
 Route::post('order', 'MainController@order');
 Route::post('post-order', 'MainController@post_order');
